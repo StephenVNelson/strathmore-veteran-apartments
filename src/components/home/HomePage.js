@@ -1,7 +1,11 @@
 import React from "react";
 import Filters from "../Filters"
 import { connect } from 'react-redux';
+import * as companyActions from '../../redux/actions/companyActions'
+import * as buildingActions from '../../redux/actions/buildingActions'
 import * as apartmentActions from '../../redux/actions/apartmentActions'
+import * as roommateGroupActions from '../../redux/actions/roommateGroupActions'
+import * as prospectActions from '../../redux/actions/prospectActions'
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import ApartmentList from '../apartments/ApartmentsList'
@@ -12,10 +16,30 @@ import ApartmentList from '../apartments/ApartmentsList'
 
 class HomePage extends React.Component {
   componentDidMount() {
-    const { apartments, actions } = this.props;
+    const { companies, buildings, apartments, roommateGroups, prospects, actions } = this.props;
+    if (companies.length === 0) {
+      actions.loadCompanies().catch(error => {
+        alert("Loading companies failed:" + error)
+      });
+    }
+    if (buildings.length === 0) {
+      actions.loadBuildings().catch(error => {
+        alert("Loading buildings failed:" + error)
+      });
+    }
     if (apartments.length === 0) {
       actions.loadApartments().catch(error => {
-        alert("Loading courses failed:" + error)
+        alert("Loading apartments failed:" + error)
+      });
+    }
+    if (roommateGroups.length === 0) {
+      actions.loadRoommateGroups().catch(error => {
+        alert("Loading roommateGroups failed:" + error)
+      });
+    }
+    if (prospects.length === 0) {
+      actions.loadProspects().catch(error => {
+        alert("Loading prospects failed:" + error)
       });
     }
   }
@@ -28,20 +52,32 @@ class HomePage extends React.Component {
 }
 
 HomePage.propTypes = {
+  companies: PropTypes.array.isRequired,
+  buildings: PropTypes.array.isRequired,
   apartments: PropTypes.array.isRequired,
+  roommateGroups: PropTypes.array.isRequired,
+  prospects: PropTypes.array.isRequired,
   actions: PropTypes.object.isRequired
 };
 
 function mapStateToProps(state) {
   return {
-    apartments: state.apartments
+    companies: state.companies,
+    buildings: state.buildings,
+    apartments: state.apartments,
+    roommateGroups: state.roommateGroups,
+    prospects: state.prospects
   }
 }
 
 function mapDispatchToProps(dispatch) {
   return {
     actions: {
-      loadApartments: bindActionCreators(apartmentActions.loadApartments, dispatch)
+      loadCompanies: bindActionCreators(companyActions.loadCompanies, dispatch),
+      loadBuildings: bindActionCreators(buildingActions.loadBuildings, dispatch),
+      loadApartments: bindActionCreators(apartmentActions.loadApartments, dispatch),
+      loadRoommateGroups: bindActionCreators(roommateGroupActions.loadRoommateGroups, dispatch),
+      loadProspects: bindActionCreators(prospectActions.loadProspects, dispatch)
     }
   }
 }

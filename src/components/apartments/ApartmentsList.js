@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
+import Apartment from "./Apartment"
 // import { Link } from "react-router-dom";
 
 const CourseList = ({ apartments }) => (
 
   <ul>
     {apartments.map(apartment => {
-      return (<li key={apartment.id}>{apartment.fields.Unit}</li>)
+      return <Apartment key={apartment.id} apartment={apartment} />
     })}
   </ul>
 )

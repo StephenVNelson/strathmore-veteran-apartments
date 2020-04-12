@@ -1,3 +1,7 @@
 export default {
-  apartments: []
+  companies: [],
+  buildings: [],
+  apartments: [],
+  roommateGroups: [],
+  prospects: []
 }
