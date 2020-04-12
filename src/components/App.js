@@ -8,10 +8,8 @@ import PageNotFound from "../PageNotFound";
 function App() {
   return (
     <div className="container-fluid">
-      <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
-        {/* <Route path="/courses" component={CoursesPage} /> */}
         <Route component={PageNotFound} />
       </Switch>
     </div>
