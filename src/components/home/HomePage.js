@@ -60,11 +60,24 @@ HomePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
+function apartmentMapping(state) {
+  const { apartments, buildings } = state
+  if (buildings.length === 0) {
+    return []
+  } else {
+    return apartments.map(apartment => {
+      let Building = buildings.find(b => b.id == apartment.fields.Building[0])
+      Building = Building ? Building : "apartment"
+      return { ...apartment, fields: { ...apartment.fields, Building } }
+    })
+  }
+}
+
 function mapStateToProps(state) {
   return {
     companies: state.companies,
     buildings: state.buildings,
-    apartments: state.apartments,
+    apartments: apartmentMapping(state),
     roommateGroups: state.roommateGroups,
     prospects: state.prospects
   }
