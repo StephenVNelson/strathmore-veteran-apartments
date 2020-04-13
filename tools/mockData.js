@@ -72,7 +72,10 @@ const apartments = [
       ],
       "Unit": "23",
       "Bedrooms": 1,
-      "Lease In Months": 5
+      "Lease In Months": 5,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-10T21:47:37.000Z"
   },
@@ -84,7 +87,10 @@ const apartments = [
       "Rent": 2350,
       "Unit": "12",
       "Bedrooms": 1,
-      "Lease In Months": 12
+      "Lease In Months": 12,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
@@ -93,6 +99,56 @@ const apartments = [
     "fields": {
       "SqFt": 450,
       "Available": "2020-04-10",
+      "Images": [
+        {
+          "id": "attW8FzXSJNElIjJD",
+          "url": "https://dl.airtable.com/.attachments/e7431f3f2f88a26b08716ca2c9925c41/78fe6a21/common01.jpeg",
+          "filename": "common01.jpeg",
+          "size": 173906,
+          "type": "image/jpeg",
+          "thumbnails": {
+            "small": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/3f0fe34573e15634498efcebc05952e1/880271ba",
+              "width": 89,
+              "height": 36
+            },
+            "large": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/927c40576b840464af849c1ecbf60458/b6dcb412",
+              "width": 1263,
+              "height": 512
+            },
+            "full": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/3c677ef2039e97f5c4b158218aa4e542/e4069ade",
+              "width": 3000,
+              "height": 3000
+            }
+          }
+        },
+        {
+          "id": "attrcwwmqhgoA7Mtx",
+          "url": "https://dl.airtable.com/.attachments/3efaba176f444f694d03bb5e162e1c30/972ac86f/IMG_6587.jpg",
+          "filename": "IMG_6587.jpg",
+          "size": 249109,
+          "type": "image/jpeg",
+          "thumbnails": {
+            "small": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/24513e8b40f11756ec22cc2eae9efa5f/236bcd5f",
+              "width": 73,
+              "height": 36
+            },
+            "large": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/03228413369795e8b5501c4ea85d6778/c0d2d513",
+              "width": 1041,
+              "height": 512
+            },
+            "full": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/4f7e017c8a59e84a78ebb59289ae991a/39ddb567",
+              "width": 3000,
+              "height": 3000
+            }
+          }
+        }
+      ],
       "Rent": 2125,
       "Lease End": "2020-09-11",
       "Roommate Group": [
@@ -100,7 +156,10 @@ const apartments = [
       ],
       "Unit": "1",
       "Bedrooms": 1,
-      "Lease In Months": 5
+      "Lease In Months": 4,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-10T21:15:22.000Z"
   },
@@ -116,7 +175,10 @@ const apartments = [
       ],
       "Unit": "25",
       "Bedrooms": 1,
-      "Lease In Months": 2
+      "Lease In Months": 2,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
@@ -132,7 +194,10 @@ const apartments = [
       ],
       "Unit": "6",
       "Bedrooms": 1,
-      "Lease In Months": 5
+      "Lease In Months": 5,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-10T21:24:04.000Z"
   },
@@ -145,7 +210,10 @@ const apartments = [
       "Lease End": "2020-08-17",
       "Unit": "17",
       "Bedrooms": 1,
-      "Lease In Months": 4
+      "Lease In Months": 4,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-11T20:23:51.000Z"
   },
@@ -157,7 +225,10 @@ const apartments = [
       "Rent": 2350,
       "Unit": "24",
       "Bedrooms": 1,
-      "Lease In Months": 12
+      "Lease In Months": 12,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
@@ -170,7 +241,10 @@ const apartments = [
       "Lease End": "2020-09-19",
       "Unit": "2",
       "Bedrooms": 1,
-      "Lease In Months": 5
+      "Lease In Months": 5,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-10T21:53:58.000Z"
   },
@@ -183,7 +257,10 @@ const apartments = [
       "Lease End": "2020-09-19",
       "Unit": "18",
       "Bedrooms": 1,
-      "Lease In Months": 5
+      "Lease In Months": 5,
+      "Building": [
+        "rec5edxXSSe7oc2Hq"
+      ]
     },
     "createdTime": "2020-04-11T20:25:29.000Z"
   }
