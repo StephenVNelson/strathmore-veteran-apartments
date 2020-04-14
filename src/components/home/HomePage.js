@@ -61,14 +61,14 @@ HomePage.propTypes = {
 };
 
 function apartmentMapping(state) {
-  const { apartments, buildings } = state
-  if (buildings.length === 0) {
+  const { apartments, buildings, roommateGroups } = state
+  if (buildings.length === 0 || roommateGroups.length === 0) {
     return []
   } else {
     return apartments.map(apartment => {
-      let Building = buildings.find(b => b.id == apartment.fields.Building[0])
-      Building = Building ? Building : "apartment"
-      return { ...apartment, fields: { ...apartment.fields, Building } }
+      let building = buildings.find(b => b.id == apartment.fields.building[0]) || {}
+      let roommateGroup = roommateGroups.find(g => g.id == apartment.fields.roommateGroup[0]) || {}
+      return { ...apartment, fields: { ...apartment.fields, building, roommateGroup } }
     })
   }
 }

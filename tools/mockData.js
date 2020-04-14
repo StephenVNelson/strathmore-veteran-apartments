@@ -1,16 +1,16 @@
 const companies = [
   {
-    id: "recgSs3DfAgSFwOg2",
-    fields: {
-      Buildings: [
+    "id": "recgSs3DfAgSFwOg2",
+    "fields": {
+      "buildings": [
         "rec5edxXSSe7oc2Hq",
         "reck7V8hEG3AIj4tH"
       ],
-      "Holding Deposit": 1500,
-      Name: "Greystone Management Group",
-      "App Fee": 40
+      "holdingDeposit": 500,
+      "name": "Greystone Management Group",
+      "appFee": 40
     },
-    createdTime: "2020-04-06T23:59:34.000Z"
+    "createdTime": "2020-04-06T23:59:34.000Z"
   }
 ]
 
@@ -18,42 +18,53 @@ const buildings = [
   {
     "id": "rec5edxXSSe7oc2Hq",
     "fields": {
-      "State": "CA",
-      "Address": "11090 Strathmore Dr.",
-      "Name": "Strathmore Arms",
-      "Zip Code": 90024,
-      "City": "Los Angeles",
-      "Cross Street 1": "Strathmore Dr.",
-      "Close To": [
+      "state": "CA",
+      "address": "11090 Strathmore Dr.",
+      "name": "Strathmore Arms",
+      "zipCode": 90024,
+      "city": "Los Angeles",
+      "apartments": [
+        "recPGm3DFcMPwyWeA",
+        "recYK50SikFYsth62",
+        "recTpSWMbLK6wKtFn",
+        "recIHIY2m4zd17qR4",
+        "recWnFQ2wVJbUDARL",
+        "receLHjzIAbcbeymy",
+        "rec4rboScqsuCxgZ9",
+        "recPuKE1KkPqc8yKl",
+        "recYF2PCUNYNfvzMp"
+      ],
+      "crossStreet1": "Strathmore Dr.",
+      "closeTo": [
         "UCLA",
         "Westwood Village",
         "I-405"
       ],
-      "Companies": [
+      "company": [
         "recgSs3DfAgSFwOg2"
       ],
-      "Cross Street 2": "Veteran Ave."
+      "crossStreet2": "Veteran Ave."
     },
     "createdTime": "2020-04-07T00:03:02.000Z"
   },
   {
     "id": "reck7V8hEG3AIj4tH",
     "fields": {
-      "State": "CA",
-      "Address": "714 Veteran Ave.",
-      "Name": "714 Veteran",
-      "Zip Code": 90024,
-      "City": "Los Angeles",
-      "Cross Street 1": "Strathmore Dr.",
-      "Close To": [
+      "state": "CA",
+      "address": "714 Veteran Ave.",
+      "name": "714 Veteran",
+      "zipCode": 90024,
+      "city": "Los Angeles",
+      "crossStreet1": "Strathmore Dr.",
+      "closeTo": [
         "UCLA",
         "Westwood Village",
         "I-405"
       ],
-      "Companies": [
+      "company": [
         "recgSs3DfAgSFwOg2"
       ],
-      "Cross Street 2": "Veteran Ave."
+      "crossStreet2": "Veteran Ave."
     },
     "createdTime": "2020-04-07T00:03:02.000Z"
   }
@@ -63,42 +74,42 @@ const apartments = [
   {
     "id": "rec4rboScqsuCxgZ9",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
-      "Rent": 2195,
-      "Lease End": "2020-09-18",
-      "Roommate Group": [
+      "sqft": 450,
+      "available": "2020-04-10",
+      "rent": 2195,
+      "leaseEnd": "2020-09-18",
+      "rommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
-      "Unit": "23",
-      "Bedrooms": 1,
-      "Lease In Months": 5,
-      "Building": [
+      "unit": "23",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 5
     },
     "createdTime": "2020-04-10T21:47:37.000Z"
   },
   {
     "id": "recIHIY2m4zd17qR4",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-06-30",
-      "Rent": 2350,
-      "Unit": "12",
-      "Bedrooms": 1,
-      "Lease In Months": 12,
-      "Building": [
+      "sqft": 450,
+      "available": "2020-06-30",
+      "rent": 2350,
+      "unit": "12",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 12
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
   {
     "id": "recPGm3DFcMPwyWeA",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
+      "sqft": 450,
+      "available": "2020-04-10",
       "Images": [
         {
           "id": "attW8FzXSJNElIjJD",
@@ -149,118 +160,118 @@ const apartments = [
           }
         }
       ],
-      "Rent": 2125,
-      "Lease End": "2020-09-11",
-      "Roommate Group": [
+      "rent": 2125,
+      "leaseEnd": "2020-09-11",
+      "rommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
-      "Unit": "1",
-      "Bedrooms": 1,
-      "Lease In Months": 4,
-      "Building": [
+      "unit": "1",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 4
     },
     "createdTime": "2020-04-10T21:15:22.000Z"
   },
   {
     "id": "recPuKE1KkPqc8yKl",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-07-07",
-      "Rent": 2240,
-      "Lease End": "2020-06-30",
-      "Roommate Group": [
+      "sqft": 450,
+      "available": "2020-07-07",
+      "rent": 2240,
+      "leaseEnd": "2020-06-30",
+      "rommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
-      "Unit": "25",
-      "Bedrooms": 1,
-      "Lease In Months": 2,
-      "Building": [
+      "unit": "25",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 2
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
   {
     "id": "recTpSWMbLK6wKtFn",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
-      "Rent": 2215.5,
-      "Lease End": "2020-09-21",
-      "Roommate Group": [
+      "sqft": 450,
+      "available": "2020-04-10",
+      "rent": 2215.5,
+      "leaseEnd": "2020-09-21",
+      "rommateGroup": [
         "recsy28mj820VXh9b"
       ],
-      "Unit": "6",
-      "Bedrooms": 1,
-      "Lease In Months": 5,
-      "Building": [
+      "unit": "6",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 5
     },
     "createdTime": "2020-04-10T21:24:04.000Z"
   },
   {
     "id": "recWnFQ2wVJbUDARL",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
-      "Rent": 2000,
-      "Lease End": "2020-08-17",
-      "Unit": "17",
-      "Bedrooms": 1,
-      "Lease In Months": 4,
-      "Building": [
+      "sqft": 450,
+      "available": "2020-04-10",
+      "rent": 2000,
+      "leaseEnd": "2020-08-17",
+      "unit": "17",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 4
     },
     "createdTime": "2020-04-11T20:23:51.000Z"
   },
   {
     "id": "recYF2PCUNYNfvzMp",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-07-30",
-      "Rent": 2350,
-      "Unit": "24",
-      "Bedrooms": 1,
-      "Lease In Months": 12,
-      "Building": [
+      "sqft": 450,
+      "available": "2020-07-30",
+      "rent": 2350,
+      "unit": "24",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 12
     },
     "createdTime": "2020-04-07T00:03:12.000Z"
   },
   {
     "id": "recYK50SikFYsth62",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
-      "Rent": 2215.5,
-      "Lease End": "2020-09-19",
-      "Unit": "2",
-      "Bedrooms": 1,
-      "Lease In Months": 5,
-      "Building": [
+      "sqft": 450,
+      "available": "2020-04-10",
+      "rent": 2215.5,
+      "leaseEnd": "2020-09-19",
+      "unit": "2",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 5
     },
     "createdTime": "2020-04-10T21:53:58.000Z"
   },
   {
     "id": "receLHjzIAbcbeymy",
     "fields": {
-      "SqFt": 450,
-      "Available": "2020-04-10",
-      "Rent": 2240,
-      "Lease End": "2020-09-19",
-      "Unit": "18",
-      "Bedrooms": 1,
-      "Lease In Months": 5,
-      "Building": [
+      "sqft": 450,
+      "available": "2020-04-10",
+      "rent": 2240,
+      "leaseEnd": "2020-09-19",
+      "unit": "18",
+      "building": [
         "rec5edxXSSe7oc2Hq"
-      ]
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 5
     },
     "createdTime": "2020-04-11T20:25:29.000Z"
   }
@@ -270,72 +281,72 @@ const roommateGroups = [
   {
     "id": "recEJSAP4tmM5umrp",
     "fields": {
-      "Apartments": [
+      "apartment": [
         "recPGm3DFcMPwyWeA"
       ],
-      "RM low": 3,
-      "MI Start": "2020-04-10",
-      "Prospects": [
+      "roommateLow": 3,
+      "moveinStart": "2020-04-10",
+      "prospects": [
         "rec5wnrgrmtn6dQuf",
         "recwpjsxRuVGz8Yes"
       ],
-      "RM hi": 3,
-      "MI End": "2020-05-10",
-      "Name": "Irma Ramos, Selina Vargas"
+      "roommateHigh": 3,
+      "moveinEnd": "2020-05-10",
+      "name": "Irma Ramos, Selina Vargas"
     },
     "createdTime": "2020-04-10T21:17:05.000Z"
   },
   {
     "id": "recGB8gr38rg2sbU7",
     "fields": {
-      "Apartments": [
+      "apartment": [
         "rec4rboScqsuCxgZ9"
       ],
-      "RM low": 3,
-      "MI Start": "2020-04-10",
-      "Prospects": [
+      "roommateLow": 3,
+      "moveinStart": "2020-04-10",
+      "prospects": [
         "recw3BGYLI39rNf6w",
         "recS6V7HSpdmbdNQm"
       ],
-      "RM hi": 3,
-      "MI End": "2020-05-10",
-      "Name": "Tashi Rush, Julia Bartolome"
+      "roommateHigh": 3,
+      "moveinEnd": "2020-05-10",
+      "name": "Tashi Rush, Julia Bartolome"
     },
     "createdTime": "2020-04-10T21:49:09.000Z"
   },
   {
     "id": "recpNIGxcyQZEjaYp",
     "fields": {
-      "Apartments": [
+      "apartment": [
         "recPuKE1KkPqc8yKl"
       ],
-      "RM low": 3,
-      "MI Start": "2020-04-10",
-      "Prospects": [
+      "roommateLow": 3,
+      "moveinStart": "2020-04-10",
+      "prospects": [
         "recJQ01gZ6pes7Knc",
         "recx1ePHsgDRsf0ew"
       ],
-      "RM hi": 3,
-      "MI End": "2020-05-10",
-      "Name": "Julia Robinson, Andrea Robinson"
+      "roommateHigh": 3,
+      "moveinEnd": "2020-05-10",
+      "name": "Julia Robinson, Andrea Robinson"
     },
     "createdTime": "2020-04-10T21:52:28.000Z"
   },
   {
     "id": "recsy28mj820VXh9b",
     "fields": {
-      "Apartments": [
+      "apartment": [
         "recTpSWMbLK6wKtFn"
       ],
-      "RM low": 3,
-      "MI Start": "2020-04-10",
-      "Prospects": [
+      "roommateLow": 3,
+      "moveinStart": "2020-04-10",
+      "prospects": [
         "recj1dSJCGo7xH07L",
         "recBdb2EU7BeEbFpe"
       ],
-      "RM hi": 3,
-      "MI End": "2020-05-10",
-      "Name": "Aylin Carranza, Ariana Desouza"
+      "roommateHigh": 3,
+      "moveinEnd": "2020-05-10",
+      "name": "Aylin Carranza, Ariana Desouza"
     },
     "createdTime": "2020-04-10T21:35:17.000Z"
   }
@@ -345,88 +356,88 @@ const prospects = [
   {
     "id": "rec5wnrgrmtn6dQuf",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
-      "Name": "Irma Ramos"
+      "name": "Irma Ramos"
     },
     "createdTime": "2020-04-10T21:17:50.000Z"
   },
   {
     "id": "recBdb2EU7BeEbFpe",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recsy28mj820VXh9b"
       ],
-      "Name": "Ariana Desouza"
+      "name": "Ariana Desouza"
     },
     "createdTime": "2020-04-10T21:37:03.000Z"
   },
   {
     "id": "recJQ01gZ6pes7Knc",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
-      "Name": "Julia Robinson"
+      "name": "Julia Robinson"
     },
     "createdTime": "2020-04-10T21:51:06.000Z"
   },
   {
     "id": "recS6V7HSpdmbdNQm",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
-      "Name": "Julia Bartolome"
+      "name": "Julia Bartolome"
     },
     "createdTime": "2020-04-10T21:48:39.000Z"
   },
   {
     "id": "recj1dSJCGo7xH07L",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recsy28mj820VXh9b"
       ],
-      "Name": "Aylin Carranza"
+      "name": "Aylin Carranza"
     },
     "createdTime": "2020-04-10T21:36:13.000Z"
   },
   {
     "id": "recw3BGYLI39rNf6w",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
-      "Name": "Tashi Rush"
+      "name": "Tashi Rush"
     },
     "createdTime": "2020-04-10T21:48:25.000Z"
   },
   {
     "id": "recwpjsxRuVGz8Yes",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
-      "Name": "Selina Vargas"
+      "name": "Selina Vargas"
     },
     "createdTime": "2020-04-10T21:18:12.000Z"
   },
   {
     "id": "recx1ePHsgDRsf0ew",
     "fields": {
-      "Sex": "Female",
-      "Roommate Groups": [
+      "sex": "Female",
+      "roommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
-      "Name": "Andrea Robinson"
+      "name": "Andrea Robinson"
     },
     "createdTime": "2020-04-10T21:51:19.000Z"
   }
