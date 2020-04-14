@@ -3,8 +3,8 @@ import PropTypes from "prop-types";
 
 const Apartment = ({ apartment }) => {
   const a = apartment.fields
-  const building = a.Building.fields;
-  const fullAddress = `${building.Address}\n${building.City}, ${building.State} ${building["Zip Code"]}`
+  const building = a?.building?.fields;
+  const fullAddress = `${building?.address}\n${building?.city}, ${building?.state} ${building?.zipCode}`
   // get the rent and divide it by total number of people
   const rent = a.Rent
   const sharing = "Private Room"

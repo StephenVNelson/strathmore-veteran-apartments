@@ -67,7 +67,7 @@ function apartmentMapping(state) {
   } else {
     return apartments.map(apartment => {
       let building = buildings.find(b => b.id == apartment.fields.building[0]) || {}
-      let roommateGroup = roommateGroups.find(g => g.id == apartment.fields.roommateGroup[0]) || {}
+      let roommateGroup = roommateGroups.find(g => g.id == apartment?.fields?.roommateGroup?.[0]) || {}
       return { ...apartment, fields: { ...apartment.fields, building, roommateGroup } }
     })
   }
