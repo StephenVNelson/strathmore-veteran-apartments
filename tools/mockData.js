@@ -78,7 +78,7 @@ const apartments = [
       "available": "2020-04-10",
       "rent": 2195,
       "leaseEnd": "2020-09-18",
-      "rommateGroup": [
+      "roommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
       "unit": "23",
@@ -162,7 +162,7 @@ const apartments = [
       ],
       "rent": 2125,
       "leaseEnd": "2020-09-11",
-      "rommateGroup": [
+      "roommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
       "unit": "1",
@@ -181,7 +181,7 @@ const apartments = [
       "available": "2020-07-07",
       "rent": 2240,
       "leaseEnd": "2020-06-30",
-      "rommateGroup": [
+      "roommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
       "unit": "25",
@@ -200,7 +200,7 @@ const apartments = [
       "available": "2020-04-10",
       "rent": 2215.5,
       "leaseEnd": "2020-09-21",
-      "rommateGroup": [
+      "roommateGroup": [
         "recsy28mj820VXh9b"
       ],
       "unit": "6",
