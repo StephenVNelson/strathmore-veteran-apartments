@@ -60,14 +60,19 @@ HomePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
+// finds child object and replaces reference property in parent object fwith a copy of the child object
+function objectLookup(id, collection) {
+  return collection.find(c => c.id == id?.[0]) || {}
+}
+
 function apartmentMapping(state) {
   const { apartments, buildings, roommateGroups } = state
   if (buildings.length === 0 || roommateGroups.length === 0) {
     return []
   } else {
     return apartments.map(apartment => {
-      let building = buildings.find(b => b.id == apartment.fields.building[0]) || {}
-      let roommateGroup = roommateGroups.find(g => g.id == apartment?.fields?.roommateGroup?.[0]) || {}
+      let building = objectLookup(apartment.fields?.building, buildings)
+      let roommateGroup = objectLookup(apartment.fields?.roommateGroup, roommateGroups)
       return { ...apartment, fields: { ...apartment.fields, building, roommateGroup } }
     })
   }
