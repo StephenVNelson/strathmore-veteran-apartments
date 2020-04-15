@@ -60,19 +60,24 @@ HomePage.propTypes = {
   actions: PropTypes.object.isRequired
 };
 
-// finds child object and replaces reference property in parent object fwith a copy of the child object
+// finds child object and replaces reference property in parent object with a copy of the child object
 function objectLookup(id, collection) {
-  return collection.find(c => c.id == id?.[0]) || {}
+  // if (collection.length == 8) { debugger }
+  let foundObject = collection.find(c => c.id == id) || {}
+  return JSON.parse(JSON.stringify(foundObject))
 }
 
 function apartmentMapping(state) {
-  const { apartments, buildings, roommateGroups } = state
-  if (buildings.length === 0 || roommateGroups.length === 0) {
+  const { apartments, buildings, roommateGroups, prospects } = state
+  if (buildings.length === 0 || roommateGroups.length === 0 || prospects.length === 0) {
     return []
   } else {
     return apartments.map(apartment => {
       let building = objectLookup(apartment.fields?.building, buildings)
       let roommateGroup = objectLookup(apartment.fields?.roommateGroup, roommateGroups)
+      if (roommateGroup?.fields?.prospects) {
+        roommateGroup.fields.prospects = roommateGroup.fields.prospects.map(p => objectLookup(p, prospects))
+      }
       return { ...apartment, fields: { ...apartment.fields, building, roommateGroup } }
     })
   }
