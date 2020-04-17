@@ -1,0 +1,183 @@
+
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+
+
+
+.apartment-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  width: 100%;
+  /* padding: 3%; */
+}
+
+.card {
+  font-family: 'Oswald', sans-serif;
+  color: rgba(112,112,112,1);
+  border-radius: 25px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.098);
+  width: 100%;
+  max-width: 600px;
+  margin: 2%;
+}
+.card-photo{
+  position: relative;
+  width: 100%;
+  min-height: 300px;
+  max-width: 600px;
+  border-radius: 25px 25px 0px 0px;
+  background-image: url(https://via.placeholder.com/300);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.card-photo:after {
+  position: absolute;
+  border-radius: 25px 25px 0px 0px;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(211,168,155,.8);
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+}
+.card-photo--photo{
+  width: 100%;
+  height: auto;
+}
+
+#Details {
+  width: 100%;
+  max-width: 600px;
+  position: relative;
+  padding: 3%;
+}
+.upper-details {
+  display: flex;
+  justify-content: space-between;
+}
+
+.upper-details--address {
+	white-space: nowrap;
+	text-align: left;
+  font-size: 25px;
+}
+
+.upper-details--unit{
+  display: flex;
+  justify-content: flex-start;
+  width: 25%;
+}
+
+.upper-details--unit-apt {
+  font-size: 25px;
+  margin: 5%;
+  position: relative;
+  top: -5px;
+}
+.upper-details--unit-num {
+  position: relative;
+  top: -20px;
+	font-size: 75px;
+}
+
+.upper-lower-divider{
+	width: 100%;
+	height: 4px;
+}
+
+.lower-details {
+  font-family: Helvetica;
+}
+
+.lower-details--bedrooms {
+  font-weight: bold;
+}
+
+.lower-details--price {
+	font-weight: bold;
+  font-size: 39px;
+  padding: 0px;
+}
+
+.lower-details--price-sm{
+  font-size: 16px;
+}
+
+.lower-details--sharing {
+  margin: 5% 0%;
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+}
+
+.button--button {
+	width: 100px;
+  height: 42px;
+  border-radius: 10px;
+  background-color: rgba(211,168,155,1);
+}
+
+.button--text {
+	width: 61px;
+	text-align: left;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 20px;
+	color: rgba(255,255,255,1);
+}
+
+
+
+
+@media only screen and (min-width: 992px) {
+  .card{
+    width: 45%;
+    min-width: 600px;
+    flex-direction: row;
+  }
+  .card-photo{
+    width: 50%;
+    border-radius: 25px 0px 0px 25px;
+  }
+  .card-photo:after{
+    border-radius: 25px 0px 0px 25px;
+  }
+  #Details {
+    width: 50%;
+  }
+  .upper-details {
+    display: flex;
+    justify-content: space-between;
+  }
+  
+  .upper-details--address {
+    text-align: left;
+    font-size: 16px;
+  }
+  
+  .upper-details--unit{
+    justify-content: center;
+    width: 40%;
+  }
+  
+  .upper-details--unit-apt {
+    font-size: 20px;
+  }
+  .upper-details--unit-num {
+    top: -10px;
+    font-size: 45px;
+  }
+}
