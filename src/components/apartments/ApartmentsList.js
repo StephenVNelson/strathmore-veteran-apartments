@@ -5,11 +5,11 @@ import Apartment from "./Apartment"
 
 const CourseList = ({ apartments }) => (
 
-  <ul>
+  <div className="apartment-list">
     {apartments.map(apartment => {
       return <Apartment key={apartment.id} apartment={apartment} />
     })}
-  </ul>
+  </div>
 )
 
 CourseList.propTypes = {
