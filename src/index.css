@@ -45,7 +45,7 @@
   border-radius: 25px 25px 0px 0px;
   height: 100%;
   width: 100%;
-  background-color: rgba(211,168,155,.8);
+  background-color: rgba(209,209,209,.8);
   top: 0;
   left: 0;
   display: block;
@@ -56,58 +56,84 @@
   height: auto;
 }
 
-#Details {
+.details {
   width: 100%;
   max-width: 600px;
   position: relative;
-  padding: 3%;
+}
+.upper-half {
+  background-color: #287BAF;
+  border-radius: 0px 25px 0px 0px;
+  color: white;
 }
 .upper-details {
   display: flex;
   justify-content: space-between;
+  padding: 1% 4%;
+  font-weight: bold;
 }
-
-.upper-details--address {
-	white-space: nowrap;
-	text-align: left;
-  font-size: 25px;
-}
-
-.upper-details--unit{
+.upper-details--shared{
   display: flex;
-  justify-content: flex-start;
-  width: 25%;
+  flex-direction: column;
 }
-
-.upper-details--unit-apt {
-  font-size: 25px;
-  margin: 5%;
+.upper-details--share-status{
+  font-size: 30px;
+}
+.upper-details--bedrooms {
   position: relative;
-  top: -5px;
+  top: -8px;
+  font-weight: bold;
 }
-.upper-details--unit-num {
-  position: relative;
-  top: -20px;
-	font-size: 75px;
-}
-
-.upper-lower-divider{
-	width: 100%;
-	height: 4px;
+.upper-details--price {
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 42px;
+  padding: 0px;
 }
 
 .lower-details {
   font-family: Helvetica;
+  padding: 3%;
+}
+.lower-details--building{
+  font-size: 16;
 }
 
-.lower-details--bedrooms {
+.lower-details--details{
+  margin: 5% 0%;
+}
+table tbody tr{
+  height: 40px;
   font-weight: bold;
 }
-
-.lower-details--price {
-	font-weight: bold;
-  font-size: 39px;
-  padding: 0px;
+table tbody tr td {
+  padding: 0px 5px;
+  position: relative;
+}
+.lower-details--month-cell{
+  width: 130px;
+}
+.lower-details--month-length{
+  position: absolute;
+  padding-left: 5px;
+  top: 10px;
+  z-index: 20;
+  color:white;
+}
+.lower-details--lower-month-graph{
+  position: absolute;
+  top: 10px;
+  width: 100%;
+  background-color:#EFEDED;
+  height: 20px;
+}
+.lower-details--month-graph{
+  position: absolute;
+  width: 10%;
+  padding-left: 5px;
+  top: 10px;
+  z-index: 10;
+  background-color: #707070;
+  height: 20px;
 }
 
 .lower-details--price-sm{
@@ -127,7 +153,7 @@
 	width: 100px;
   height: 42px;
   border-radius: 10px;
-  background-color: rgba(211,168,155,1);
+  background-color: rgba(255,134,98,1);
 }
 
 .button--text {
@@ -155,7 +181,7 @@
   .card-photo:after{
     border-radius: 25px 0px 0px 25px;
   }
-  #Details {
+  .details {
     width: 50%;
   }
   .upper-details {
@@ -163,21 +189,4 @@
     justify-content: space-between;
   }
   
-  .upper-details--address {
-    text-align: left;
-    font-size: 16px;
-  }
-  
-  .upper-details--unit{
-    justify-content: center;
-    width: 40%;
-  }
-  
-  .upper-details--unit-apt {
-    font-size: 20px;
-  }
-  .upper-details--unit-num {
-    top: -10px;
-    font-size: 45px;
-  }
 }
