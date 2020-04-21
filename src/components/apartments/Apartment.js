@@ -3,11 +3,13 @@ import PropTypes from "prop-types";
 import RoommateIcons from './RoommateIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
+import PhotoCarousel from './PhotoCarousel';
 
 const Apartment = ({ apartment }) => {
   const a = apartment.fields
   const building = a.building.fields;
   const roommateGroup = a.roommateGroup.fields
+  const images = a?.Images || []
   const shared = a.roommateGroup.id ? "SHARED" : "WHOLE APT."
   const rent = Math.round(a.rent / ((roommateGroup?.prospects.length + 1) || 1))
   const prosepctIcons = roommateGroup ?
@@ -16,10 +18,7 @@ const Apartment = ({ apartment }) => {
   const gengerPrefs = roommateGroup ? roommateGroup.prospects[0].fields.sex.charAt(0) : "N/A"
   return (
     <div className="card">
-      <div className="card-photo">
-        {/* <img className="card-photo--photo" src="https://via.placeholder.com/300" alt="" /> */}
-      </div>
-
+      <PhotoCarousel images={images} />
       <div className="details">
         <div className="upper-half">
           <div className="upper-details">
