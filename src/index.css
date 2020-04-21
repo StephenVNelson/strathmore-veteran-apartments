@@ -22,7 +22,7 @@
   border-radius: 25px;
   display: flex;
   flex-wrap: wrap;
-  flex-direction: column;
+  flex-direction: column-reverse;
   justify-content: space-between;
   box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.098);
   width: 100%;
@@ -32,20 +32,19 @@
 .card-photo{
   position: relative;
   width: 100%;
-  min-height: 300px;
-  max-width: 600px;
-  border-radius: 25px 25px 0px 0px;
-  background-image: url(https://via.placeholder.com/300);
+  min-height: 200px;
+  /* max-width: 600px; */
+  border-radius: 0px 0px 25px 25px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
 }
 .card-photo:after {
   position: absolute;
-  border-radius: 25px 25px 0px 0px;
+  border-radius: 0px 0px 25px 25px;
   height: 100%;
   width: 100%;
-  background-color: rgba(209,209,209,.8);
+  background-color: rgba(209, 209, 209, .3);
   top: 0;
   left: 0;
   display: block;
@@ -63,7 +62,7 @@
 }
 .upper-half {
   background-color: #287BAF;
-  border-radius: 0px 25px 0px 0px;
+  border-radius: 25px 25px 0px 0px;
   color: white;
 }
 .upper-details {
@@ -147,19 +146,20 @@ table tbody tr td {
   color: white;
 }
 
-.button {
+.lower-details--button-container {
   display: flex;
   justify-content: center;
+  margin: 5% 0%;
 }
 
-.button--button {
+.lower-details--button {
 	width: 100px;
   height: 42px;
   border-radius: 10px;
   background-color: rgba(255,134,98,1);
 }
 
-.button--text {
+.lower-details--button-text {
 	width: 61px;
 	text-align: left;
 	font-style: normal;
@@ -173,19 +173,8 @@ table tbody tr td {
 
 @media only screen and (min-width: 992px) {
   .card{
-    width: 45%;
-    min-width: 600px;
-    flex-direction: row;
-  }
-  .card-photo{
-    width: 50%;
-    border-radius: 25px 0px 0px 25px;
-  }
-  .card-photo:after{
-    border-radius: 25px 0px 0px 25px;
-  }
-  .details {
-    width: 50%;
+    width: 25%;
+    min-width: 300px;
   }
   .upper-details {
     display: flex;
