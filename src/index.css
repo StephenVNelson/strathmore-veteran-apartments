@@ -146,19 +146,20 @@ table tbody tr td {
   color: white;
 }
 
-.button {
+.lower-details--button-container {
   display: flex;
   justify-content: center;
+  margin: 5% 0%;
 }
 
-.button--button {
+.lower-details--button {
 	width: 100px;
   height: 42px;
   border-radius: 10px;
   background-color: rgba(255,134,98,1);
 }
 
-.button--text {
+.lower-details--button-text {
 	width: 61px;
 	text-align: left;
 	font-style: normal;

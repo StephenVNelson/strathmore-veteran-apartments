@@ -63,9 +63,9 @@ const Apartment = ({ apartment }) => {
             </tbody>
           </table>
         </div>
-        <div className="button">
-          <button className="button--button">
-            <span className="button--text">APPLY</span>
+        <div className="lower-details--button-container">
+          <button className="lower-details--button">
+            <span className="lower-details--button-text">APPLY</span>
           </button>
         </div>
       </div >
