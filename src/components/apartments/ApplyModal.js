@@ -13,9 +13,23 @@ console.log(base_url)
 
 
 const ApplyModal = ({ apartment }) => {
-  const [totalResidents, setTotalResidents] = useState(
-    (apartment?.roommateGroup?.fields?.prospects?.length || 0) + 1
-  )
+  // const [totalResidents, setTotalResidents] = useState(
+  //   (apartment?.roommateGroup?.fields?.prospects?.length || 0) + 1
+  // )
+
+  const addRoommate = () => {
+    if (totalResidents < roommateMax) { setRoommates([...roommates, { gender: "male" }]) }
+  }
+  const removeRoommate = () => {
+    setRoommates(roommates.slice(0, -1))
+  }
+
+  const [roommates, setRoommates] = useState([])
+  const prospects = (apartment.roommateGroup.fields?.prospects.length || 0)
+  const totalResidents = roommates.length + prospects + 1
+  const roommateMax = 3
+
+
   const [applicant, setApplicant] = useState({
     name: "Stephen Nelson",
     phone: "208-891-8492",
@@ -55,7 +69,7 @@ const ApplyModal = ({ apartment }) => {
           <form action="">
             <NewProspects />
             <div className="new-prospect--step">2. add desired roommate slots</div>
-            <RoommateConfirmation prospects={apartment.roommateGroup.fields.prospects} applicant={applicant} />
+            <RoommateConfirmation prospects={apartment.roommateGroup.fields?.prospects || []} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
             <div className="new-prospect--step">2. specify roommate details</div>
             <RoommateDetails />
             <div className="main-button--container">

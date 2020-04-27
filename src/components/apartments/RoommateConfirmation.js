@@ -1,37 +1,34 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
-import Button from '../common/Button';
+// import Button from '../common/Button';
 
-const RoommateConfirmation = ({ prospects, applicant }) => {
+const RoommateConfirmation = ({ prospects, applicant, addRoommate, removeRoommate, totalResidents, roommateMax, roommates }) => {
 
-  const addRoommate = () => {
-    if (roommates.length + 1 < roommateMax) { setRoommates([...roommates, { gender: "male" }]) }
-  }
-  const removeRoommate = () => {
-    setRoommates(roommates.slice(0, -1))
-  }
-
-  const roommateMax = 3
+  if (removeRoommate === undefined) { debugger }
   const getIcon = (gender) => gender === "male" ? faMale : faFemale
-  const [roommates, setRoommates] = useState([])
 
-  const addRoommateButton = (roommates.length + 1 >= roommateMax) ? null : (
-    <div className="resident" onClick={addRoommate}>
-      <FontAwesomeIcon className="resident--add" icon={getIcon(applicant.gender)} />
+  const addRoommateButton = (totalResidents >= roommateMax) ? null : (
+    <div className="resident resident--add" onClick={addRoommate}>
+      <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px" }} />
       <span>+</span>
     </div>)
 
 
   return (
     <div className="resident-confirmation">
-      <input hidden name="residentTotal" value={roommates.length + 1} />
+      <input hidden name="residentTotal" readOnly value={roommates.length + 1} />
       <div className="resident">
         <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px" }} />
       </div>
+      {prospects.map((prospect, i) => {
+        return (<div key={i} className="resident">
+          <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px" }} />
+        </div>)
+      })}
       {roommates.map((roommate, i) => {
-        return (<div key={i} className="resident" onClick={removeRoommate}>
+        return (<div key={i} className="resident resident--remove" onClick={removeRoommate}>
           <FontAwesomeIcon icon={getIcon(roommate.gender)} style={{ fontSize: "90px" }} />
           <span>-</span>
         </div>)
@@ -43,7 +40,12 @@ const RoommateConfirmation = ({ prospects, applicant }) => {
 
 RoommateConfirmation.propTypes = {
   prospects: PropTypes.array,
-  applicant: PropTypes.object
+  applicant: PropTypes.object,
+  addRoommate: PropTypes.func,
+  removeRoommate: PropTypes.func,
+  roommateMax: PropTypes.number,
+  totalResidents: PropTypes.number,
+  roommates: PropTypes.array
 }
 
 export default RoommateConfirmation
