@@ -965,13 +965,12 @@ const roommateGroups = [
       "apartment": [
         "recPGm3DFcMPwyWeA"
       ],
-      "roommateLow": 3,
       "moveinStart": "2020-04-10",
       "prospects": [
         "rec5wnrgrmtn6dQuf",
         "recwpjsxRuVGz8Yes"
       ],
-      "roommateHigh": 3,
+      "roommateTotal": 3,
       "moveinEnd": "2020-05-10",
       "name": "Irma Ramos, Selina Vargas"
     },
@@ -983,13 +982,12 @@ const roommateGroups = [
       "apartment": [
         "rec4rboScqsuCxgZ9"
       ],
-      "roommateLow": 3,
       "moveinStart": "2020-04-10",
       "prospects": [
         "recw3BGYLI39rNf6w",
         "recS6V7HSpdmbdNQm"
       ],
-      "roommateHigh": 3,
+      "roommateTotal": 3,
       "moveinEnd": "2020-05-10",
       "name": "Tashi Rush, Julia Bartolome"
     },
@@ -1001,13 +999,12 @@ const roommateGroups = [
       "apartment": [
         "recPuKE1KkPqc8yKl"
       ],
-      "roommateLow": 3,
       "moveinStart": "2020-04-10",
       "prospects": [
         "recJQ01gZ6pes7Knc",
         "recx1ePHsgDRsf0ew"
       ],
-      "roommateHigh": 3,
+      "roommateTotal": 3,
       "moveinEnd": "2020-05-10",
       "name": "Julia Robinson, Andrea Robinson"
     },
@@ -1019,13 +1016,12 @@ const roommateGroups = [
       "apartment": [
         "recTpSWMbLK6wKtFn"
       ],
-      "roommateLow": 3,
       "moveinStart": "2020-04-10",
       "prospects": [
         "recj1dSJCGo7xH07L",
         "recBdb2EU7BeEbFpe"
       ],
-      "roommateHigh": 3,
+      "roommateTotal": 3,
       "moveinEnd": "2020-05-10",
       "name": "Aylin Carranza, Ariana Desouza"
     },
