@@ -12,7 +12,8 @@ const Radio = ({ selected, id, radioClick, name }) => {
 Radio.propTypes = {
   id: PropTypes.string.isRequired,
   selected: PropTypes.string.isRequired,
-  radioClick: PropTypes.func.isRequired
+  radioClick: PropTypes.func.isRequired,
+  name: PropTypes.string
 }
 
 export default Radio

@@ -4,7 +4,7 @@ import NewProspects from '../prospects/NewProspects';
 import Button from '../common/Button';
 import SummaryBox from './SummaryBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMale, faFemale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
+import { faMale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import RoommateConfirmation from './RoommateConfirmation';
 import RadioOptions from '../common/RadioOptions';
 
@@ -20,7 +20,8 @@ const ApplyModal = ({ apartment, toggleForm }) => {
     gender: "male"
   })
   const applicantGenderSelect = (e) => {
-    setApplicant({ ...applicant, gender: e.target.id })
+    const gender = e.target.id.split('-')[0]
+    setApplicant({ ...applicant, gender })
     // setSelected(e.target.id)
   }
 
@@ -37,7 +38,7 @@ const ApplyModal = ({ apartment, toggleForm }) => {
   const roommateMax = (apartment.bedrooms * 2) + 1
 
   const displayResidents = (totalResidents) => {
-    return [...Array(totalResidents)].map((_, i) => <FontAwesomeIcon key={i} icon={faMale} />)
+    return [...Array(totalResidents)].map((_, i) => <FontAwesomeIcon key={i} style={{ margin: "2px" }} icon={faMale} />)
   }
   const summaryData = {
     "Individual Rent": `$${Math.round(apartment.rent / totalResidents)}`,

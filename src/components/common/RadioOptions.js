@@ -27,7 +27,8 @@ const RadioOptions = ({ setterFunction, valueName }) => {
 }
 
 RadioOptions.propTypes = {
-  setterFunction: PropTypes.func
+  setterFunction: PropTypes.func,
+  valueName: PropTypes.string
 }
 
 export default RadioOptions
