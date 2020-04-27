@@ -4,7 +4,7 @@ import NewProspects from '../prospects/NewProspects';
 import Button from '../common/Button';
 import SummaryBox from './SummaryBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
+import { faMale, faFemale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import RoommateConfirmation from './RoommateConfirmation';
 import RoommateDetails from './RoommateDetails';
 
@@ -52,6 +52,7 @@ const ApplyModal = ({ apartment }) => {
     <div className="modal-container">
       <div className="modal-content">
         <div className="summary">
+          <div className="close" onClick={toggleForm}><FontAwesomeIcon icon={faTimesCircle} /></div>
           <div className="summary-title">Summary</div>
           <div className="summary-content">
             {

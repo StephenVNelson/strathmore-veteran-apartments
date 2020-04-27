@@ -22,10 +22,10 @@ const Apartment = ({ apartment }) => {
 
   const [showModal, setShowModal] = useState(false);
   // const modal = showModal ?   : ""
-  const showForm = () => setShowModal(true)
+  const toggleForm = () => setShowModal(!showModal)
   return (
     <>
-      {showModal ? <ApplyModal apartment={a} /> : ""}
+      {showModal ? <ApplyModal apartment={a} toggleForm={toggleForm} /> : ""}
       <div className="card">
         <PhotoCarousel images={images} />
         <div className="details">
@@ -72,7 +72,7 @@ const Apartment = ({ apartment }) => {
               </tbody>
             </table>
           </div>
-          <div onClick={showForm} className="main-button--container">
+          <div onClick={toggleForm} className="main-button--container">
             <Button style={{ fontSize: "24px", padding: "0.5% 4%" }}>APPLY</Button>
           </div>
         </div >
