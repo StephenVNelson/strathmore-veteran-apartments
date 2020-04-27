@@ -54,7 +54,7 @@ const ApplyModal = ({ apartment }) => {
           <div className="new-prospect--step">1. enter your information</div>
           <form action="">
             <NewProspects />
-            <div className="new-prospect--step">2. add roommate slots</div>
+            <div className="new-prospect--step">2. add desired roommate slots</div>
             <RoommateConfirmation prospects={apartment.roommateGroup.fields.prospects} applicant={applicant} />
             <div className="new-prospect--step">2. specify roommate details</div>
             <RoommateDetails />
