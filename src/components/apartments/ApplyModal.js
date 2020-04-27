@@ -6,36 +6,36 @@ import SummaryBox from './SummaryBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faFemale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import RoommateConfirmation from './RoommateConfirmation';
-import RoommateDetails from './RoommateDetails';
+import RadioOptions from '../common/RadioOptions';
 
 const base_url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/`
 console.log(base_url)
 
 
-const ApplyModal = ({ apartment }) => {
-  // const [totalResidents, setTotalResidents] = useState(
-  //   (apartment?.roommateGroup?.fields?.prospects?.length || 0) + 1
-  // )
-
-  const addRoommate = () => {
-    if (totalResidents < roommateMax) { setRoommates([...roommates, { gender: "male" }]) }
-  }
-  const removeRoommate = () => {
-    setRoommates(roommates.slice(0, -1))
-  }
-
-  const [roommates, setRoommates] = useState([])
-  const prospects = (apartment.roommateGroup.fields?.prospects.length || 0)
-  const totalResidents = roommates.length + prospects + 1
-  const roommateMax = 3
-
-
+const ApplyModal = ({ apartment, toggleForm }) => {
   const [applicant, setApplicant] = useState({
     name: "Stephen Nelson",
     phone: "208-891-8492",
     email: "stephen@stephen.com",
     gender: "male"
   })
+  const applicantGenderSelect = (e) => {
+    setApplicant({ ...applicant, gender: e.target.id })
+    // setSelected(e.target.id)
+  }
+
+  const addRoommate = () => {
+    if (totalResidents < roommateMax) { setRoommates([...roommates, { gender: applicant.gender }]) }
+  }
+  const removeRoommate = () => {
+    setRoommates(roommates.slice(0, -1))
+  }
+
+  const [roommates, setRoommates] = useState([])
+  const prospects = (apartment.roommateGroup.fields?.prospects || [])
+  const totalResidents = roommates.length + prospects.length + 1
+  const roommateMax = (apartment.bedrooms * 2) + 1
+
   const displayResidents = (totalResidents) => {
     return [...Array(totalResidents)].map((_, i) => <FontAwesomeIcon key={i} icon={faMale} />)
   }
@@ -43,7 +43,7 @@ const ApplyModal = ({ apartment }) => {
     "Individual Rent": `$${Math.round(apartment.rent / totalResidents)}`,
     "Total Rooms": apartment.bedrooms,
     "Total Residents": displayResidents(totalResidents),
-    "Residents Per-Room": null,
+    "Residents Per-Room": totalResidents / apartment.bedrooms,
     "Average Utilities": `$${Math.round(150 / totalResidents)}`,
     "Lease Duration": `${apartment.leaseInMonths} Mo.`,
     "Lease Start": Date(apartment.available).split(" ").slice(1, 3).join(" ")
@@ -68,11 +68,12 @@ const ApplyModal = ({ apartment }) => {
         <div className="new-prospect--conatiner">
           <div className="new-prospect--step">1. enter your information</div>
           <form action="">
-            <NewProspects />
+            <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
             <div className="new-prospect--step">2. add desired roommate slots</div>
-            <RoommateConfirmation prospects={apartment.roommateGroup.fields?.prospects || []} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
+            <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
             <div className="new-prospect--step">2. specify roommate details</div>
-            <RoommateDetails />
+            <div>select your roommate gender preferences</div>
+            <RadioOptions setterFunction={() => console.log("hello")} valueName={"genderPreference"} />
             <div className="main-button--container">
               <Button style={{ fontSize: "20px", padding: "0.5% 4%", borderRadius: "25px" }}>SUBMIT</Button>
             </div>
@@ -83,6 +84,7 @@ const ApplyModal = ({ apartment }) => {
 }
 
 ApplyModal.propTypes = {
-  apartment: PropTypes.object
+  apartment: PropTypes.object,
+  toggleForm: PropTypes.func
 }
 export default ApplyModal

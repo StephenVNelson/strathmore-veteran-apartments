@@ -11,7 +11,7 @@ const RoommateConfirmation = ({ prospects, applicant, addRoommate, removeRoommat
 
   const addRoommateButton = (totalResidents >= roommateMax) ? null : (
     <div className="resident resident--add" onClick={addRoommate}>
-      <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px" }} />
+      <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px", width: "50px" }} />
       <span>+</span>
     </div>)
 
@@ -20,16 +20,16 @@ const RoommateConfirmation = ({ prospects, applicant, addRoommate, removeRoommat
     <div className="resident-confirmation">
       <input hidden name="residentTotal" readOnly value={roommates.length + 1} />
       <div className="resident">
-        <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px" }} />
+        <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px", width: "50px" }} />
       </div>
       {prospects.map((prospect, i) => {
         return (<div key={i} className="resident">
-          <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px" }} />
+          <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px", width: "50px" }} />
         </div>)
       })}
       {roommates.map((roommate, i) => {
         return (<div key={i} className="resident resident--remove" onClick={removeRoommate}>
-          <FontAwesomeIcon icon={getIcon(roommate.gender)} style={{ fontSize: "90px" }} />
+          <FontAwesomeIcon icon={getIcon(roommate.gender)} style={{ fontSize: "90px", width: "50px" }} />
           <span>-</span>
         </div>)
       })}

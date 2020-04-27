@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from "prop-types";
 
-const Radio = ({ selected, id, radioClick }) => {
-  let btn_class = selected === id ? "selected" : ""
+const Radio = ({ selected, id, radioClick, name }) => {
+  let btn_class = `${selected}-${name}` == id ? "selected" : ""
   return (
-    <label htmlFor={id} className={`new-prospect--radio ${btn_class}`}>
-      <input type="radio" id={id} name="gender" value={id} className="new-prospect--radio" onChange={radioClick} />
-      {id.toUpperCase()}</label>
+    <label htmlFor={id} className={`${btn_class}`}>
+      <input style={{ display: "none" }} type="radio" id={id} name={name} value={id} onChange={radioClick} />
+      {id.split('-')[0].toUpperCase()}</label>
   )
 }
 Radio.propTypes = {
