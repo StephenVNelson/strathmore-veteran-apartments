@@ -9,7 +9,7 @@ import * as prospectActions from '../../redux/actions/prospectActions'
 import PropTypes from 'prop-types';
 import { bindActionCreators } from 'redux';
 import ApartmentList from '../apartments/ApartmentsList'
-
+import Header from '../common/Header'
 
 
 // import { Link } from "react-router-dom";
@@ -45,7 +45,8 @@ class HomePage extends React.Component {
   }
   render() {
     return (<>
-      <Filters />
+      <Header />
+      {/* <Filters /> */}
       <ApartmentList apartments={this.props.apartments} />
     </>);
   }

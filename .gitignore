@@ -25,3 +25,4 @@ yarn-error.log*
 notes.md
 docs
 /tools/db.json
+.env
