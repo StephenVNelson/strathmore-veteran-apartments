@@ -9,6 +9,32 @@ import ApplyModal from './ApplyModal';
 
 
 const Apartment = ({ apartment }) => {
+
+  const toggleForm = () => setShowModal(!showModal)
+  const handleForm = (e) => {
+    e.preventDefault();
+    const roommateGroup = apartment.fields.roommateGroup.id
+    const input = e.target.elements
+    const prospect = {
+      name: input.name.value,
+      phone: input.phone.value,
+      email: input.email.value,
+      sex: input.gender.value
+    }
+
+    roommateGroup ? addProspectToRoommateGroup(e, prospect) : createNewRoommateGroup(e, prospect)
+    const residentTotal = input.residentTotal.value
+    const roommateAgreement = input?.["roommate-agreement"]?.value
+  }
+
+  const addProspectToRoommateGroup = (e, prospect) => {
+    console.log("EXISTING GROUP")
+  }
+
+  const createNewRoommateGroup = (e, prospect) => {
+    console.log("NEW GROUP")
+  }
+
   const a = apartment.fields
   const building = a.building.fields;
   const roommateGroup = a.roommateGroup.fields
@@ -21,11 +47,9 @@ const Apartment = ({ apartment }) => {
   const gengerPrefs = roommateGroup ? roommateGroup.prospects[0].fields.sex.charAt(0) : "N/A"
 
   const [showModal, setShowModal] = useState(false);
-  // const modal = showModal ?   : ""
-  const toggleForm = () => setShowModal(!showModal)
   return (
     <>
-      {showModal ? <ApplyModal apartment={a} toggleForm={toggleForm} /> : ""}
+      {showModal ? <ApplyModal apartment={a} toggleForm={toggleForm} handleForm={handleForm} /> : ""}
       <div className="card">
         <PhotoCarousel images={images} />
         <div className="details">

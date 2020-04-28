@@ -12,7 +12,7 @@ const base_url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_B
 console.log(base_url)
 
 
-const ApplyModal = ({ apartment, toggleForm }) => {
+const ApplyModal = ({ apartment, toggleForm, handleForm }) => {
   const [applicant, setApplicant] = useState({
     name: "Stephen Nelson",
     phone: "208-891-8492",
@@ -79,7 +79,7 @@ const ApplyModal = ({ apartment, toggleForm }) => {
           </div>
         </div>
         <div className="new-prospect--container">
-          <form className="new-prospect--form">
+          <form className="new-prospect--form" onSubmit={handleForm}>
             <div className="step">
               <div className="new-prospect--step">1. enter your information</div>
               <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
@@ -100,6 +100,7 @@ const ApplyModal = ({ apartment, toggleForm }) => {
 
 ApplyModal.propTypes = {
   apartment: PropTypes.object,
-  toggleForm: PropTypes.func
+  toggleForm: PropTypes.func,
+  handleForm: PropTypes.func,
 }
 export default ApplyModal
