@@ -37,7 +37,7 @@ const RoommateConfirmation = ({
   const roommateAgreement = prospects.length == 0 ? "" : (
     <div className="roommate-agreement">
       <label htmlFor="roommate-agreement" onClick={() => setChecked(!checked)}>
-        <input type="checkbox" name="roommate-agreement" />
+        <input type="checkbox" name="roommate-agreement" value={checked} />
         <span style={{ display: checkdisplay }}>X</span>
       </label>
       <span className="roommate-agreement--agreement">
