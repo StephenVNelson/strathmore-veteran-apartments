@@ -5,7 +5,7 @@ const Radio = ({ selected, id, radioClick, name }) => {
   let btn_class = `${selected}-${name}` == id ? "selected" : ""
   return (
     <label htmlFor={id} className={`${btn_class}`}>
-      <input style={{ display: "none" }} type="radio" id={id} name={name} value={id} onChange={radioClick} />
+      <input style={{ display: "none" }} type="radio" id={id} name={name} value={selected} onChange={radioClick} />
       {id.split('-')[0].toUpperCase()}</label>
   )
 }
