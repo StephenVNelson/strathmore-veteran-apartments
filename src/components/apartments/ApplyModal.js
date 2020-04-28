@@ -31,6 +31,10 @@ const ApplyModal = ({ apartment, toggleForm }) => {
   const removeRoommate = () => {
     setRoommates(roommates.slice(0, -1))
   }
+  const updateRoommateGender = (e) => {
+    const gender = e.target.id.split('-')[0]
+    setRoommates(roommates.map(rm => ({ ...rm, gender })))
+  }
 
   const [roommates, setRoommates] = useState([])
   const prospects = (apartment.roommateGroup.fields?.prospects || [])
@@ -66,15 +70,21 @@ const ApplyModal = ({ apartment, toggleForm }) => {
             }
           </div>
         </div>
-        <div className="new-prospect--conatiner">
-          <div className="new-prospect--step">1. enter your information</div>
-          <form action="">
-            <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
-            <div className="new-prospect--step">2. add desired roommate slots</div>
-            <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
-            <div className="new-prospect--step">2. specify roommate details</div>
-            <div>select your roommate gender preferences</div>
-            <RadioOptions setterFunction={() => console.log("hello")} valueName={"genderPreference"} />
+        <div className="new-prospect--container">
+          <form className="new-prospect--form">
+            <div className="steps--1">
+              <div className="new-prospect--step">1. enter your information</div>
+              <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
+            </div>
+            <div className="steps--2">
+              <div className="new-prospect--step">2. add desired roommate slots</div>
+              <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
+            </div>
+            <div className="steps--3">
+              <div className="new-prospect--step">3. specify roommate details</div>
+              <div>select your roommate gender preferences</div>
+              <RadioOptions setterFunction={updateRoommateGender} valueName={"genderPreference"} />
+            </div>
             <div className="main-button--container">
               <Button style={{ fontSize: "20px", padding: "0.5% 4%", borderRadius: "25px" }}>SUBMIT</Button>
             </div>
