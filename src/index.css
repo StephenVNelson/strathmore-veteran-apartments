@@ -351,7 +351,7 @@ div.summary-title  {
   margin: 0 0 1% 1%;
 }
 
-div.new-prospect--conatiner {
+div.new-prospect--container {
   margin: 5%;
 }
 div.new-prospect--step {
@@ -371,6 +371,11 @@ div.new-prospect--step {
 }
 .new-prospect--form {
   display: flex;
+  flex-flow: column;
+}
+.new-prospect--info {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .button-options {
