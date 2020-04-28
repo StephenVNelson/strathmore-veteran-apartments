@@ -72,15 +72,15 @@ const ApplyModal = ({ apartment, toggleForm }) => {
         </div>
         <div className="new-prospect--container">
           <form className="new-prospect--form">
-            <div className="steps--1">
+            <div className="step">
               <div className="new-prospect--step">1. enter your information</div>
               <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
             </div>
-            <div className="steps--2">
+            <div className="step">
               <div className="new-prospect--step">2. add desired roommate slots</div>
               <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
             </div>
-            <div className="steps--3">
+            <div className="step">
               <div className="new-prospect--step">3. specify roommate details</div>
               <div>select your roommate gender preferences</div>
               <RadioOptions setterFunction={updateRoommateGender} valueName={"genderPreference"} />

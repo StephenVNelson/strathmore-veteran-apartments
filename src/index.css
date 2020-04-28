@@ -243,7 +243,8 @@ table tbody tr td {
   position: relative;
   background-color: var(--main-color);
   border-radius: 25px 25px 0px 0px;
-  padding-bottom: 5%;
+  padding-top: 1%;
+  padding-bottom: 3%;
 }
 div.summary-title  {
   color: #fff;
@@ -352,8 +353,13 @@ div.summary-title  {
 }
 
 div.new-prospect--container {
-  margin: 5%;
+  margin: 0% 5%;
 }
+
+.step {
+  margin-top: 5%;
+}
+
 div.new-prospect--step {
   font-size: 25px;
   color: var(--main-color);
