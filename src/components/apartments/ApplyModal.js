@@ -53,6 +53,14 @@ const ApplyModal = ({ apartment, toggleForm }) => {
     "Lease Duration": `${apartment.leaseInMonths} Mo.`,
     "Lease Start": Date(apartment.available).split(" ").slice(1, 3).join(" ")
   }
+
+  const thirdStep = prospects.length > 0 ? "" : (
+    <div className="step">
+      <div className="new-prospect--step">3. specify roommate details</div>
+      <div>select your roommate gender preferences</div>
+      <RadioOptions setterFunction={updateRoommateGender} valueName={"genderPreference"} />
+    </div>
+  )
   return (
     <div className="modal-container">
       <div className="modal-content">
@@ -77,14 +85,10 @@ const ApplyModal = ({ apartment, toggleForm }) => {
               <NewProspects setterFunction={applicantGenderSelect} appliant={applicant} />
             </div>
             <div className="step">
-              <div className="new-prospect--step">2. add desired roommate slots</div>
-              <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} />
+              <div className="new-prospect--step">2. {prospects.length == 0 ? "add desired roommate slots" : "verify roommates"}</div>
+              <RoommateConfirmation prospects={prospects} applicant={applicant} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} bedrooms={apartment.bedrooms} />
             </div>
-            <div className="step">
-              <div className="new-prospect--step">3. specify roommate details</div>
-              <div>select your roommate gender preferences</div>
-              <RadioOptions setterFunction={updateRoommateGender} valueName={"genderPreference"} />
-            </div>
+            {thirdStep}
             <div className="main-button--container">
               <Button style={{ fontSize: "20px", padding: "0.5% 4%", borderRadius: "25px" }}>SUBMIT</Button>
             </div>
