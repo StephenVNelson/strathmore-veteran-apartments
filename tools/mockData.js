@@ -1120,10 +1120,19 @@ const prospects = [
   }
 ]
 
+const newProspect = {
+  name: "",
+  phone: "",
+  email: "",
+  sex: "",
+  roommateGroup: null,
+}
+
 module.exports = {
   companies,
   buildings,
   apartments,
   roommateGroups,
+  newProspect,
   prospects
 }
