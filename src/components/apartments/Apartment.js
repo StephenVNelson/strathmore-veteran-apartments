@@ -23,8 +23,8 @@ const Apartment = ({ apartment }) => {
     }
 
     roommateGroup ? addProspectToRoommateGroup(e, prospect) : createNewRoommateGroup(e, prospect)
-    const residentTotal = input.residentTotal.value
-    const roommateAgreement = input?.["roommate-agreement"]?.value
+    // const residentTotal = input.residentTotal.value
+    // const roommateAgreement = input?.["roommate-agreement"]?.value
   }
 
   const addProspectToRoommateGroup = (e, prospect) => {

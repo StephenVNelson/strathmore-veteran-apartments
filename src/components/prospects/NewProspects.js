@@ -4,21 +4,22 @@ import RadioOptions from '../common/RadioOptions';
 
 
 
-const NewProspects = ({ setterFunction }) => {
+const NewProspects = ({ onChange, prospect }) => {
   return (
     <div className="new-prospect--info">
       <div className="new-prospect--inputs">
-        <input type="text" name="name" placeholder="full name" className="new-prospect--input" />
-        <input type="text" name="phone" placeholder="phone" className="new-prospect--input" />
-        <input type="text" name="email" placeholder="email" className="new-prospect--input" />
+        <input type="text" name="name" placeholder="full name" className="new-prospect--input" onChange={onChange} value={prospect.name} />
+        <input type="text" name="phone" placeholder="phone" className="new-prospect--input" onChange={onChange} value={prospect.phone} />
+        <input type="text" name="email" placeholder="email" className="new-prospect--input" onChange={onChange} value={prospect.email} />
       </div>
-      <RadioOptions setterFunction={setterFunction} valueName={"gender"} />
+      <RadioOptions onChange={onChange} valueName={"sex"} />
     </div>
   )
 }
 
 NewProspects.propTypes = {
-  setterFunction: PropTypes.func,
+  onChange: PropTypes.func,
+  prospect: PropTypes.object
 }
 
 export default NewProspects

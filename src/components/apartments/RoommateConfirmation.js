@@ -6,19 +6,20 @@ import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
 
 const RoommateConfirmation = ({
   prospects,
-  applicant,
+  prospect,
   addRoommate,
   removeRoommate,
   totalResidents,
   roommateMax,
   roommates,
+  roommateGender,
   bedrooms }) => {
 
+  // Adding roommate
   const getIcon = (gender) => gender === "male" ? faMale : faFemale
-
   const addRoommateButton = (totalResidents >= roommateMax) ? null : (
     <div className="resident resident--add" onClick={addRoommate}>
-      <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px", width: "50px" }} />
+      <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
       <span>+</span>
     </div>)
 
@@ -51,17 +52,22 @@ const RoommateConfirmation = ({
       <input hidden name="residentTotal" readOnly value={roommates.length + 1} />
       <div className="resident-icons">
 
+        {/* icon representing resident */}
         <div className="resident">
-          <FontAwesomeIcon icon={getIcon(applicant.gender)} style={{ fontSize: "90px", width: "50px" }} />
+          <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px", width: "50px" }} />
         </div>
+
+        {/* icons representing prospects */}
         {prospects.map((prospect, i) => {
           return (<div key={i} className="resident">
             <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px", width: "50px" }} />
           </div>)
         })}
+
+        {/* icons representing roommates */}
         {roommates.map((roommate, i) => {
           return (<div key={i} className="resident resident--remove" onClick={removeRoommate}>
-            <FontAwesomeIcon icon={getIcon(roommate.gender)} style={{ fontSize: "90px", width: "50px" }} />
+            <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
             <span>-</span>
           </div>)
         })}
@@ -74,13 +80,14 @@ const RoommateConfirmation = ({
 
 RoommateConfirmation.propTypes = {
   prospects: PropTypes.array,
-  applicant: PropTypes.object,
+  prospect: PropTypes.object,
   addRoommate: PropTypes.func,
   removeRoommate: PropTypes.func,
   roommateMax: PropTypes.number,
   totalResidents: PropTypes.number,
   roommates: PropTypes.array,
-  bedrooms: PropTypes.number
+  bedrooms: PropTypes.number,
+  roommateGender: PropTypes.string
 }
 
 export default RoommateConfirmation
