@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
+import { faMale, faFemale, faPlus } from '@fortawesome/free-solid-svg-icons'
 // import Button from '../common/Button';
 
 const RoommateConfirmation = ({
@@ -16,21 +16,29 @@ const RoommateConfirmation = ({
   bedrooms }) => {
 
   // Adding roommate
-  const getIcon = (gender) => gender === "male" ? faMale : faFemale
+  const getIcon = (gender) => gender === "female" ? faFemale : faMale
   const addRoommateButton = (totalResidents >= roommateMax) ? null : (
     <div className="resident resident--add" onClick={addRoommate}>
       <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
       <span>+</span>
+      <div className="resident__title">ADD</div>
     </div>)
 
+  const roommateStatement = () => {
+    const statements = ["male", "female", "other"].map(sex => {
+      const prospectAmount = [...prospects].filter(p => p.fields.sex == sex).length
+      const roommateAmount = [...roommates].filter(p => p.gender == sex).length
+      const amount = prospectAmount + roommateAmount
+      const es = amount > 1 ? "s" : ""
+      return amount ? `${amount} ${sex}${es}` : null
+    })
+    const nonNullStatements = statements.filter(statement => !!statement)
+    return nonNullStatements.join(" and ")
+  }
+
   const sharing = () => {
-    let boysAndGirls;
-    const boys = prospects.filter(p => p.fields.sex == "male").length
-    const girls = prospects.filter(p => p.fields.sex == "Female").length
-    if (boys > 0 && girls > 0) { boysAndGirls = `${boys} other males and ${girls} other females.` }
-    if (boys > 0) { boysAndGirls = `${boys} other males.` }
-    if (girls > 0) { boysAndGirls = `${girls} other females.` }
-    return `I confirm I want to join this group sharing a ${bedrooms} bedroom apartment with ${boysAndGirls}`
+    let boysAndGirls = roommateStatement()
+    return `I confirm I want to join this group sharing a ${bedrooms} bedroom apartment with ${boysAndGirls}.`
   }
 
   const [checked, setChecked] = useState(false)
@@ -47,6 +55,24 @@ const RoommateConfirmation = ({
     </div>
   )
 
+  const roommateSlots = (i) => {
+    return prospects.length == 0 ?
+      (
+        <div key={i} className="resident resident--remove" onClick={removeRoommate}>
+          <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
+          <span>-</span>
+          <div className="resident__title">REMOVE</div>
+        </div>
+      ) :
+      (
+        <div key={i} className="resident" onClick={removeRoommate}>
+          <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
+          <div className="resident__title">(TBD)</div>
+        </div>
+      )
+  }
+
+  // RETURN
   return (
     <div className="resident-confirmation">
       <input hidden name="residentTotal" readOnly value={roommates.length + 1} />
@@ -54,22 +80,26 @@ const RoommateConfirmation = ({
 
         {/* icon representing resident */}
         <div className="resident">
-          <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px", width: "50px" }} />
+          <FontAwesomeIcon icon={getIcon(prospect.fields.sex)} style={{ fontSize: "90px", width: "50px" }} />
+          <div className={"resident__title"}>YOU</div>
+        </div>
+
+        {/* plus icon */}
+        <div className="resident">
+          <FontAwesomeIcon icon={faPlus} style={{ fontSize: "30px", width: "50px" }} />
         </div>
 
         {/* icons representing prospects */}
         {prospects.map((prospect, i) => {
           return (<div key={i} className="resident">
-            <FontAwesomeIcon icon={getIcon(prospect.sex)} style={{ fontSize: "90px", width: "50px" }} />
+            <FontAwesomeIcon icon={getIcon(prospect.fields.sex)} style={{ fontSize: "90px", width: "50px" }} />
+            <div className="resident__title">{prospect.fields.name.split(" ")[0].toUpperCase()}</div>
           </div>)
         })}
 
         {/* icons representing roommates */}
-        {roommates.map((roommate, i) => {
-          return (<div key={i} className="resident resident--remove" onClick={removeRoommate}>
-            <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
-            <span>-</span>
-          </div>)
+        {roommates.map((_, i) => {
+          return roommateSlots(i)
         })}
         {addRoommateButton}
       </div>

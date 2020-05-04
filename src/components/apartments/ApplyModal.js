@@ -9,44 +9,92 @@ import { faMale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
 import RoommateConfirmation from './RoommateConfirmation';
 import RadioOptions from '../common/RadioOptions';
 import { newProspect } from '../../../tools/mockData'
+import { saveApartment } from '../../redux/actions/apartmentActions';
+import { saveRoommateGroup } from '../../redux/actions/roommateGroupActions';
+import { saveProspect } from '../../redux/actions/prospectActions';
 
-const base_url = `https://api.airtable.com/v0/${process.env.REACT_APP_AIRTABLE_BASE_ID}/`
-console.log(base_url)
 
+const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProspect, saveRoommateGroup, saveApartment, newProspect }) => {
 
-const ApplyModal = ({ apartment, toggleForm, handleForm, ...props }) => {
+  const handleForm = async (e) => {
+    e.preventDefault();
+    const createdProspect = await saveProspect(prospect)
+    const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
+
+    const createdRoommateGroup = await saveRoommateGroup({
+      ...newRoommateGroup,
+      fields: {
+        ...newRoommateGroup.fields,
+        prospects: newProspects
+      }
+    })
+
+    saveProspect({
+      ...createdProspect,
+      fields: {
+        ...createdProspect.fields,
+        roommateGroup: [createdRoommateGroup.id]
+      }
+    })
+
+    const newApartment = await saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
+    toggleForm()
+
+  }
+
+  const [newRoommateGroup, setNewRoommateGroup] = useState({
+    ...roommateGroup,
+    fields: { ...roommateGroup.fields, apartment: [apartment.id] }
+  })
 
   const [prospect, setProspect] = useState({
-    ...props.prospect,
-    roommateGroup: apartment.roommateGroup?.id
+    ...newProspect
   })
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setProspect(prevProspect => {
-      const newProspect = { ...prevProspect, [name]: value }
-      console.log(newProspect)
+      const newProspect = { ...prevProspect, fields: { ...prevProspect.fields, [name]: value } }
       return newProspect
     });
   }
 
   // ROOMATE SECTION
-  const [roommates, setRoommates] = useState([])
-  const [roommateGender, setRoommateGender] = useState("other")
+  const roommateMax = (apartment.fields.bedrooms * 2) + 1
+  const initialRoommates = roommateGroup?.id ?
+    [...new Array(roommateMax - prospects.length - 1)].map(() => ({ gender: "other" })) :
+    []
+  const [roommates, setRoommates] = useState(initialRoommates)
+  const initialGender = roommateGroup?.id && initialRoommates.length > 0 ? initialRoommates[0].gender : "other"
+  const [roommateGender, setRoommateGender] = useState(initialGender)
+
+  const totalResidents = roommates.length + prospects.length + 1
+
   const addRoommate = () => {
-    if (totalResidents < roommateMax) { setRoommates([...roommates, { gender: roommateGender }]) }
+    if (totalResidents < roommateMax) {
+      setRoommates([...roommates, { gender: roommateGender }])
+      const fields = { ...newRoommateGroup.fields, roommateTotal: roommates.length + 2 }
+      setNewRoommateGroup({ ...newRoommateGroup, fields })
+      // console.log({ ...newRoommateGroup, fields })
+    }
   }
   const removeRoommate = () => {
+    const fields = { ...newRoommateGroup.fields, roommateTotal: (roommates.length + 1) - 1 }
+    setNewRoommateGroup({ ...newRoommateGroup, fields })
+    // console.log({ ...newRoommateGroup, fields })
     setRoommates(roommates.slice(0, -1))
   }
   const updateRoommateGender = (e) => {
-    const gender = e.target.id.split('-')[0]
+    const gender = e.target.value
+    const fields = { ...newRoommateGroup.fields, genderPreference: gender }
+    setNewRoommateGroup({ ...newRoommateGroup, fields })
+    console.log({ ...newRoommateGroup, fields })
     setRoommateGender(gender)
     setRoommates(roommates.map(rm => ({ ...rm, gender: roommateGender })))
   }
 
   // 3rd Step
-  const thirdStep = apartment.roommateGroup.id ? "" : (
+  const thirdStep = roommateGroup?.id ? "" : (
     <div className="step">
       <div className="new-prospect--step">3. specify roommate details</div>
       <div>select your roommate gender preferences</div>
@@ -54,22 +102,17 @@ const ApplyModal = ({ apartment, toggleForm, handleForm, ...props }) => {
     </div>
   )
 
-
-  const prospects = (apartment.roommateGroup.fields?.prospects || [])
-  const totalResidents = roommates.length + prospects.length + 1
-  const roommateMax = (apartment.bedrooms * 2) + 1
-
   const displayResidents = (totalResidents) => {
     return [...Array(totalResidents)].map((_, i) => <FontAwesomeIcon key={i} style={{ margin: "2px" }} icon={faMale} />)
   }
   const summaryData = {
-    "Individual Rent": `$${Math.round(apartment.rent / totalResidents)}`,
-    "Total Rooms": apartment.bedrooms,
+    "Individual Rent": `$${Math.round(apartment.fields.rent / totalResidents)}`,
+    "Total Rooms": apartment.fields.bedrooms,
     "Total Residents": displayResidents(totalResidents),
-    "Residents Per-Room": totalResidents / apartment.bedrooms,
+    "Residents Per-Room": totalResidents / apartment.fields.bedrooms,
     "Average Utilities": `$${Math.round(150 / totalResidents)}`,
-    "Lease Duration": `${apartment.leaseInMonths} Mo.`,
-    "Lease Start": Date(apartment.available).split(" ").slice(1, 3).join(" ")
+    "Lease Duration": `${apartment.fields.leaseInMonths} Mo.`,
+    "Lease Start": Date(apartment.fields.available).split(" ").slice(1, 3).join(" ")
   }
 
 
@@ -104,7 +147,7 @@ const ApplyModal = ({ apartment, toggleForm, handleForm, ...props }) => {
             {/* step 2 */}
             <div className="step">
               <div className="new-prospect--step">2. {prospects.length == 0 ? "add desired roommate slots" : "verify roommates"}</div>
-              <RoommateConfirmation prospects={prospects} prospect={prospect} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} bedrooms={apartment.bedrooms} roommateGender={roommateGender} />
+              <RoommateConfirmation prospects={prospects} prospect={prospect} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} bedrooms={apartment.fields.bedrooms} roommateGender={roommateGender} />
             </div>
 
             {/* optional step 3 */}
@@ -124,15 +167,24 @@ ApplyModal.propTypes = {
   apartment: PropTypes.object,
   toggleForm: PropTypes.func,
   handleForm: PropTypes.func,
-  prospect: PropTypes.object
+  newProspect: PropTypes.object,
+  saveProspect: PropTypes.func,
+  saveRoommateGroup: PropTypes.func,
+  saveApartment: PropTypes.func,
+  roommateGroup: PropTypes.object,
+  prospects: PropTypes.array
 }
 
-const mapDispatchToProps = () => {
-  return {}
+const mapDispatchToProps = {
+  saveApartment,
+  saveRoommateGroup,
+  saveProspect
 }
 
 const mapStateToProps = () => {
-  return { prospect: newProspect }
+  return {
+    newProspect
+  }
 }
 
 
