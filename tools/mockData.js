@@ -965,13 +965,12 @@ const roommateGroups = [
       "apartment": [
         "recPGm3DFcMPwyWeA"
       ],
-      "moveinStart": "2020-04-10",
+      "genderPreference": "female",
       "prospects": [
         "rec5wnrgrmtn6dQuf",
         "recwpjsxRuVGz8Yes"
       ],
       "roommateTotal": 3,
-      "moveinEnd": "2020-05-10",
       "name": "Irma Ramos, Selina Vargas"
     },
     "createdTime": "2020-04-10T21:17:05.000Z"
@@ -982,13 +981,12 @@ const roommateGroups = [
       "apartment": [
         "rec4rboScqsuCxgZ9"
       ],
-      "moveinStart": "2020-04-10",
+      "genderPreference": "female",
       "prospects": [
         "recw3BGYLI39rNf6w",
         "recS6V7HSpdmbdNQm"
       ],
       "roommateTotal": 3,
-      "moveinEnd": "2020-05-10",
       "name": "Tashi Rush, Julia Bartolome"
     },
     "createdTime": "2020-04-10T21:49:09.000Z"
@@ -999,13 +997,12 @@ const roommateGroups = [
       "apartment": [
         "recPuKE1KkPqc8yKl"
       ],
-      "moveinStart": "2020-04-10",
+      "genderPreference": "female",
       "prospects": [
         "recJQ01gZ6pes7Knc",
         "recx1ePHsgDRsf0ew"
       ],
       "roommateTotal": 3,
-      "moveinEnd": "2020-05-10",
       "name": "Julia Robinson, Andrea Robinson"
     },
     "createdTime": "2020-04-10T21:52:28.000Z"
@@ -1016,13 +1013,12 @@ const roommateGroups = [
       "apartment": [
         "recTpSWMbLK6wKtFn"
       ],
-      "moveinStart": "2020-04-10",
+      "genderPreference": "female",
       "prospects": [
         "recj1dSJCGo7xH07L",
         "recBdb2EU7BeEbFpe"
       ],
       "roommateTotal": 3,
-      "moveinEnd": "2020-05-10",
       "name": "Aylin Carranza, Ariana Desouza"
     },
     "createdTime": "2020-04-10T21:35:17.000Z"
@@ -1033,7 +1029,7 @@ const prospects = [
   {
     "id": "rec5wnrgrmtn6dQuf",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
@@ -1044,7 +1040,7 @@ const prospects = [
   {
     "id": "recBdb2EU7BeEbFpe",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recsy28mj820VXh9b"
       ],
@@ -1055,7 +1051,7 @@ const prospects = [
   {
     "id": "recJQ01gZ6pes7Knc",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
@@ -1066,7 +1062,7 @@ const prospects = [
   {
     "id": "recS6V7HSpdmbdNQm",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
@@ -1077,7 +1073,7 @@ const prospects = [
   {
     "id": "recj1dSJCGo7xH07L",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recsy28mj820VXh9b"
       ],
@@ -1088,7 +1084,7 @@ const prospects = [
   {
     "id": "recw3BGYLI39rNf6w",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recGB8gr38rg2sbU7"
       ],
@@ -1099,7 +1095,7 @@ const prospects = [
   {
     "id": "recwpjsxRuVGz8Yes",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recEJSAP4tmM5umrp"
       ],
@@ -1110,7 +1106,7 @@ const prospects = [
   {
     "id": "recx1ePHsgDRsf0ew",
     "fields": {
-      "sex": "Female",
+      "sex": "female",
       "roommateGroup": [
         "recpNIGxcyQZEjaYp"
       ],
@@ -1121,11 +1117,23 @@ const prospects = [
 ]
 
 const newProspect = {
-  name: "",
-  phone: "",
-  email: "",
-  sex: "",
-  roommateGroup: null,
+  "id": null,
+  "fields": {
+    "name": "",
+    "phone": "",
+    "email": "",
+    "sex": "other",
+    "roommateGroup": [],
+  }
+}
+const newRoommateGroup = {
+  "id": null,
+  "fields": {
+    "apartment": [],
+    "prospects": [],
+    "roommateTotal": 0,
+    "genderPreference": "other"
+  }
 }
 
 module.exports = {
@@ -1134,5 +1142,6 @@ module.exports = {
   apartments,
   roommateGroups,
   newProspect,
+  newRoommateGroup,
   prospects
 }
