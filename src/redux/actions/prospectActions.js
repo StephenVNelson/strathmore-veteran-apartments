@@ -1,11 +1,17 @@
 import * as types from './actionTypes';
 import * as prospectAPI from '../../api/prospectApi'
 
-// export function createCourse(course) {
-//   return { type: types.CREATE_COURSE, course };
-// }
+
 export function loadProspectsSuccess(prospects) {
   return { type: types.LOAD_PROSPECTS_SUCCESS, prospects };
+}
+
+export function createProspectSuccess(prospect) {
+  return { type: types.CREATE_PROSPECT_SUCCESS, prospect };
+}
+
+export function updateProspectSuccess(prospect) {
+  return { type: types.UPDATE_PROSPECT_SUCCESS, prospect };
 }
 
 export function loadProspects() {
@@ -16,4 +22,22 @@ export function loadProspects() {
       throw error;
     })
   }
+}
+
+export function saveProspect(prospect) {
+  //eslint-disable-next-line no-unused-vars
+  return function (dispatch, getState) {
+    return prospectAPI
+      .saveProspect(prospect)
+      .then(savedProspect => {
+        console.log("thunk")
+        prospect.id
+          ? dispatch(updateProspectSuccess(savedProspect))
+          : dispatch(createProspectSuccess(savedProspect));
+        return savedProspect
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
 }

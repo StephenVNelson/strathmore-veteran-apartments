@@ -15,3 +15,28 @@ export function loadRoommateGroups() {
     })
   }
 }
+
+export function createRoommateGroupSuccess(roommateGroup) {
+  return { type: types.CREATE_ROOMMATEGROUP_SUCCESS, roommateGroup };
+}
+
+export function updateRoommateGroupSuccess(roommateGroup) {
+  return { type: types.UPDATE_ROOMMATEGROUP_SUCCESS, roommateGroup };
+}
+
+export function saveRoommateGroup(roommateGroup) {
+  //eslint-disable-next-line no-unused-vars
+  return function (dispatch, getState) {
+    return roommateGroupAPI
+      .saveRoommateGroup(roommateGroup)
+      .then(savedRoommateGroup => {
+        roommateGroup.id
+          ? dispatch(updateRoommateGroupSuccess(savedRoommateGroup))
+          : dispatch(createRoommateGroupSuccess(savedRoommateGroup));
+        return savedRoommateGroup;
+      })
+      .catch(error => {
+        throw error;
+      });
+  };
+}
