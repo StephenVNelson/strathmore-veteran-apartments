@@ -44,7 +44,6 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
   }
 
   // ROOOMMATE GROUP
-  // state setters
   const roommateMax = (apartment.fields.bedrooms * 2) + 1
   const initialRoommates = roommateGroup?.id ?
     [...new Array(roommateMax - prospects.length - 1)].map(() => ({ gender: "other" })) :
