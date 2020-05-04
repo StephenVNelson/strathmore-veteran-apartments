@@ -17,8 +17,13 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
   const prosepctIcons = roommateGroup?.id ?
     [...new Array(totalResidents - 1)].map((p, i) => <RoommateIcons key={i} prospect={{ sex: "male" }} />) :
     <FontAwesomeIcon icon={faBan} />
-  const genderPrefs = apartment.fields.roommateGroup?.id ? prospects[0].fields.sex.charAt(0) : "N/A"
-
+  const genderPrefs = () => {
+    if (roommateGroup?.id) {
+      const preference = roommateGroup.fields.genderPreference.charAt(0).toUpperCase()
+      return preference === "O" ? "ANY" : preference
+    }
+    return "N/A"
+  }
   const [showModal, setShowModal] = useState(false);
   return (
     <>
@@ -64,7 +69,7 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
                 </tr>
                 <tr>
                   <td>Gender Prefs:</td>
-                  <td> <div className="lower-details--gender" style={{ width: 15 + (genderPrefs.length * 10) }}>{genderPrefs}</div> </td>
+                  <td> <div className="lower-details--gender" style={{ width: 15 + (genderPrefs().length * 10) }}>{genderPrefs()}</div> </td>
                 </tr>
               </tbody>
             </table>
