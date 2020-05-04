@@ -16,6 +16,7 @@ import { saveProspect } from '../../redux/actions/prospectActions';
 
 const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProspect, saveRoommateGroup, saveApartment, newProspect }) => {
 
+  // FORM SUBMISSION
   const handleForm = async (e) => {
     e.preventDefault();
     const createdProspect = await saveProspect(prospect)
@@ -37,39 +38,29 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
       }
     })
 
-    const newApartment = await saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
+    await saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     toggleForm()
 
   }
 
-  const [newRoommateGroup, setNewRoommateGroup] = useState({
-    ...roommateGroup,
-    fields: { ...roommateGroup.fields, apartment: [apartment.id] }
-  })
-
-  const [prospect, setProspect] = useState({
-    ...newProspect
-  })
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setProspect(prevProspect => {
-      const newProspect = { ...prevProspect, fields: { ...prevProspect.fields, [name]: value } }
-      return newProspect
-    });
-  }
-
-  // ROOMATE SECTION
+  // ROOOMMATE GROUP
+  // state setters
   const roommateMax = (apartment.fields.bedrooms * 2) + 1
   const initialRoommates = roommateGroup?.id ?
     [...new Array(roommateMax - prospects.length - 1)].map(() => ({ gender: "other" })) :
     []
   const [roommates, setRoommates] = useState(initialRoommates)
-  const initialGender = roommateGroup?.id && initialRoommates.length > 0 ? initialRoommates[0].gender : "other"
+  const [newRoommateGroup, setNewRoommateGroup] = useState({
+    ...roommateGroup,
+    fields: { ...roommateGroup.fields, apartment: [apartment.id] }
+  })
+  const initialGender = roommateGroup?.id && initialRoommates.length > 0 ? prospects[0].fields.sex : "other"
   const [roommateGender, setRoommateGender] = useState(initialGender)
-
+  // helper variables
   const totalResidents = roommates.length + prospects.length + 1
 
+
+  // state changes
   const addRoommate = () => {
     if (totalResidents < roommateMax) {
       setRoommates([...roommates, { gender: roommateGender }])
@@ -93,7 +84,20 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
     setRoommates(roommates.map(rm => ({ ...rm, gender: roommateGender })))
   }
 
-  // 3rd Step
+  // PROSPECT
+  const [prospect, setProspect] = useState({
+    ...newProspect
+  })
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setProspect(prevProspect => {
+      const newProspect = { ...prevProspect, fields: { ...prevProspect.fields, [name]: value } }
+      return newProspect
+    });
+  }
+
+  // Dynamic markup templates that change based on data
   const thirdStep = roommateGroup?.id ? "" : (
     <div className="step">
       <div className="new-prospect--step">3. specify roommate details</div>
@@ -101,10 +105,11 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
       <RadioOptions onChange={updateRoommateGender} valueName={"genderPreference"} />
     </div>
   )
-
   const displayResidents = (totalResidents) => {
     return [...Array(totalResidents)].map((_, i) => <FontAwesomeIcon key={i} style={{ margin: "2px" }} icon={faMale} />)
   }
+
+  // This object will be iterated through to create summary information
   const summaryData = {
     "Individual Rent": `$${Math.round(apartment.fields.rent / totalResidents)}`,
     "Total Rooms": apartment.fields.bedrooms,
@@ -115,12 +120,12 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
     "Lease Start": Date(apartment.fields.available).split(" ").slice(1, 3).join(" ")
   }
 
-
-
   // RETURN
   return (
     <div className="modal-container">
       <div className="modal-content">
+
+        {/* summary section */}
         <div className="summary">
           <div className="close" onClick={toggleForm}><FontAwesomeIcon icon={faTimesCircle} /></div>
           <div className="summary-title">Summary</div>
@@ -135,6 +140,8 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
             }
           </div>
         </div>
+
+        {/* form section */}
         <div className="new-prospect--container">
           <form className="new-prospect--form" onSubmit={handleForm}>
 
@@ -159,6 +166,8 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
             </div>
           </form>
         </div>
+
+
       </div>
     </div>)
 }
