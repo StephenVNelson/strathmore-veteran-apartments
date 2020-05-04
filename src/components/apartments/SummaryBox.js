@@ -2,6 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types';
 
 const SummaryBox = ({ title, value }) => {
+  // console.log("title: ", title, ", value: ", value)
   return (
     <div className="summary-box">
       <div className="summary-box--title">
