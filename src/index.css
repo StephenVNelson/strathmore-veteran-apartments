@@ -277,6 +277,7 @@ div.summary-title  {
 
 .resident-icons {
   display: flex;
+  align-items: center;
   flex-flow: row;
   color: var(--main-color);
   font-size: 20px;
@@ -284,7 +285,15 @@ div.summary-title  {
 
 .resident {
   /* margin: 0 10px; */
-  position: relative
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.resident__title {
+  font-size: 9px;
+  text-align: center;
+  margin: 13% 0%;
 }
 
 .resident--add {
