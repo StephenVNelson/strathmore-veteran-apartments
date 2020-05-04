@@ -16,12 +16,28 @@ import { saveProspect } from '../../redux/actions/prospectActions';
 
 const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProspect, saveRoommateGroup, saveApartment, newProspect }) => {
 
+  // ERROR HANDLING
+  const [errors, setErrors] = useState({})
+  const formIsValid = () => {
+    const { name, phone, email, sex } = prospect.fields;
+    const errors = {};
+
+    if (!name) errors.name = "Name is required.";
+    if (!phone) errors.phone = "Phone is required";
+    if (!email) errors.email = "Email is required";
+    if (!sex) errors.sex = "Gender is required";
+
+    setErrors(errors);
+    // Form is valid if the errors object still has no properties
+    return Object.keys(errors).length === 0;
+  }
+
   // FORM SUBMISSION
   const handleForm = async (e) => {
     e.preventDefault();
+    if (!formIsValid()) { return }
     const createdProspect = await saveProspect(prospect)
     const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
-
     const createdRoommateGroup = await saveRoommateGroup({
       ...newRoommateGroup,
       fields: {
@@ -29,7 +45,6 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
         prospects: newProspects
       }
     })
-
     saveProspect({
       ...createdProspect,
       fields: {
@@ -37,10 +52,8 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
         roommateGroup: [createdRoommateGroup.id]
       }
     })
-
     await saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     toggleForm()
-
   }
 
   // ROOOMMATE GROUP
@@ -147,7 +160,7 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
             {/* step 1 */}
             <div className="step">
               <div className="new-prospect--step">1. enter your information</div>
-              <NewProspects onChange={handleChange} prospect={prospect} />
+              <NewProspects onChange={handleChange} prospect={prospect} errors={errors} />
             </div>
 
             {/* step 2 */}

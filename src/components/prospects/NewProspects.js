@@ -1,18 +1,19 @@
 import React from 'react'
 import PropTypes from 'prop-types';
 import RadioOptions from '../common/RadioOptions';
+import Input from '../common/input/Input'
 
 
 
-const NewProspects = ({ onChange, prospect }) => {
+const NewProspects = ({ onChange, prospect, errors = {} }) => {
   return (
     <div className="new-prospect--info">
       <div className="new-prospect--inputs">
-        <input type="text" name="name" placeholder="full name" className="new-prospect--input" onChange={onChange} value={prospect.fields.name} />
-        <input type="text" name="phone" placeholder="phone" className="new-prospect--input" onChange={onChange} value={prospect.fields.phone} />
-        <input type="text" name="email" placeholder="email" className="new-prospect--input" onChange={onChange} value={prospect.fields.email} />
+        <Input name={"name"} placeholder={"full name"} value={prospect.fields.name} error={errors.name} onChange={onChange} />
+        <Input name={"phone"} placeholder={"phone"} value={prospect.fields.phone} error={errors.phone} onChange={onChange} />
+        <Input name={"email"} placeholder={"email"} value={prospect.fields.email} error={errors.email} onChange={onChange} />
       </div>
-      <RadioOptions onChange={onChange} valueName={"sex"} />
+      <RadioOptions onChange={onChange} valueName={"sex"} error={errors.sex} />
     </div>
   )
 }
