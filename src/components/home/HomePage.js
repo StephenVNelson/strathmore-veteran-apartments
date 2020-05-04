@@ -1,109 +1,16 @@
 import React from "react";
-import Filters from "../Filters"
-import { connect } from 'react-redux';
-import * as companyActions from '../../redux/actions/companyActions'
-import * as buildingActions from '../../redux/actions/buildingActions'
-import * as apartmentActions from '../../redux/actions/apartmentActions'
-import * as roommateGroupActions from '../../redux/actions/roommateGroupActions'
-import * as prospectActions from '../../redux/actions/prospectActions'
-import PropTypes from 'prop-types';
-import { bindActionCreators } from 'redux';
 import ApartmentList from '../apartments/ApartmentsList'
 import Header from '../common/Header'
 
 
 // import { Link } from "react-router-dom";
 
-class HomePage extends React.Component {
-  componentDidMount() {
-    const { companies, buildings, apartments, roommateGroups, prospects, actions } = this.props;
-    if (companies.length === 0) {
-      actions.loadCompanies().catch(error => {
-        alert("Loading companies failed:" + error)
-      });
-    }
-    if (buildings.length === 0) {
-      actions.loadBuildings().catch(error => {
-        alert("Loading buildings failed:" + error)
-      });
-    }
-    if (apartments.length === 0) {
-      actions.loadApartments().catch(error => {
-        alert("Loading apartments failed:" + error)
-      });
-    }
-    if (roommateGroups.length === 0) {
-      actions.loadRoommateGroups().catch(error => {
-        alert("Loading roommateGroups failed:" + error)
-      });
-    }
-    if (prospects.length === 0) {
-      actions.loadProspects().catch(error => {
-        alert("Loading prospects failed:" + error)
-      });
-    }
-  }
-  render() {
-    return (<>
-      <Header />
-      {/* <Filters /> */}
-      <ApartmentList apartments={this.props.apartments} />
-    </>);
-  }
+const HomePage = () => {
+  return (<>
+    <Header />
+    {/* <Filters /> */}
+    <ApartmentList />
+  </>);
 }
 
-HomePage.propTypes = {
-  companies: PropTypes.array.isRequired,
-  buildings: PropTypes.array.isRequired,
-  apartments: PropTypes.array.isRequired,
-  roommateGroups: PropTypes.array.isRequired,
-  prospects: PropTypes.array.isRequired,
-  actions: PropTypes.object.isRequired
-};
-
-// finds child object and replaces reference property in parent object with a copy of the child object
-function objectLookup(id, collection) {
-  // if (collection.length == 8) { debugger }
-  let foundObject = collection.find(c => c.id == id) || {}
-  return JSON.parse(JSON.stringify(foundObject))
-}
-
-function apartmentMapping(state) {
-  const { apartments, buildings, roommateGroups, prospects } = state
-  if (buildings.length === 0 || roommateGroups.length === 0 || prospects.length === 0) {
-    return []
-  } else {
-    return apartments.map(apartment => {
-      let building = objectLookup(apartment.fields?.building, buildings)
-      let roommateGroup = objectLookup(apartment.fields?.roommateGroup, roommateGroups)
-      if (roommateGroup?.fields?.prospects) {
-        roommateGroup.fields.prospects = roommateGroup.fields.prospects.map(p => objectLookup(p, prospects))
-      }
-      return { ...apartment, fields: { ...apartment.fields, building, roommateGroup } }
-    })
-  }
-}
-
-function mapStateToProps(state) {
-  return {
-    companies: state.companies,
-    buildings: state.buildings,
-    apartments: apartmentMapping(state),
-    roommateGroups: state.roommateGroups,
-    prospects: state.prospects
-  }
-}
-
-function mapDispatchToProps(dispatch) {
-  return {
-    actions: {
-      loadCompanies: bindActionCreators(companyActions.loadCompanies, dispatch),
-      loadBuildings: bindActionCreators(buildingActions.loadBuildings, dispatch),
-      loadApartments: bindActionCreators(apartmentActions.loadApartments, dispatch),
-      loadRoommateGroups: bindActionCreators(roommateGroupActions.loadRoommateGroups, dispatch),
-      loadProspects: bindActionCreators(prospectActions.loadProspects, dispatch)
-    }
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(HomePage)
+export default HomePage
