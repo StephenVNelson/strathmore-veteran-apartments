@@ -22,7 +22,7 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
     const { name, phone, email, sex } = prospect.fields;
     const agreement = e.target.elements["roommate-agreement"].value
     const errors = {};
-    const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
+    const emailValidation = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
 
     if (!agreement) errors.agreement = "You must agree to the roommate group arrangement"
     if (!name) errors.name = "Name is required.";
