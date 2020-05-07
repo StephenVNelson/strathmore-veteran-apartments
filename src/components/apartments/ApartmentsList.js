@@ -19,8 +19,7 @@ const ApartmentsList = ({
   loadBuildings,
   loadApartments,
   loadRoommateGroups,
-  loadProspects,
-  ...props
+  loadProspects
 }) => {
   useEffect(() => {
     if (companies.length === 0) {
@@ -49,7 +48,7 @@ const ApartmentsList = ({
       });
     }
 
-  }, [props.apartments]);
+  }, [apartments]);
 
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
