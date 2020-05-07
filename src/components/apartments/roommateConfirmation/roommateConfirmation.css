@@ -1,5 +1,5 @@
 .roommate-agreement {
-  margin: 10% 3% 3% 0%;
+  margin: 0% 3%;
   display: flex;
   flex-flow: row;
   align-items: center;
@@ -29,13 +29,13 @@
 
 .roommate-agreement--agreement {
   font-size: 12px;
-  max-width: 400px;
+  max-width: 300px;
   color: var(--main-color)
 }
 
 .roommate-confirmation--error{
   font-size: 12px;
-  max-width: 400px;
+  max-width: 300px;
   color: red
 }
 
