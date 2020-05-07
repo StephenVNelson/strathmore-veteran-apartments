@@ -18,12 +18,16 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
 
   // ERROR HANDLING
   const [errors, setErrors] = useState({})
-  const formIsValid = () => {
+  const formIsValid = (e) => {
     const { name, phone, email, sex } = prospect.fields;
+    const agreement = e.target.elements["roommate-agreement"].value
     const errors = {};
+    const emailValidation = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/
 
+    if (!agreement) errors.agreement = "You must agree to the roommate group arrangement"
     if (!name) errors.name = "Name is required.";
     if (!phone) errors.phone = "Phone is required";
+    if (!emailValidation.test(email)) errors.email = "Must submit email with correct format";
     if (!email) errors.email = "Email is required";
     if (!sex) errors.sex = "Gender is required";
 
@@ -35,7 +39,7 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
   // FORM SUBMISSION
   const handleForm = async (e) => {
     e.preventDefault();
-    if (!formIsValid()) { return }
+    if (!formIsValid(e)) { return }
     const createdProspect = await saveProspect(prospect)
     const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
     const createdRoommateGroup = await saveRoommateGroup({
