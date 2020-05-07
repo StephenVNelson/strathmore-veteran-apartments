@@ -65,6 +65,7 @@ const RoommateConfirmation = ({
   const roommateSlot = (index, lowerText) => (
     <div key={index} className="resident" onClick={removeRoommate}>
       <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
+      {lowerText != "(TBD)" && <span>-</span>}
       <div className="resident__title">{lowerText}</div>
     </div>
   )
