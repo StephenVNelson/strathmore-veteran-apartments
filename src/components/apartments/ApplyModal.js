@@ -6,7 +6,7 @@ import Button from '../common/Button';
 import SummaryBox from './SummaryBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
-import RoommateConfirmation from './RoommateConfirmation';
+import RoommateConfirmation from './roommateConfirmation/RoommateConfirmation';
 import RadioOptions from '../common/RadioOptions';
 import { newProspect } from '../../../tools/mockData'
 import { saveApartment } from '../../redux/actions/apartmentActions';
@@ -20,12 +20,14 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
   const [errors, setErrors] = useState({})
   const formIsValid = (e) => {
     const { name, phone, email, sex } = prospect.fields;
-    const agreement = e.target.elements["roommate-agreement"].value
+    const agreement = e.target.elements?.["roommate-agreement"]
     const errors = {};
+    const extractedPhoneNumbers = (phone.match(/\d+/g) || []).join("")
     const emailValidation = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-
-    if (!agreement) errors.agreement = "You must agree to the roommate group arrangement"
+    // debugger
+    if (agreement && agreement.value == "false") errors.agreement = "You must agree to the roommate group arrangement"
     if (!name) errors.name = "Name is required.";
+    if (extractedPhoneNumbers.length < 10) errors.phone = "Phone must have at least 10 digits";
     if (!phone) errors.phone = "Phone is required";
     if (!emailValidation.test(email)) errors.email = "Must submit email with correct format";
     if (!email) errors.email = "Email is required";
@@ -170,7 +172,7 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
             {/* step 2 */}
             <div className="step">
               <div className="new-prospect--step">2. {prospects.length == 0 ? "add desired roommate slots" : "verify roommates"}</div>
-              <RoommateConfirmation prospects={prospects} prospect={prospect} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} bedrooms={apartment.fields.bedrooms} roommateGender={roommateGender} />
+              <RoommateConfirmation prospects={prospects} prospect={prospect} addRoommate={addRoommate} removeRoommate={removeRoommate} totalResidents={totalResidents} roommateMax={roommateMax} roommates={roommates} bedrooms={apartment.fields.bedrooms} roommateGender={roommateGender} error={errors.agreement} />
             </div>
 
             {/* optional step 3 */}

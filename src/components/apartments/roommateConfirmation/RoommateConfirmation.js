@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faFemale, faPlus } from '@fortawesome/free-solid-svg-icons'
+import './roommateConfirmation.css'
 // import Button from '../common/Button';
 
 const RoommateConfirmation = ({
   prospects,
   prospect,
+  error,
   addRoommate,
   removeRoommate,
   totalResidents,
@@ -44,32 +46,30 @@ const RoommateConfirmation = ({
   const [checked, setChecked] = useState(false)
   const checkdisplay = checked ? "inline" : "none"
   const roommateAgreement = prospects.length == 0 ? "" : (
+
     <div className="roommate-agreement">
       <label htmlFor="roommate-agreement" onClick={() => setChecked(!checked)}>
         <input type="checkbox" name="roommate-agreement" value={checked} />
         <span style={{ display: checkdisplay }}>X</span>
       </label>
-      <span className="roommate-agreement--agreement">
-        {sharing()}
-      </span>
+      <div className="roommate-agreement__agreements">
+        {error && <span className={"roommate-confirmation--error"}>{error}</span>}
+        <span className="roommate-agreement--agreement">
+          {sharing()}
+        </span>
+      </div>
     </div>
   )
 
+
+  const roommateSlot = (index, lowerText) => (
+    <div key={index} className="resident" onClick={removeRoommate}>
+      <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
+      <div className="resident__title">{lowerText}</div>
+    </div>
+  )
   const roommateSlots = (i) => {
-    return prospects.length == 0 ?
-      (
-        <div key={i} className="resident resident--remove" onClick={removeRoommate}>
-          <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
-          <span>-</span>
-          <div className="resident__title">REMOVE</div>
-        </div>
-      ) :
-      (
-        <div key={i} className="resident" onClick={removeRoommate}>
-          <FontAwesomeIcon icon={getIcon(roommateGender)} style={{ fontSize: "90px", width: "50px" }} />
-          <div className="resident__title">(TBD)</div>
-        </div>
-      )
+    return prospects.length == 0 ? roommateSlot(i, "REMOVE") : roommateSlot(i, "(TBD)")
   }
 
   // RETURN
