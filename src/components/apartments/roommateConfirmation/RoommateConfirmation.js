@@ -117,7 +117,8 @@ RoommateConfirmation.propTypes = {
   totalResidents: PropTypes.number,
   roommates: PropTypes.array,
   bedrooms: PropTypes.number,
-  roommateGender: PropTypes.string
+  roommateGender: PropTypes.string,
+  error: PropTypes.object
 }
 
 export default RoommateConfirmation
