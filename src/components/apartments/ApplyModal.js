@@ -105,7 +105,8 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
 
   // PROSPECT
   const [prospect, setProspect] = useState({
-    ...newProspect
+    ...newProspect,
+    fields: { ...newProspect.fields }
   })
 
   const handleChange = (event) => {
