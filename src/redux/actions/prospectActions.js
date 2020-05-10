@@ -30,7 +30,6 @@ export function saveProspect(prospect) {
     return prospectAPI
       .saveProspect(prospect)
       .then(savedProspect => {
-        console.log("thunk")
         prospect.id
           ? dispatch(updateProspectSuccess(savedProspect))
           : dispatch(createProspectSuccess(savedProspect));
