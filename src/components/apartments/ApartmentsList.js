@@ -22,34 +22,32 @@ const ApartmentsList = ({
   loadProspects
 }) => {
   useEffect(() => {
-    if (companies.length === 0) {
+    if (!companies.records) {
       loadCompanies().catch(error => {
         alert("Loading companies failed:" + error)
       });
     }
-    if (buildings.length === 0) {
+    if (!buildings.records) {
       loadBuildings().catch(error => {
         alert("Loading buildings failed:" + error)
       });
     }
-    if (apartments.length === 0) {
+    if (!apartments.records) {
       loadApartments().catch(error => {
         alert("Loading apartments failed:" + error)
       });
     }
-    if (roommateGroups.length === 0) {
+    if (!roommateGroups.records) {
       loadRoommateGroups().catch(error => {
         alert("Loading roommateGroups failed:" + error)
       });
     }
-    if (prospects.length === 0) {
+    if (!prospects.records) {
       loadProspects().catch(error => {
         alert("Loading prospects failed:" + error)
       });
     }
-
-  }, [apartments]);
-
+  }, []);
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
     return apartments.filter(apartment => {
@@ -91,11 +89,16 @@ ApartmentsList.propTypes = {
 
 function mapStateToProps(state) {
   return {
-    companies: state.companies,
-    buildings: state.buildings,
-    apartments: (state.prospects.length > 0 && state.roommateGroups.length > 0) ? state.apartments : [],
-    roommateGroups: state.roommateGroups,
-    prospects: state.prospects
+    companies: state.companies.records || [],
+    buildings: state.buildings.records || [],
+    apartments: (
+      state.buildings.records &&
+      state.prospects.records &&
+      state.roommateGroups.records &&
+      state.apartments.records
+    ) ? state.apartments.records : [],
+    roommateGroups: state.roommateGroups.records || [],
+    prospects: state.prospects.records || []
   }
 }
 
