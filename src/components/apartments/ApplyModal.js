@@ -38,28 +38,42 @@ const ApplyModal = ({ apartment, roommateGroup, prospects, toggleForm, saveProsp
     return Object.keys(errors).length === 0;
   }
 
+  const addRemoveProperties = (obj, propsToAdd = {}, propsToDelete = []) => {
+    let objCopy = { ...obj, fields: { ...obj.fields, ...propsToAdd } }
+    propsToDelete.forEach(prop => {
+      delete objCopy.fields[prop]
+    })
+    return objCopy
+  }
+
   // FORM SUBMISSION
   const handleForm = async (e) => {
     e.preventDefault();
+
+    // validation
     if (!formIsValid(e)) { return }
-    const createdProspect = await saveProspect(prospect)
-    const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
-    const createdRoommateGroup = await saveRoommateGroup({
-      ...newRoommateGroup,
-      fields: {
-        ...newRoommateGroup.fields,
-        prospects: newProspects
-      }
-    })
-    saveProspect({
-      ...createdProspect,
-      fields: {
-        ...createdProspect.fields,
-        roommateGroup: [createdRoommateGroup.id]
-      }
-    })
-    await saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
+
+    // 1) Exit Form
     toggleForm()
+
+    // 1) Save prospect
+    const createdProspect = await saveProspect({ fields: { ...prospect.fields } })
+
+    // 2) Save new Roomate Group
+    const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
+    const createdRoommateGroup = await saveRoommateGroup(
+      addRemoveProperties(newRoommateGroup, { prospects: newProspects }, ["name"])
+    )
+
+    // 3) Add new Roommate Group to newly created prospect
+    // saveProspect(
+    //   addRemoveProperties(createdProspect, { roommateGroup: [createdRoommateGroup.id] }, [])
+    // )
+
+    // 4) Adds Roommate Group to apartment IF it was just created
+    if (!newRoommateGroup.id) {
+      saveApartment(addRemoveProperties(apartment, { roommateGroup: [createdRoommateGroup.id] }, []))
+    }
   }
 
   // ROOOMMATE GROUP
