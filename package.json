@@ -12,10 +12,10 @@
     "test": "jest --watch",
     "test:ci": "jest",
     "prebuild": "run-p clean:build test:ci",
-    "clean:build": "rimraf ./build && mkdir build",
+    "clean:build": "rimraf ./docs && mkdir docs",
     "postbuild": "run-p start:api serve:build",
     "build": "webpack --config webpack.config.prod.js",
-    "serve:build": "http-server ./build",
+    "serve:build": "http-server ./docs",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
   },

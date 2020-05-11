@@ -1,0 +1,1907 @@
+.mediaViewInfo {
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+:root {
+	--web-view-ids: Web_1920___1;
+}
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	border: none;
+}
+#Web_1920___1 {
+	position: absolute;
+	width: 1920px;
+	height: 1534px;
+	background-color: rgba(255,254,250,1);
+	overflow: hidden;
+	--web-view-name: Web 1920 – 1;
+	--web-view-id: Web_1920___1;
+	--web-scale-on-resize: true;
+	--web-enable-deep-linking: true;
+}
+#Card {
+	position: absolute;
+	width: 1666px;
+	height: 972px;
+	left: 127px;
+	top: 489px;
+	overflow: hidden;
+}
+#Card_h {
+	position: absolute;
+	width: 704px;
+	height: 356px;
+	left: 25px;
+	top: 25px;
+	overflow: visible;
+}
+.Rectangle_1 {
+	filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.098));
+	position: absolute;
+	overflow: visible;
+	width: 764px;
+	height: 416px;
+	left: 0px;
+	top: 0px;
+}
+#Details {
+	position: absolute;
+	width: 316px;
+	height: 324px;
+	left: 371px;
+	top: 6px;
+	overflow: visible;
+}
+#Apply_Button {
+	position: absolute;
+	width: 140px;
+	height: 42px;
+	left: 90px;
+	top: 282px;
+	overflow: visible;
+}
+.Rectangle_3 {
+	position: absolute;
+	overflow: visible;
+	width: 140px;
+	height: 42px;
+	left: 0px;
+	top: 0px;
+}
+#APPLY {
+	position: absolute;
+	left: 39px;
+	top: 7px;
+	overflow: visible;
+	width: 61px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(255,255,255,1);
+}
+#Lower_details {
+	position: absolute;
+	width: 305px;
+	height: 146px;
+	left: 6px;
+	top: 95px;
+	overflow: visible;
+}
+#_780_month {
+	position: absolute;
+	left: 0px;
+	top: 33px;
+	overflow: visible;
+	width: 119px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 39px;
+	color: rgba(112,112,112,1);
+}
+#ID1_bedroom_1_bathroom__450_sq {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 306px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#sharing__1_bedroom_with_2_girl {
+	position: absolute;
+	left: 0px;
+	top: 101px;
+	overflow: visible;
+	width: 236px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+.Line_1 {
+	overflow: visible;
+	position: absolute;
+	width: 306.01px;
+	height: 4px;
+	left: 0.5px;
+	top: 83.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Upper_Details {
+	position: absolute;
+	width: 316px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#ID11090_Strathmore_Dr__Los_Ang {
+	position: absolute;
+	left: 0px;
+	top: 16px;
+	overflow: visible;
+	width: 171px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+#ID01 {
+	position: absolute;
+	left: 257px;
+	top: 0px;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 61px;
+	color: rgba(112,112,112,1);
+}
+#APT_ {
+	position: absolute;
+	left: 210px;
+	top: 16px;
+	overflow: visible;
+	width: 40px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#Photo {
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_2 {
+	position: absolute;
+	overflow: visible;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+}
+#Photo_y {
+	opacity: 0.361;
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#_ {
+	opacity: 0.572;
+	position: absolute;
+	left: 293px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#__ {
+	opacity: 0.57;
+	position: absolute;
+	left: 10px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#Repeat_Grid_1 {
+	position: absolute;
+	width: 191px;
+	height: 13px;
+	left: 95px;
+	top: 19px;
+	overflow: hidden;
+}
+#Repeat_Grid_1_0 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1 {
+	opacity: 0.57;
+}
+.Ellipse_1 {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_1 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 24px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ {
+	opacity: 0.57;
+}
+.Ellipse_1_ {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_2 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 48px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ba {
+	opacity: 0.57;
+}
+.Ellipse_1_ba {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_3 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 72px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_bb {
+	opacity: 0.57;
+}
+.Ellipse_1_bb {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_4 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 96px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_bc {
+	opacity: 0.57;
+}
+.Ellipse_1_bc {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_5 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 120px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_bd {
+	opacity: 0.57;
+}
+.Ellipse_1_bd {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_6 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 144px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_bf {
+	opacity: 0.57;
+}
+.Ellipse_1_bf {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_7 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 168px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_bh {
+	opacity: 0.57;
+}
+.Ellipse_1_bh {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Card_bi {
+	position: absolute;
+	width: 704px;
+	height: 356px;
+	left: 917px;
+	top: 25px;
+	overflow: visible;
+}
+.Rectangle_1_bj {
+	filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.098));
+	position: absolute;
+	overflow: visible;
+	width: 764px;
+	height: 416px;
+	left: 0px;
+	top: 0px;
+}
+#Details_bk {
+	position: absolute;
+	width: 316px;
+	height: 324px;
+	left: 371px;
+	top: 6px;
+	overflow: visible;
+}
+#Apply_Button_bl {
+	position: absolute;
+	width: 140px;
+	height: 42px;
+	left: 90px;
+	top: 282px;
+	overflow: visible;
+}
+.Rectangle_3_bm {
+	position: absolute;
+	overflow: visible;
+	width: 140px;
+	height: 42px;
+	left: 0px;
+	top: 0px;
+}
+#APPLY_bn {
+	position: absolute;
+	left: 39px;
+	top: 7px;
+	overflow: visible;
+	width: 61px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(255,255,255,1);
+}
+#Lower_details_bo {
+	position: absolute;
+	width: 305px;
+	height: 146px;
+	left: 6px;
+	top: 95px;
+	overflow: visible;
+}
+#_780_month_bp {
+	position: absolute;
+	left: 0px;
+	top: 33px;
+	overflow: visible;
+	width: 119px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 39px;
+	color: rgba(112,112,112,1);
+}
+#ID1_bedroom_1_bathroom__450_sq_bq {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 306px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#sharing__1_bedroom_with_2_girl_br {
+	position: absolute;
+	left: 0px;
+	top: 101px;
+	overflow: visible;
+	width: 236px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+.Line_1_bs {
+	overflow: visible;
+	position: absolute;
+	width: 306.01px;
+	height: 4px;
+	left: 0.5px;
+	top: 83.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Upper_Details_bt {
+	position: absolute;
+	width: 316px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#ID11090_Strathmore_Dr__Los_Ang_bu {
+	position: absolute;
+	left: 0px;
+	top: 16px;
+	overflow: visible;
+	width: 171px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+#ID01_bv {
+	position: absolute;
+	left: 257px;
+	top: 0px;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 61px;
+	color: rgba(112,112,112,1);
+}
+#APT__bw {
+	position: absolute;
+	left: 210px;
+	top: 16px;
+	overflow: visible;
+	width: 40px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#Photo_bx {
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_2_by {
+	position: absolute;
+	overflow: visible;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+}
+#Photo_bz {
+	opacity: 0.361;
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#__b {
+	opacity: 0.572;
+	position: absolute;
+	left: 293px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#__ca {
+	opacity: 0.57;
+	position: absolute;
+	left: 10px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#Repeat_Grid_1_b {
+	position: absolute;
+	width: 191px;
+	height: 13px;
+	left: 95px;
+	top: 19px;
+	overflow: hidden;
+}
+#Repeat_Grid_1_b_0 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_b {
+	opacity: 0.57;
+}
+.Ellipse_1_b {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_1 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 24px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ca {
+	opacity: 0.57;
+}
+.Ellipse_1_ca {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_2 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 48px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_cb {
+	opacity: 0.57;
+}
+.Ellipse_1_cb {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_3 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 72px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_cc {
+	opacity: 0.57;
+}
+.Ellipse_1_cc {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_4 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 96px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_cd {
+	opacity: 0.57;
+}
+.Ellipse_1_cd {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_5 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 120px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ce {
+	opacity: 0.57;
+}
+.Ellipse_1_ce {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_6 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 144px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_cg {
+	opacity: 0.57;
+}
+.Ellipse_1_cg {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_b_7 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 168px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ci {
+	opacity: 0.57;
+}
+.Ellipse_1_ci {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Card_cj {
+	position: absolute;
+	width: 704px;
+	height: 356px;
+	left: 25px;
+	top: 570px;
+	overflow: visible;
+}
+.Rectangle_1_ck {
+	filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.098));
+	position: absolute;
+	overflow: visible;
+	width: 764px;
+	height: 416px;
+	left: 0px;
+	top: 0px;
+}
+#Details_cl {
+	position: absolute;
+	width: 316px;
+	height: 324px;
+	left: 371px;
+	top: 6px;
+	overflow: visible;
+}
+#Apply_Button_cm {
+	position: absolute;
+	width: 140px;
+	height: 42px;
+	left: 90px;
+	top: 282px;
+	overflow: visible;
+}
+.Rectangle_3_cn {
+	position: absolute;
+	overflow: visible;
+	width: 140px;
+	height: 42px;
+	left: 0px;
+	top: 0px;
+}
+#APPLY_co {
+	position: absolute;
+	left: 39px;
+	top: 7px;
+	overflow: visible;
+	width: 61px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(255,255,255,1);
+}
+#Lower_details_cp {
+	position: absolute;
+	width: 305px;
+	height: 146px;
+	left: 6px;
+	top: 95px;
+	overflow: visible;
+}
+#_780_month_cq {
+	position: absolute;
+	left: 0px;
+	top: 33px;
+	overflow: visible;
+	width: 119px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 39px;
+	color: rgba(112,112,112,1);
+}
+#ID1_bedroom_1_bathroom__450_sq_cr {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 306px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#sharing__1_bedroom_with_2_girl_cs {
+	position: absolute;
+	left: 0px;
+	top: 101px;
+	overflow: visible;
+	width: 236px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+.Line_1_ct {
+	overflow: visible;
+	position: absolute;
+	width: 306.01px;
+	height: 4px;
+	left: 0.5px;
+	top: 83.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Upper_Details_cu {
+	position: absolute;
+	width: 316px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#ID11090_Strathmore_Dr__Los_Ang_cv {
+	position: absolute;
+	left: 0px;
+	top: 16px;
+	overflow: visible;
+	width: 171px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+#ID01_cw {
+	position: absolute;
+	left: 257px;
+	top: 0px;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 61px;
+	color: rgba(112,112,112,1);
+}
+#APT__cx {
+	position: absolute;
+	left: 210px;
+	top: 16px;
+	overflow: visible;
+	width: 40px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#Photo_cy {
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_2_cz {
+	position: absolute;
+	overflow: visible;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+}
+#Photo_c {
+	opacity: 0.361;
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#__c {
+	opacity: 0.572;
+	position: absolute;
+	left: 293px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#__da {
+	opacity: 0.57;
+	position: absolute;
+	left: 10px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#Repeat_Grid_1_c {
+	position: absolute;
+	width: 191px;
+	height: 13px;
+	left: 95px;
+	top: 19px;
+	overflow: hidden;
+}
+#Repeat_Grid_1_c_0 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_c {
+	opacity: 0.57;
+}
+.Ellipse_1_c {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_1 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 24px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_da {
+	opacity: 0.57;
+}
+.Ellipse_1_da {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_2 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 48px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_db {
+	opacity: 0.57;
+}
+.Ellipse_1_db {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_3 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 72px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_dc {
+	opacity: 0.57;
+}
+.Ellipse_1_dc {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_4 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 96px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_dd {
+	opacity: 0.57;
+}
+.Ellipse_1_dd {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_5 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 120px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_df {
+	opacity: 0.57;
+}
+.Ellipse_1_df {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_6 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 144px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_dh {
+	opacity: 0.57;
+}
+.Ellipse_1_dh {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_c_7 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 168px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_dj {
+	opacity: 0.57;
+}
+.Ellipse_1_dj {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Card_dk {
+	position: absolute;
+	width: 704px;
+	height: 356px;
+	left: 917px;
+	top: 570px;
+	overflow: visible;
+}
+.Rectangle_1_dl {
+	filter: drop-shadow(5px 5px 20px rgba(0, 0, 0, 0.098));
+	position: absolute;
+	overflow: visible;
+	width: 764px;
+	height: 416px;
+	left: 0px;
+	top: 0px;
+}
+#Details_dm {
+	position: absolute;
+	width: 316px;
+	height: 324px;
+	left: 371px;
+	top: 6px;
+	overflow: visible;
+}
+#Apply_Button_dn {
+	position: absolute;
+	width: 140px;
+	height: 42px;
+	left: 90px;
+	top: 282px;
+	overflow: visible;
+}
+.Rectangle_3_do {
+	position: absolute;
+	overflow: visible;
+	width: 140px;
+	height: 42px;
+	left: 0px;
+	top: 0px;
+}
+#APPLY_dp {
+	position: absolute;
+	left: 39px;
+	top: 7px;
+	overflow: visible;
+	width: 61px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 24px;
+	color: rgba(255,255,255,1);
+}
+#Lower_details_dq {
+	position: absolute;
+	width: 305px;
+	height: 146px;
+	left: 6px;
+	top: 95px;
+	overflow: visible;
+}
+#_780_month_dr {
+	position: absolute;
+	left: 0px;
+	top: 33px;
+	overflow: visible;
+	width: 119px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 39px;
+	color: rgba(112,112,112,1);
+}
+#ID1_bedroom_1_bathroom__450_sq_ds {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+	width: 306px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#sharing__1_bedroom_with_2_girl_dt {
+	position: absolute;
+	left: 0px;
+	top: 101px;
+	overflow: visible;
+	width: 236px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+.Line_1_du {
+	overflow: visible;
+	position: absolute;
+	width: 306.01px;
+	height: 4px;
+	left: 0.5px;
+	top: 83.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+#Upper_Details_dv {
+	position: absolute;
+	width: 316px;
+	height: 72px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#ID11090_Strathmore_Dr__Los_Ang_dw {
+	position: absolute;
+	left: 0px;
+	top: 16px;
+	overflow: visible;
+	width: 171px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 19px;
+	color: rgba(112,112,112,1);
+}
+#ID01_dx {
+	position: absolute;
+	left: 257px;
+	top: 0px;
+	overflow: visible;
+	width: 60px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 61px;
+	color: rgba(112,112,112,1);
+}
+#APT__dy {
+	position: absolute;
+	left: 210px;
+	top: 16px;
+	overflow: visible;
+	width: 40px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: Helvetica Neue;
+	font-style: normal;
+	font-weight: bold;
+	font-size: 23px;
+	color: rgba(112,112,112,1);
+}
+#Photo_dz {
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Rectangle_2_d {
+	position: absolute;
+	overflow: visible;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+}
+#Photo_d {
+	opacity: 0.361;
+	position: absolute;
+	width: 352px;
+	height: 356px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#__d {
+	opacity: 0.572;
+	position: absolute;
+	left: 293px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#__ea {
+	opacity: 0.57;
+	position: absolute;
+	left: 10px;
+	top: 95px;
+	overflow: visible;
+	width: 53px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 130px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#Repeat_Grid_1_d {
+	position: absolute;
+	width: 191px;
+	height: 13px;
+	left: 95px;
+	top: 19px;
+	overflow: hidden;
+}
+#Repeat_Grid_1_d_0 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_d {
+	opacity: 0.57;
+}
+.Ellipse_1_d {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_1 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 24px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ea {
+	opacity: 0.57;
+}
+.Ellipse_1_ea {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_2 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 48px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_eb {
+	opacity: 0.57;
+}
+.Ellipse_1_eb {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_3 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 72px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ec {
+	opacity: 0.57;
+}
+.Ellipse_1_ec {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_4 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 96px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ee {
+	opacity: 0.57;
+}
+.Ellipse_1_ee {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_5 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 120px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_eg {
+	opacity: 0.57;
+}
+.Ellipse_1_eg {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_6 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 144px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ei {
+	opacity: 0.57;
+}
+.Ellipse_1_ei {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Repeat_Grid_1_d_7 {
+	position: absolute;
+	width: 13px;
+	height: 13px;
+	left: 168px;
+	top: 0px;
+	overflow: visible;
+}
+#Ellipse_1_ek {
+	opacity: 0.57;
+}
+.Ellipse_1_ek {
+	position: absolute;
+	overflow: visible;
+	width: 13px;
+	height: 13px;
+	left: 0px;
+	top: 0px;
+}
+#Strathmore___Veteran {
+	position: absolute;
+	left: 478px;
+	top: 25px;
+	overflow: visible;
+	width: 935px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 96px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#AVAILABLE_APARTMENTS {
+	position: absolute;
+	left: 690px;
+	top: 153px;
+	overflow: visible;
+	width: 542px;
+	white-space: nowrap;
+	text-align: left;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 46px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+.Line_2 {
+	overflow: visible;
+	position: absolute;
+	width: 1666px;
+	height: 5px;
+	left: 127.5px;
+	top: 265.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Line_3 {
+	overflow: visible;
+	position: absolute;
+	width: 386px;
+	height: 5px;
+	left: 752.5px;
+	top: 366.5px;
+	transform: matrix(1,0,0,1,0,0);
+}
+.Ellipse_2 {
+	position: absolute;
+	overflow: visible;
+	width: 16px;
+	height: 16px;
+	left: 797px;
+	top: 359px;
+}
+.Ellipse_3 {
+	position: absolute;
+	overflow: visible;
+	width: 16px;
+	height: 16px;
+	left: 1069px;
+	top: 359px;
+}
+#low {
+	position: absolute;
+	left: 788px;
+	top: 330px;
+	overflow: visible;
+	width: 35px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#high {
+	position: absolute;
+	left: 1056px;
+	top: 331px;
+	overflow: visible;
+	width: 43px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: KufiStandardGK;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#_700 {
+	position: absolute;
+	left: 783px;
+	top: 382px;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#_3700 {
+	position: absolute;
+	left: 1050px;
+	top: 383px;
+	overflow: visible;
+	width: 55px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 20px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#number_of_people_room {
+	position: absolute;
+	left: 171px;
+	top: 292px;
+	overflow: visible;
+	width: 255px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#monthly_rent {
+	position: absolute;
+	left: 875px;
+	top: 293px;
+	overflow: visible;
+	width: 135px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#gender_filter {
+	position: absolute;
+	left: 1507px;
+	top: 293px;
+	overflow: visible;
+	width: 131px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 25px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#People {
+	position: absolute;
+	width: 268px;
+	height: 28px;
+	left: 228px;
+	top: 344px;
+	overflow: hidden;
+}
+#People_ez {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+	overflow: visible;
+}
+.Ellipse_4 {
+	position: absolute;
+	overflow: visible;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+}
+#People_e {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	left: 57px;
+	top: 0px;
+	overflow: visible;
+}
+.Ellipse_4_e {
+	position: absolute;
+	overflow: visible;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+}
+#People_fa {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	left: 114px;
+	top: 0px;
+	overflow: visible;
+}
+.Ellipse_4_fa {
+	position: absolute;
+	overflow: visible;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+}
+#People_fb {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	left: 171px;
+	top: 0px;
+	overflow: visible;
+}
+.Ellipse_4_fb {
+	position: absolute;
+	overflow: visible;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+}
+#People_fc {
+	position: absolute;
+	width: 28px;
+	height: 28px;
+	left: 228px;
+	top: 0px;
+	overflow: visible;
+}
+.Ellipse_4_fc {
+	position: absolute;
+	overflow: visible;
+	width: 28px;
+	height: 28px;
+	left: 0px;
+	top: 0px;
+}
+.Rectangle_4 {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 33px;
+	left: 127px;
+	top: 342px;
+}
+.Rectangle_5 {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 33px;
+	left: 1397px;
+	top: 345px;
+}
+.Rectangle_7 {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 33px;
+	left: 1649px;
+	top: 345px;
+}
+.Rectangle_8 {
+	position: absolute;
+	overflow: visible;
+	width: 81px;
+	height: 33px;
+	left: 1524px;
+	top: 345px;
+}
+#PRIVATE {
+	position: absolute;
+	left: 135px;
+	top: 353px;
+	overflow: visible;
+	width: 67px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#MALE {
+	position: absolute;
+	left: 1416px;
+	top: 356px;
+	overflow: visible;
+	width: 45px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(255,255,255,1);
+	letter-spacing: -0.1px;
+}
+#ALL {
+	position: absolute;
+	left: 1676px;
+	top: 356px;
+	overflow: visible;
+	width: 29px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
+#FEMALE {
+	position: absolute;
+	left: 1533px;
+	top: 356px;
+	overflow: visible;
+	width: 65px;
+	white-space: nowrap;
+	text-align: center;
+	font-family: Helvetica;
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px;
+	color: rgba(127,160,181,1);
+	letter-spacing: -0.1px;
+}
