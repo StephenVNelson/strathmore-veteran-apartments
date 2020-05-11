@@ -39,6 +39,7 @@
     "custom-env": "^2.0.1",
     "dotenv": "^8.2.0",
     "file-loader": "^6.0.0",
+    "gh-pages": "^2.2.0",
     "immer": "2.1.3",
     "node-sass": "^4.13.1",
     "prop-types": "15.7.2",
