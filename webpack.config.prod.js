@@ -26,7 +26,8 @@ module.exports = {
 
     new webpack.DefinePlugin({
       "process.env.API_URL": JSON.stringify(`https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}`), // `https://api.airtable.com/v0/${process.env.AIRTABLE_BASE_ID}`
-      "process.env.AIRTABLE_API_KEY": JSON.stringify(process.env.AIRTABLE_API_KEY)
+      "process.env.AIRTABLE_API_KEY": JSON.stringify(process.env.AIRTABLE_API_KEY),
+      "process.env.PUBLIC_URL": JSON.stringify(process.env.PUBLIC_URL)
     }),
     new HtmlWebpackPlugin({
       template: "src/index.html",
