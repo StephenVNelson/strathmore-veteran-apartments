@@ -8,7 +8,7 @@ import configureStore from './redux/configureStore';
 import { Provider as ReduxProvider } from 'react-redux';
 
 const store = configureStore();
-
+console.log("PUBLIC URL: ", process.env.PUBLIC_URL)
 render(
   <ReduxProvider store={store} baseName={process.env.PUBLIC_URL}>
     <Router>

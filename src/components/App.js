@@ -9,7 +9,7 @@ function App() {
   return (
     <div className="container-fluid">
       <Switch>
-        <Route exact path={process.env.PUBLIC_URL + '/'} component={HomePage} />
+        <Route path={'/'} component={HomePage} />
         <Route component={PageNotFound} />
       </Switch>
     </div>
