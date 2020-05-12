@@ -30,6 +30,7 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
       {showModal ? <ApplyModal apartment={apartment} roommateGroup={roommateGroup} prospects={prospects} toggleForm={toggleForm} /> : ""}
       <div className="card">
         <PhotoCarousel images={images} />
+        <div style={{ textAlign: "center", fontSize: "12px", fontFamily: "arial" }}>(click photos to browse)</div>
         <div className="details">
           <div className="upper-half">
             <div className="upper-details">
