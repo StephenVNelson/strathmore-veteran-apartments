@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { connect } from 'react-redux'
-import { loadApartments } from '../../redux/actions/apartmentActions'
-import { newApartment } from '../../../tools/mockData'
+import { loadApartments } from '../../../redux/actions/apartmentActions'
+import { newApartment } from '../../../../tools/mockData'
 import { PropTypes } from 'prop-types';
 
 const NewProspectForm = ({ apartment, loadApartments, apartments }) => {
