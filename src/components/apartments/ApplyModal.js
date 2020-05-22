@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types';
 import NewProspects from '../prospects/NewProspects';
-import Button from '../common/Button';
+import Button from '../common/button/Button';
 import SummaryBox from './SummaryBox';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faTimesCircle } from '@fortawesome/free-solid-svg-icons'
