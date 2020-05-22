@@ -4,12 +4,14 @@ import HomePage from './home/HomePage';
 // import Header from './common/Header';
 import PageNotFound from "../PageNotFound";
 // import AvailableApts from './courses/CoursesPage';
+import NewProspectForm from './prospects/NewProspectForm';
 
 function App() {
   return (
     <div className="container-fluid">
       <Switch>
-        <Route path={'/'} component={HomePage} />
+        <Route exact path={'/'} component={HomePage} />
+        <Route path={'/apply/:slug'} component={NewProspectForm} />
         <Route component={PageNotFound} />
       </Switch>
     </div>

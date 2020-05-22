@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
-import Apartment from "./Apartment"
+import Apartment from "./apartment/Apartment"
 import { connect } from "react-redux"
 import { loadCompanies } from '../../redux/actions/companyActions';
 import { loadBuildings } from '../../redux/actions/buildingActions';
@@ -48,26 +48,46 @@ const ApartmentsList = ({
       });
     }
   }, []);
+
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
     return apartments.filter(apartment => {
+      const { roommateGroup } = apartment.fields
+
       // keeps apartments where nobody has applied
-      if (!apartment.fields?.roommateGroup?.[0]) return true
+      if (!roommateGroup) return true
 
       // keeps apartments where there is still room for people to apply
-      if (apartment.fields?.roommateGroup?.[0]) {
-        const roommateGroup = lookupById(roommateGroups, apartment.fields.roommateGroup).fields
-        return roommateGroup.prospects.length < roommateGroup.roommateTotal
+      if (roommateGroup) {
+        const getRMGroup = lookupById(roommateGroups, roommateGroup).fields
+        return getRMGroup.prospects.length < getRMGroup.roommateTotal
       }
     })
   }
 
   return (<div className="apartment-list">
     {apartmentsWithSlots().map(apartment => {
+
       const building = lookupById(buildings, apartment.fields.building[0])
-      const roommateGroup = lookupById(roommateGroups, apartment.fields?.roommateGroup?.[0]) || newRoommateGroup
-      const groupProspects = roommateGroup.fields.prospects.map(prospect => lookupById(prospects, prospect))
-      return <Apartment key={apartment.id} apartment={apartment} building={building} roommateGroup={roommateGroup} prospects={groupProspects} />
+
+      const roommateGroup = lookupById(
+        roommateGroups,
+        apartment.fields?.roommateGroup?.[0]
+      ) ||
+        newRoommateGroup
+
+      const groupProspects = roommateGroup.fields.prospects.map(
+        prospect => lookupById(prospects, prospect)
+      )
+
+      return <Apartment
+        key={apartment.id}
+        apartment={apartment}
+        building={building}
+        roommateGroup={roommateGroup}
+        prospects={groupProspects}
+      />
+
     })}
   </div>)
 }

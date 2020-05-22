@@ -1,11 +1,12 @@
 import React, { useState } from 'react';
 import PropTypes from "prop-types";
-import RoommateIcons from './RoommateIcons';
+import RoommateIcons from '../RoommateIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
-import PhotoCarousel from './PhotoCarousel';
-import Button from '../common/Button';
-import ApplyModal from './ApplyModal';
+import PhotoCarousel from '../PhotoCarousel';
+import Button from '../../common/button/Button';
+import ApplyModal from '../ApplyModal';
+import { Link } from 'react-router-dom';
 
 const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
   const toggleForm = () => setShowModal(!showModal)
@@ -75,8 +76,9 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
               </tbody>
             </table>
           </div>
-          <div onClick={toggleForm} className="main-button--container">
-            <Button style={{ fontSize: "24px", padding: "0.5% 4%" }}>APPLY</Button>
+          <div className="main-button--container">
+            <Button style={{ fontSize: "24px", padding: "0.5% 4%" }}>
+              <Link className="main-button--text" to="/apply/1">APPLY</Link></Button>
           </div>
         </div >
       </div>

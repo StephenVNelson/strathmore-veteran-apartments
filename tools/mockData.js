@@ -1665,6 +1665,21 @@ const newProspect = {
     "roommateGroup": [],
   }
 }
+const newApartment = {
+  id: "rec4rboScqsuCxgZ9",
+  fields: {
+    sqft: null,
+    available: "",
+    Images: [],
+    rent: 0,
+    leaseEnd: "",
+    roommateGroup: [],
+    unit: "",
+    building: [],
+    bedrooms: null,
+    leaseInMonths: null
+  }
+}
 const newRoommateGroup = {
   "id": null,
   "fields": {
@@ -1679,6 +1694,7 @@ module.exports = {
   companies,
   buildings,
   apartments,
+  newApartment,
   roommateGroups,
   newProspect,
   newRoommateGroup,

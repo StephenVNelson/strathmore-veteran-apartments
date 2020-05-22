@@ -176,16 +176,7 @@ table tbody tr td {
   margin: 5% 0%;
 }
 
-.main-button {
-  padding: 0% 1%;
-  border-radius: 10px;
-  background-color: rgba(255,134,98,1);
-}
 
-.main-button--text {
-	font-style: normal;
-	color: rgba(255,255,255,1);
-}
 
 .modal-container {
   /* display: none; */
