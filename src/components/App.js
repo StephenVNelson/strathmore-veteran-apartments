@@ -1,14 +1,14 @@
 import React from "react"
 import { Route, Switch } from "react-router-dom"
 import HomePage from './home/HomePage';
-// import Header from './common/Header';
 import PageNotFound from "../PageNotFound";
-// import AvailableApts from './courses/CoursesPage';
-import NewProspectForm from './prospects/NewProspectForm';
+import NewProspectForm from './prospects/newProspectForm/NewProspectForm';
+import Header from './common/Header'
 
 function App() {
   return (
     <div className="container-fluid">
+      <Header />
       <Switch>
         <Route exact path={'/'} component={HomePage} />
         <Route path={'/apply/:slug'} component={NewProspectForm} />
