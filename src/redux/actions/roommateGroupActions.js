@@ -6,6 +6,20 @@ export function loadRoommateGroupsSuccess(roommateGroups) {
   return { type: types.LOAD_ROOMMATEGROUPS_SUCCESS, roommateGroups };
 }
 
+export function loadRoommateGroupSuccess(roommateGroup) {
+  return { type: types.LOAD_ROOMMATEGROUP_SUCCESS, roommateGroup };
+}
+
+export function loadRoommateGroup(id) {
+  return function (dispatch) {
+    return roommateGroupAPI.getRoommateGroup(id).then(roommateGroup => {
+      dispatch(loadRoommateGroupSuccess(roommateGroup));
+    }).catch(error => {
+      throw error;
+    })
+  }
+}
+
 export function loadRoommateGroups() {
   return function (dispatch) {
     return roommateGroupAPI.getRoommateGroups().then(roommateGroups => {

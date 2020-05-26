@@ -1666,7 +1666,7 @@ const newProspect = {
   }
 }
 const newApartment = {
-  id: "rec4rboScqsuCxgZ9",
+  id: null,
   fields: {
     sqft: null,
     available: "",

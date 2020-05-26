@@ -1,5 +1,17 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/roommateGroups/";
+const baseUrl = process.env.API_URL + "/roommateGroups";
+
+export async function getRoommateGroup(id) {
+  console.log("fetching")
+  try {
+    const response = await fetch(`${baseUrl}/${id}`, {
+      headers: { "Authorization": `Bearer ${process.env.AIRTABLE_API_KEY}` }
+    });
+    return await handleResponse(response)
+  } catch (error) {
+    return handleError(error)
+  }
+}
 
 export function getRoommateGroups() {
   return fetch(baseUrl, {

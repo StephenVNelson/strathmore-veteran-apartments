@@ -3,5 +3,6 @@ export default {
   buildings: {},
   apartments: {},
   roommateGroups: {},
-  prospects: {}
+  prospects: {},
+  roommates: []
 }

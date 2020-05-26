@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 import PhotoCarousel from '../PhotoCarousel';
 import Button from '../../common/button/Button';
-import ApplyModal from '../ApplyModal';
+import ApplyModal from '../../prospects/newProspect/NewProspectForm';
 import { Link } from 'react-router-dom';
 
 const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
@@ -78,7 +78,7 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
           </div>
           <div className="main-button--container">
             <Button style={{ fontSize: "24px", padding: "0.5% 4%" }}>
-              <Link className="main-button--text" to="/apply/1">APPLY</Link></Button>
+              <Link className="main-button--text" to={`/apply/${apartment.fields.unit}`}>APPLY</Link></Button>
           </div>
         </div >
       </div>

@@ -10,6 +10,8 @@ export default function roommateGroupReducer(state = initialState.roommateGroups
         records: state.records.map(roommateGroup =>
           roommateGroup.id === action.roommateGroup.id ? action.roommateGroup : roommateGroup)
       };
+    case types.LOAD_ROOMMATEGROUP_SUCCESS:
+      return { records: [{ ...action.roommateGroup }] };
     case types.LOAD_ROOMMATEGROUPS_SUCCESS:
       return action.roommateGroups;
     default:

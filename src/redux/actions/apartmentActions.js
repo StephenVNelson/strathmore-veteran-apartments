@@ -14,6 +14,18 @@ export function updateApartmentSuccess(apartment) {
   return { type: types.UPDATE_APARTMENT_SUCCESS, apartment };
 }
 
+export function loadApartmentSuccess(apartment) {
+  return { type: types.LOAD_APARTMENT_SUCCESS, apartment }
+}
+
+export function loadApartment(unit) {
+  return function (dispatch) {
+    return apartmentAPI.getApartment(unit).then(apartment => {
+      dispatch(loadApartmentSuccess(apartment[0]))
+    }).catch(error => { throw error })
+  }
+}
+
 export function loadApartments() {
   return function (dispatch) {
     return apartmentAPI.getApartments().then(apartments => {

@@ -11,6 +11,8 @@ export default function apartmentReducer(state = initialState.apartments, action
           apartment.id === action.apartment.id ? action.apartment : apartment
         )
       };
+    case types.LOAD_APARTMENT_SUCCESS:
+      return { records: [{ ...action.apartment }] }
     case types.LOAD_APARTMENTS_SUCCESS:
       return action.apartments;
     default:

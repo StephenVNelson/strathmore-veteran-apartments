@@ -15,6 +15,7 @@ const jsonServer = require("json-server");
 const server = jsonServer.create();
 const path = require("path");
 const router = jsonServer.router(path.join(__dirname, "db.json"));
+const data = require('./db.json')
 
 // Can pass a limited number of options to this to override (some) defaults. See https://github.com/typicode/json-server#api
 const middlewares = jsonServer.defaults({
@@ -33,10 +34,25 @@ server.use(function (req, res, next) {
   setTimeout(next, 0);
 });
 
-// Declaring custom routes below. Add custom routes before JSON Server router
+// Declaring custom routes below.Add custom routes before JSON Server router
 
-// Add createdAt to all POSTS
+// handles getting id
+server.get('/roommateGroups/:id', (req, res) => {
+  // if (req.query.filterByFormula) { res.jsonp(req.query) }
+  const group = data.roommateGroups.records.find(roommateGroup => roommateGroup.id == req.params.id)
+  res.jsonp(group)
+})
+
+// custom routing for querying and posting
 server.use((req, res, next) => {
+  if (req.query.filterByFormula) {
+    const property = req.query.filterByFormula.match(/(?<=\{)[A-Za-z1-9]*(?=})/)[0]
+    const value = req.query.filterByFormula.match(/(?<=\')[A-Za-z1-9]*(?=')/)[0]
+    const filtered = data.apartments.records.filter(apartment => apartment.fields[property] === value)
+    res.send(filtered)
+    return
+  }
+  // Add createdAt to all POSTS
   if (req.method === "POST") {
     req.body.createdAt = Date.now();
   }
