@@ -1,7 +1,7 @@
 const roommateStatement = (prospects, roommates) => {
   const statements = ["male", "female", "other"].map(sex => {
     const prospectAmount = [...prospects].filter(p => p.fields.sex == sex).length
-    const roommateAmount = [...roommates.group].filter(p => p.sex == sex).length
+    const roommateAmount = [...roommates].filter(p => p.sex == sex).length
     const amount = prospectAmount + roommateAmount
     const es = amount > 1 ? "s" : ""
     return amount ? `${amount} ${sex}${es}` : null

@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types';
-import { newApartment, newRoommateGroup, newProspect } from '../../../../tools/mockData'
-import { createRoommates, updateRoommates } from '../../../redux/actions/roommateActions';
+import { newApartment, newRoommateGroup, newSession } from '../../../../tools/mockData'
+import { createSession, updateSession } from '../../../redux/actions/sessionActions';
 import ResidentsMini from './ResidentsMini';
 import NewProspectForm from './NewProspectForm';
 import { saveProspect } from '../../../redux/actions/prospectActions';
@@ -11,31 +11,37 @@ const NewProspect = ({
   apartment,
   roommateGroup,
   prospects,
-  roommates,
-  createRoommates,
-  updateRoommates,
+  session,
+  createSession,
+  updateSession,
   saveProspect
 }) => {
-  const totalResidents = roommateGroup.fields.prospects.length + roommates.group.length + 1
+  const { roommates, prospect } = session
+  const totalResidents = roommateGroup.fields.prospects.length + roommates.length + 1
   const roommateMax = apartment.fields.bedrooms * 2 + 1
 
+  const roommateConstructor = () => {
+    let group = []
+    if (!roommateGroup.id) {
+      const roommateNumber = totalResidents - roommateGroup.fields.prospects.length - 1
+      group = [...new Array(roommateNumber)].map(() => ({ sex: "other" }))
+    }
+    return group
+  }
 
   useEffect(() => {
-    //Roommates (open slots for prospects to join)
-    if (!roommates.id && apartment.id && roommateGroup.fields) {
-      const newRoommates = {
+    if (!session.id && apartment.id && roommateGroup.fields) {
+      const roommates = roommateConstructor()
+      const roommateMax = apartment.fields.bedrooms * 2 + 1
+      const groupApartment = [roommateGroup.fields?.apartment?.[0] || apartment.id]
+      const newRoommateGroup = { ...roommateGroup, fields: { ...roommateGroup.fields, apartment: groupApartment } }
+      createSession({
+        ...session,
         id: apartment.id,
-        totalResidents,
+        roommates,
         roommateMax,
-        genderPrefs: "other"
-      }
-      if (!roommateGroup.id) {
-        createRoommates({ ...newRoommates, group: [] })
-      } else {
-        const roommateNumber = roommateGroup.fields.roommateTotal - roommateGroup.fields.prospects.length - 1
-        const roommatesConstructor = [...new Array(roommateNumber)].map(rm => ({ sex: "other" }))
-        createRoommates({ ...newRoommates, group: roommatesConstructor })
-      }
+        roommateGroup: newRoommateGroup
+      })
     }
   }, [apartment, roommateGroup])
 
@@ -97,21 +103,14 @@ const NewProspect = ({
   }
 
   const updateRoommateGender = (e) => {
-    updateRoommates({ ...roommates, genderPrefs: e.target.value })
+    const roommateGroup = { ...session.roommateGroup, genderPreference: e.target.value }
+    updateSession({ ...session, roommateGroup })
   }
-
-  // PROSPECT
-  const [prospect, setProspect] = useState({
-    ...newProspect,
-    fields: { ...newProspect.fields }
-  })
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    setProspect(prevProspect => {
-      const newProspect = { ...prevProspect, fields: { ...prevProspect.fields, [name]: value } }
-      return newProspect
-    });
+    const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
+    updateSession({ ...session, prospect: newProspect })
   }
 
   function summaryData() {
@@ -127,20 +126,19 @@ const NewProspect = ({
   }
 
   return (
-    // <div>{roommates.group.length}</div>
     <>
       {
-        (apartment.id && roommates.id) && <NewProspectForm
+        (apartment.id && session.id) && <NewProspectForm
           apartment={apartment}
           roommateGroup={roommateGroup}
           prospects={prospects}
           prospect={prospect}
           errors={errors}
           handleForm={handleForm}
-          handleChange={handleChange}
           summaryData={summaryData()}
           roommates={roommates}
           updateRoommateGender={updateRoommateGender}
+          session={session}
         />
       }
     </>
@@ -149,8 +147,8 @@ const NewProspect = ({
 
 
 const mapDispatchToProps = {
-  createRoommates,
-  updateRoommates,
+  createSession,
+  updateSession,
   saveProspect
 }
 
@@ -168,13 +166,12 @@ function mapStateToProps(state, ownProps) {
   const prospects = state.prospects.records && roommateGroup.fields.prospects.map(
     p => pluckFromState(state.prospects.records, p)
   ) || []
-  const roommates = pluckFromState(state.roommates, apartment.id) || { id: null, group: [] }
+  const session = pluckFromState(state.session, apartment.id) || newSession
   return {
     apartment,
     roommateGroup,
     prospects,
-    roommates,
-    newProspect
+    session
   }
 }
 
@@ -182,9 +179,10 @@ NewProspect.propTypes = {
   apartment: PropTypes.object.isRequired,
   roommateGroup: PropTypes.object.isRequired,
   prospects: PropTypes.array.isRequired,
-  roommates: PropTypes.object.isRequired,
-  createRoommates: PropTypes.func.isRequired,
-  updateRoommates: PropTypes.func.isRequired
+  createSession: PropTypes.func.isRequired,
+  updateSession: PropTypes.func.isRequired,
+  saveProspect: PropTypes.func.isRequired,
+  session: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProspect)

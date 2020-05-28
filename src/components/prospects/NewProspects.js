@@ -1,11 +1,20 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { updateSession } from '../../redux/actions/sessionActions'
 import PropTypes from 'prop-types';
 import RadioOptions from '../common/RadioOptions';
 import Input from '../common/input/Input'
 
 
 
-const NewProspects = ({ onChange, prospect, errors = {} }) => {
+const NewProspects = ({ session, errors = {}, updateSession }) => {
+  const { prospect } = session
+  const onChange = (event) => {
+    const { name, value } = event.target;
+    const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
+    updateSession({ ...session, prospect: newProspect })
+  }
+
   return (
     <div className="new-prospect--info">
       <div className="new-prospect--inputs">
@@ -19,8 +28,19 @@ const NewProspects = ({ onChange, prospect, errors = {} }) => {
 }
 
 NewProspects.propTypes = {
-  onChange: PropTypes.func,
-  prospect: PropTypes.object
+  updateSession: PropTypes.func,
+  session: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired
 }
 
-export default NewProspects
+const mapDispatchToProps = {
+  updateSession
+}
+
+// function mapStateToProps(state) {
+//   return {
+//     session: state.session
+//   }
+// }
+
+export default connect(null, mapDispatchToProps)(NewProspects)

@@ -1685,9 +1685,16 @@ const newRoommateGroup = {
   "fields": {
     "apartment": [],
     "prospects": [],
-    "roommateTotal": 0,
+    "roommateTotal": 1,
     "genderPreference": "other"
   }
+}
+
+const newSession = {
+  id: null,
+  roommates: [],
+  roommateGroup: newRoommateGroup,
+  prospect: newProspect
 }
 
 module.exports = {
@@ -1696,7 +1703,8 @@ module.exports = {
   apartments,
   newApartment,
   roommateGroups,
+  prospects,
   newProspect,
   newRoommateGroup,
-  prospects
+  newSession
 }

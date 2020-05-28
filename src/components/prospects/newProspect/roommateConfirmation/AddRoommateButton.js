@@ -1,43 +1,50 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faMale, faFemale, faPlus } from '@fortawesome/free-solid-svg-icons'
-import { updateRoommates } from '../../../../redux/actions/roommateActions'
+import { faMale, faFemale } from '@fortawesome/free-solid-svg-icons'
+import { updateSession } from '../../../../redux/actions/sessionActions'
+import { PropTypes } from 'prop-types';
 
 const AddRoommateButton = ({
-  roommates,
-  updateRoommates
+  session,
+  updateSession
 }) => {
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
-
+  const { roommates, roommateGroup } = session
   const addRoommate = () => {
-    if (roommates.totalResidents < roommates.roommateMax) {
-      const newTotal = roommates.totalResidents + 1
-      updateRoommates({
-        ...roommates,
-        totalResidents: newTotal,
-        group: [...roommates.group, { sex: roommates.genderPrefs }]
+    if (roommateGroup.fields.roommateTotal < session.roommateMax) {
+      const newTotal = roommateGroup.fields.roommateTotal + 1
+      updateSession({
+        ...session,
+        roommateGroup: { ...roommateGroup, fields: { ...roommateGroup.fields, roommateTotal: newTotal } },
+        roommates: [...roommates, { sex: roommateGroup.fields.genderPreference }]
       })
+      console.log(roommateGroup.fields.roommateTotal)
     }
   }
 
 
   return (
     <div className="resident resident--add" onClick={addRoommate}>
-      <FontAwesomeIcon icon={getIcon(roommates.genderPrefs)} style={{ fontSize: "90px", width: "50px" }} />
+      <FontAwesomeIcon icon={getIcon(roommateGroup.genderPreference)} style={{ fontSize: "90px", width: "50px" }} />
       <span>+</span>
       <div className="resident__title">ADD</div>
     </div>
   )
 }
 
+AddRoommateButton.propTypes = {
+  session: PropTypes.object.isRequired,
+  updateSession: PropTypes.func.isRequired
+}
+
 const mapDispatchToProps = {
-  updateRoommates
+  updateSession
 }
 
 // function mapStateToProps(state) {
 //   return {
-//     roommates: state.roommates
+//     session: state.session
 //   }
 // }
 

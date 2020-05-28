@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faMale, faFemale, faPlus } from '@fortawesome/free-solid-svg-icons'
 import AddRoommateButton from './AddRoommateButton'
-import { updateRoommates } from '../../../../redux/actions/roommateActions'
+import { updateSession } from '../../../../redux/actions/sessionActions'
 import './roommateConfirmation.css'
 import sharing from './roommateConfirmationHelpers'
 import RoommateSlots from './RoommateSlots';
@@ -14,9 +14,10 @@ const RoommateConfirmation = ({
   prospect,
   bedrooms,
   error,
-  roommates,
-  updateRoommates
+  updateSession,
+  session
 }) => {
+  const { roommates, roommateGroup } = session
 
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
 
@@ -24,15 +25,18 @@ const RoommateConfirmation = ({
   const checkdisplay = checked ? "inline" : "none"
 
   const removeRoommate = () => {
-    const group = roommates.group.slice(0, -1)
-    const totalResidents = roommates.totalResidents - 1
-    updateRoommates({ ...roommates, group, totalResidents })
+    const roommateTotal = roommateGroup.fields.roommateTotal - 1
+    updateSession({
+      ...session,
+      roommateGroup: { ...roommateGroup, fields: { ...roommateGroup.fields, roommateTotal } },
+      roommates: roommates.slice(0, -1)
+    })
   }
 
   // RETURN
   return (
     <div className="resident-confirmation">
-      <input hidden name="residentTotal" readOnly value={roommates.group.length + 1} />
+      <input hidden name="residentTotal" readOnly value={roommates.length + 1} />
       <div className="resident-icons">
 
         {/* icon representing resident */}
@@ -55,20 +59,20 @@ const RoommateConfirmation = ({
         ))}
 
         {/* icons representing roommates */}
-        {roommates.group.map((_, i) => (
+        {roommates.map((_, i) => (
           <RoommateSlots
             key={i}
             prospects={prospects}
             removeRoommate={removeRoommate}
-            genderPrefs={roommates.genderPrefs}
+            genderPrefs={roommateGroup.genderPreference}
             icon={getIcon}
           />
         ))}
 
         {(
           prospects.length > 0 ||
-          roommates.totalResidents >= roommates.roommateMax
-        ) || < AddRoommateButton roommates={roommates} />
+          roommateGroup.fields.roommateTotal >= session.roommateMax
+        ) || < AddRoommateButton session={session} />
         }
       </div>
       {
@@ -94,15 +98,15 @@ RoommateConfirmation.propTypes = {
   prospects: PropTypes.array,
   prospect: PropTypes.object,
   addRoommate: PropTypes.func,
-  updateRoommates: PropTypes.func,
+  updateSession: PropTypes.func,
   roommateMax: PropTypes.number,
-  roommates: PropTypes.object,
+  session: PropTypes.object,
   bedrooms: PropTypes.number,
   error: PropTypes.object
 }
 
 const mapDispatchToProps = {
-  updateRoommates
+  updateSession
 }
 
 

@@ -7,7 +7,8 @@ const Roommates = ({
   roommates,
   prospects,
   prospect,
-  errors
+  errors,
+  session
 }) => {
 
   return (
@@ -19,6 +20,7 @@ const Roommates = ({
         roommates={roommates}
         bedrooms={apartment.fields.bedrooms}
         error={errors.agreement}
+        session={session}
       />
     </div>
   )

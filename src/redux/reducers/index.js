@@ -4,7 +4,7 @@ import buildings from './buildingReducer';
 import apartments from './apartmentReducer';
 import roommateGroups from './roommateGroupReducer';
 import prospects from './prospectReducer';
-import roommates from './roommatesReducer'
+import session from './sessionReducer'
 
 const rootReducer = combineReducers({
   companies,
@@ -12,7 +12,7 @@ const rootReducer = combineReducers({
   apartments,
   roommateGroups,
   prospects,
-  roommates
+  session
 });
 
 export default rootReducer

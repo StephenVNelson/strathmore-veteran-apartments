@@ -4,5 +4,5 @@ export default {
   apartments: {},
   roommateGroups: {},
   prospects: {},
-  roommates: []
+  session: []
 }
