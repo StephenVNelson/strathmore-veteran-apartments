@@ -27,6 +27,7 @@ export function loadProspects() {
 export function saveProspect(prospect) {
   //eslint-disable-next-line no-unused-vars
   return function (dispatch, getState) {
+    console.log(prospect)
     return prospectAPI
       .saveProspect(prospect)
       .then(savedProspect => {

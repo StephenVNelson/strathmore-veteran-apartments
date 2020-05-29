@@ -64,8 +64,7 @@ const RoommateConfirmation = ({
             key={i}
             prospects={prospects}
             removeRoommate={removeRoommate}
-            genderPrefs={roommateGroup.genderPreference}
-            icon={getIcon}
+            genderPrefs={roommateGroup.fields.genderPreference}
           />
         ))}
 

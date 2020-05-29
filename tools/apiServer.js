@@ -16,6 +16,7 @@ const server = jsonServer.create();
 const path = require("path");
 const router = jsonServer.router(path.join(__dirname, "db.json"));
 const data = require('./db.json')
+const uniqid = require('uniqid');
 
 // Can pass a limited number of options to this to override (some) defaults. See https://github.com/typicode/json-server#api
 const middlewares = jsonServer.defaults({
@@ -37,28 +38,57 @@ server.use(function (req, res, next) {
 // Declaring custom routes below.Add custom routes before JSON Server router
 
 // handles getting id
-server.get('/roommateGroups/:id', (req, res) => {
-  // if (req.query.filterByFormula) { res.jsonp(req.query) }
-  const group = data.roommateGroups.records.find(roommateGroup => roommateGroup.id == req.params.id)
-  res.jsonp(group)
-})
+// server.get('/roommateGroups/:id', (req, res) => {
+//   // if (req.query.filterByFormula) { res.jsonp(req.query) }
+//   const group = data.roommateGroups.records.find(roommateGroup => roommateGroup.id == req.params.id)
+//   res.jsonp(group)
+// })
+
+// function validate(item) {
+//   if (!item.id) return "Item must include an ID"
+//   if (!item.fields) return "Item must include fields"
+//   if (!item.createdTime) return "Item must include a creation time"
+//   return ""
+// }
 
 // custom routing for querying and posting
-server.use((req, res, next) => {
-  if (req.query.filterByFormula) {
-    const property = req.query.filterByFormula.match(/(?<=\{)[A-Za-z1-9]*(?=})/)[0]
-    const value = req.query.filterByFormula.match(/(?<=\')[A-Za-z1-9]*(?=')/)[0]
-    const filtered = data.apartments.records.filter(apartment => apartment.fields[property] === value)
-    res.send(filtered)
-    return
-  }
-  // Add createdAt to all POSTS
-  if (req.method === "POST") {
-    req.body.createdAt = Date.now();
-  }
-  // Continue to JSON Server router
-  next();
-});
+// server.use((req, res, next) => {
+//   if (req.query.filterByFormula) {
+//     const property = req.query.filterByFormula.match(/(?<=\{)[A-Za-z1-9]*(?=})/)[0]
+//     const value = req.query.filterByFormula.match(/(?<=\')[A-Za-z1-9]*(?=')/)[0]
+//     const filtered = data.apartments.records.filter(apartment => apartment.fields[property] === value)
+//     res.send(filtered)
+//     return
+//   }
+// Add createdAt to all POSTS
+// if (req.method === "POST") {
+//   req.body.id = uniqid()
+//   req.body.createdTime = Date.now();
+//   const newItem = req.body
+//   const error = validate(newItem)
+//   if (error) { res.status(400).send(error) }
+//   else {
+//     req.body = { ...data.prospects, records: [...data.prospects.records, newItem] }
+//     res.send(JSON.stringify(newItem))
+//   }
+//   return
+// }
+// Continue to JSON Server router
+//   next();
+// });
+
+// server.post("/prospects/", function (req, res, next) {
+//   req.body.id = uniqid()
+//   req.body.createdTime = Date.now();
+//   const newItem = req.body
+//   const error = validate(newItem)
+//   if (error) { res.status(400).send(error) }
+//   else {
+//     req.body = { ...data.prospects, records: [...data.prospects.records, newItem] }
+//     // res.send(JSON.stringify(newItem))
+//     next()
+//   }
+// })
 
 // server.post("/courses/", function (req, res, next) {
 //   const error = validateCourse(req.body);
@@ -69,6 +99,23 @@ server.use((req, res, next) => {
 //     next();
 //   }
 // });
+
+
+
+router.render = (req, res) => {
+  if (req.method === "GET" && req.path.split('/').length <= 2) {
+    res.jsonp({
+      records: res.locals.data
+    })
+  } else {
+    res.jsonp(res.locals.data)
+  }
+}
+
+// server.use(jsonServer.rewriter({
+//   '/api/*': '/$1',
+//   '/blog/:resource/:id/show': '/:resource/:id'
+// }))
 
 // Use default router
 server.use(router);

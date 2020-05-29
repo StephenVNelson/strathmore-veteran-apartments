@@ -22,7 +22,7 @@ export function getRoommateGroups() {
 }
 
 export function saveRoommateGroup(roommateGroup) {
-  return fetch(baseUrl + (roommateGroup.id || ""), {
+  return fetch(baseUrl + "/" + (roommateGroup.id || ""), {
     method: roommateGroup.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: {
       "content-type": "application/json",

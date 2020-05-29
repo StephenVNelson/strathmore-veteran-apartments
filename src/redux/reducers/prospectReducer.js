@@ -4,7 +4,7 @@ import initialState from './initialState'
 export default function prospectReducer(state = initialState.prospects, action) {
   switch (action.type) {
     case types.CREATE_PROSPECT_SUCCESS:
-      return { records: [...state.records, { ...action.prospect }] };
+      return { records: [...state.records, action.prospect] };
     case types.UPDATE_PROSPECT_SUCCESS:
       return {
         records: state.records.map(prospect =>

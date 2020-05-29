@@ -6,10 +6,14 @@ import { createSession, updateSession } from '../../../redux/actions/sessionActi
 import ResidentsMini from './ResidentsMini';
 import NewProspectForm from './NewProspectForm';
 import { saveProspect } from '../../../redux/actions/prospectActions';
+import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
+import { saveApartment } from '../../../redux/actions/apartmentActions';
 
 const NewProspect = ({
   apartment,
+  saveApartment,
   roommateGroup,
+  saveRoommateGroup,
   prospects,
   session,
   createSession,
@@ -71,47 +75,43 @@ const NewProspect = ({
 
     // validation
     if (!formIsValid(e)) { return }
-    debugger
     // 1) Save prospect
-    const createdProspect = await saveProspect({ fields: { ...prospect.fields } })
+    debugger
+    const createdProspect = await saveProspect({ fields: { ...session.prospect.fields } })
 
     // 2) Save new Roomate Group
     const newProspects = [...prospects, createdProspect].map(prospect => prospect.id)
-    const blabla = {
-      ...roommateGroup,
-      fields: {
-        ...roommateGroup.fields,
-        roommateTotal: roommates.totalResidents,
-        genderPreference: roommateGroup.fields.genderPreference || roommates.genderPreference,
-        prospects: newProspects,
-        apartment: roommateGroup.fields.apartment || [roommates.id]
-      }
+    const newRoommateGroup = {
+      ...session.roommateGroup,
+      fields: { ...session.roommateGroup.fields, prospects: newProspects }
     }
-    const createdRoommateGroup = await saveRoommateGroup(
-      // addRemoveProperties(newRoommateGroup, { prospects: newProspects }, ["name"])
-    )
+    const createdRoommateGroup = await saveRoommateGroup(newRoommateGroup)
 
     // 3) Add new Roommate Group to newly created prospect
     saveProspect(
-      addRemoveProperties(createdProspect, { roommateGroup: [createdRoommateGroup.id] }, [])
+      // addRemoveProperties(createdProspect, { roommateGroup: [createdRoommateGroup.id] }, [])
+      { ...createdProspect, fields: { ...createdProspect.fields, roommateGroup: [createdRoommateGroup.id] } }
     )
 
     // 4) Adds Roommate Group to apartment IF it was just created
     if (!newRoommateGroup.id) {
-      saveApartment(addRemoveProperties(apartment, { roommateGroup: [createdRoommateGroup.id] }, []))
+      saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
   }
 
   const updateRoommateGender = (e) => {
-    const roommateGroup = { ...session.roommateGroup, genderPreference: e.target.value }
+    const roommateGroup = {
+      ...session.roommateGroup,
+      fields: { ...session.roommateGroup.fields, genderPreference: e.target.value }
+    }
     updateSession({ ...session, roommateGroup })
   }
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
-    updateSession({ ...session, prospect: newProspect })
-  }
+  // const handleChange = (event) => {
+  //   const { name, value } = event.target;
+  //   const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
+  //   updateSession({ ...session, prospect: newProspect })
+  // }
 
   function summaryData() {
     return {
@@ -149,7 +149,9 @@ const NewProspect = ({
 const mapDispatchToProps = {
   createSession,
   updateSession,
-  saveProspect
+  saveProspect,
+  saveRoommateGroup,
+  saveApartment
 }
 
 function pluckFromState(collection, id) {
@@ -177,7 +179,9 @@ function mapStateToProps(state, ownProps) {
 
 NewProspect.propTypes = {
   apartment: PropTypes.object.isRequired,
+  saveApartment: PropTypes.func.isRequired,
   roommateGroup: PropTypes.object.isRequired,
+  saveRoommateGroup: PropTypes.func.isRequired,
   prospects: PropTypes.array.isRequired,
   createSession: PropTypes.func.isRequired,
   updateSession: PropTypes.func.isRequired,

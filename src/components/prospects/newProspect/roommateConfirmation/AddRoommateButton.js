@@ -19,14 +19,13 @@ const AddRoommateButton = ({
         roommateGroup: { ...roommateGroup, fields: { ...roommateGroup.fields, roommateTotal: newTotal } },
         roommates: [...roommates, { sex: roommateGroup.fields.genderPreference }]
       })
-      console.log(roommateGroup.fields.roommateTotal)
     }
   }
 
 
   return (
     <div className="resident resident--add" onClick={addRoommate}>
-      <FontAwesomeIcon icon={getIcon(roommateGroup.genderPreference)} style={{ fontSize: "90px", width: "50px" }} />
+      <FontAwesomeIcon icon={getIcon(roommateGroup.fields.genderPreference)} style={{ fontSize: "90px", width: "50px" }} />
       <span>+</span>
       <div className="resident__title">ADD</div>
     </div>

@@ -1,5 +1,5 @@
 import { handleResponse, handleError } from "./apiUtils";
-const baseUrl = process.env.API_URL + "/prospects/";
+const baseUrl = process.env.API_URL + "/prospects";
 
 export function getProspects() {
   return fetch(baseUrl, {
@@ -10,7 +10,7 @@ export function getProspects() {
 }
 
 export function saveProspect(prospect) {
-  return fetch(baseUrl + (prospect.id || ""), {
+  return fetch(baseUrl + "/" + (prospect.id || ""), {
     method: prospect.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: {
       "content-type": "application/json",

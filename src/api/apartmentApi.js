@@ -22,7 +22,7 @@ export function getApartments() {
 }
 
 export function saveApartment(apartment) {
-  return fetch(baseUrl + (apartment.id || ""), {
+  return fetch(baseUrl + "/" + (apartment.id || ""), {
     method: apartment.id ? "PUT" : "POST", // POST for create, PUT to update when id already exists.
     headers: {
       "content-type": "application/json",

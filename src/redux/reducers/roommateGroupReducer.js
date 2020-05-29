@@ -4,7 +4,7 @@ import initialState from './initialState'
 export default function roommateGroupReducer(state = initialState.roommateGroups, action) {
   switch (action.type) {
     case types.CREATE_ROOMMATEGROUP_SUCCESS:
-      return { records: [...state.records, { ...action.roommateGroup }] };
+      return { records: [...state.records, action.roommateGroup] };
     case types.UPDATE_ROOMMATEGROUP_SUCCESS:
       return {
         records: state.records.map(roommateGroup =>
