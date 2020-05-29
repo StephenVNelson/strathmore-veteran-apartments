@@ -18,7 +18,8 @@ const NewProspect = ({
   session,
   createSession,
   updateSession,
-  saveProspect
+  saveProspect,
+  history
 }) => {
   const { roommates, prospect } = session
   const totalResidents = roommateGroup.fields.prospects.length + roommates.length + 1
@@ -97,6 +98,7 @@ const NewProspect = ({
     if (!newRoommateGroup.id) {
       saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
+    history.push('/')
   }
 
   const updateRoommateGender = (e) => {
@@ -107,11 +109,6 @@ const NewProspect = ({
     updateSession({ ...session, roommateGroup })
   }
 
-  // const handleChange = (event) => {
-  //   const { name, value } = event.target;
-  //   const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
-  //   updateSession({ ...session, prospect: newProspect })
-  // }
 
   function summaryData() {
     return {
@@ -186,7 +183,8 @@ NewProspect.propTypes = {
   createSession: PropTypes.func.isRequired,
   updateSession: PropTypes.func.isRequired,
   saveProspect: PropTypes.func.isRequired,
-  session: PropTypes.object.isRequired
+  session: PropTypes.object.isRequired,
+  history: PropTypes.object.isRequired
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewProspect)
