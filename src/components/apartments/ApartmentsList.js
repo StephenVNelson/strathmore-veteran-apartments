@@ -17,15 +17,14 @@ const ApartmentsList = ({
 
       // keeps apartments where nobody has applied
       if (!roommateGroup) return true
-
+      const [id] = roommateGroup
       // keeps apartments where there is still room for people to apply
-      if (roommateGroup) {
-        const getRMGroup = lookupById(roommateGroups, roommateGroup).fields
+      if (id) {
+        const getRMGroup = lookupById(roommateGroups, id).fields
         return getRMGroup.prospects.length < getRMGroup.roommateTotal
       }
     })
   }
-
   return (<div className="apartment-list">
     {apartmentsWithSlots().map(apartment => {
 
@@ -53,7 +52,7 @@ const ApartmentsList = ({
   </div>)
 }
 
-const lookupById = (resources, id) => resources.find(resource => resource.id == id)
+const lookupById = (resources, id) => resources.find(resource => resource.id === id)
 
 ApartmentsList.propTypes = {
   buildings: PropTypes.array.isRequired,
