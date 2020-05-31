@@ -9,7 +9,7 @@ import './roommateConfirmation.css'
 import sharing from './roommateConfirmationHelpers'
 import RoommateSlots from './RoommateSlots';
 
-const RoommateConfirmation = ({
+export const RoommateConfirmation = ({
   prospects,
   prospect,
   bedrooms,
@@ -18,6 +18,7 @@ const RoommateConfirmation = ({
   session
 }) => {
   const { roommates, roommateGroup } = session
+  // const prospects = roommateGroup.fields.prospects
 
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
 

@@ -23,7 +23,6 @@ const NewProspect = ({
 }) => {
   const { roommates, prospect } = session
   const totalResidents = roommateGroup.fields.prospects.length + roommates.length + 1
-  const roommateMax = apartment.fields.bedrooms * 2 + 1
 
   const roommateConstructor = () => {
     let group = []
@@ -58,7 +57,6 @@ const NewProspect = ({
     const errors = {};
     const extractedPhoneNumbers = (phone.match(/\d+/g) || []).join("")
     const emailValidation = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/
-    // debugger
     if (agreement && agreement.value == "false") errors.agreement = "You must agree to the roommate group arrangement"
     if (!name) errors.name = "Name is required.";
     if (extractedPhoneNumbers.length < 10) errors.phone = "Phone must have at least 10 digits";
@@ -76,8 +74,8 @@ const NewProspect = ({
 
     // validation
     if (!formIsValid(e)) { return }
+
     // 1) Save prospect
-    debugger
     const createdProspect = await saveProspect({ fields: { ...session.prospect.fields } })
 
     // 2) Save new Roomate Group
@@ -94,7 +92,14 @@ const NewProspect = ({
       { ...createdProspect, fields: { ...createdProspect.fields, roommateGroup: [createdRoommateGroup.id] } }
     )
 
-    // 4) Adds Roommate Group to apartment IF it was just created
+    // 4) removes a roommate from the session
+    updateSession({
+      ...session,
+      roommates: session.roommates.slice(0, -1),
+      roommateGroup: { ...createdRoommateGroup }
+    })
+
+    // 5) Adds Roommate Group to apartment IF it was just created
     if (!newRoommateGroup.id) {
       saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
@@ -108,10 +113,13 @@ const NewProspect = ({
     }
     updateSession({ ...session, roommateGroup })
   }
+  // console.log("pros length", prospects.length)
+  // console.log("roommate total", roommateGroup.fields.roommateTotal)
+  // if (prospects.length >= roommateGroup.fields.roommateTotal) { history.push('/') }
 
 
   function summaryData() {
-    return {
+    const object = {
       "Individual Rent": `$${Math.round(apartment.fields.rent / totalResidents)}`,
       "Total Rooms": apartment.fields.bedrooms,
       "Total Residents": <ResidentsMini totalResidents={totalResidents} />,
@@ -120,6 +128,7 @@ const NewProspect = ({
       "Lease Duration": `${apartment.fields.leaseInMonths} Mo.`,
       "Lease Start": Date(apartment.fields.available).split(" ").slice(1, 3).join(" ")
     }
+    return Object.entries(object)
   }
 
   return (

@@ -7,7 +7,7 @@ import Input from '../common/input/Input'
 
 
 
-const NewProspects = ({ session, errors = {}, updateSession }) => {
+export const NewProspects = ({ session, errors = {}, updateSession }) => {
   const { prospect } = session
   const onChange = (event) => {
     const { name, value } = event.target;
