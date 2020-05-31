@@ -20,8 +20,6 @@ const NewProspectForm = ({
   session
 }) => {
 
-
-
   return (
     <div className="modal-container">
       <div className="modal-content">
@@ -81,7 +79,7 @@ NewProspectForm.propTypes = {
   prospect: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
   roommates: PropTypes.array.isRequired,
-  summaryData: PropTypes.object.isRequired
+  summaryData: PropTypes.array.isRequired
 }
 
 
