@@ -4,7 +4,7 @@ import { PropTypes } from 'prop-types';
 import { newApartment, newRoommateGroup, newSession } from '../../../../tools/mockData'
 import { createSession, updateSession } from '../../../redux/actions/sessionActions';
 import ResidentsMini from './ResidentsMini';
-import NewProspectForm from './NewProspectForm';
+import NewProspectForm from './newProspectForm/NewProspectForm';
 import { saveProspect } from '../../../redux/actions/prospectActions';
 import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
 import { saveApartment } from '../../../redux/actions/apartmentActions';
@@ -145,6 +145,7 @@ const NewProspect = ({
           roommates={roommates}
           updateRoommateGender={updateRoommateGender}
           session={session}
+          history={history}
         />
       }
     </>

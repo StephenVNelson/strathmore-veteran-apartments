@@ -5,7 +5,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 import PhotoCarousel from '../PhotoCarousel';
 import Button from '../../common/button/Button';
-import ApplyModal from '../../prospects/newProspect/NewProspectForm';
+import ApplyModal from '../../prospects/newProspect/newProspectForm/NewProspectForm';
 import { Link } from 'react-router-dom';
 
 const Apartment = ({ apartment, building, roommateGroup, prospects }) => {

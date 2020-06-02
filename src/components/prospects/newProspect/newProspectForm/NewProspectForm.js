@@ -1,10 +1,12 @@
 import React from 'react'
 import { PropTypes } from 'prop-types';
-import NewProspects from '../NewProspects';
-import Button from '../../common/button/Button';
-import RadioOptions from '../../common/RadioOptions';
-import Roommates from './roommates/Roommates';
-import Summary from './newProspectForm/Summary';
+import NewProspects from '../../NewProspects';
+import Button from '../../../common/button/Button';
+import RadioOptions from '../../../common/RadioOptions';
+import Roommates from '../roommates/Roommates';
+import Summary from './summary/Summary';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import './NewProspectForm.css'
 
 
 const NewProspectForm = ({
@@ -17,14 +19,13 @@ const NewProspectForm = ({
   summaryData,
   handleForm,
   updateRoommateGender,
-  session
+  session,
+  history
 }) => {
-
   return (
     <div className="modal-container">
       <div className="modal-content">
-
-        <Summary summaryData={summaryData} />
+        <Summary summaryData={summaryData} history={history} />
         {/* form section */}
         <div className="new-prospect--container">
           <form className="new-prospect--form" onSubmit={handleForm}>
@@ -79,7 +80,8 @@ NewProspectForm.propTypes = {
   prospect: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
   roommates: PropTypes.array.isRequired,
-  summaryData: PropTypes.array.isRequired
+  summaryData: PropTypes.array.isRequired,
+  history: PropTypes.object
 }
 
 
