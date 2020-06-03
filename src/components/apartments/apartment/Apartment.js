@@ -4,6 +4,7 @@ import RoommateIcons from '../RoommateIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBan } from '@fortawesome/free-solid-svg-icons'
 import PhotoCarousel from '../PhotoCarousel';
+import PhotoScroll from './photoscroll/PhotoScroll'
 import Button from '../../common/button/Button';
 import ApplyModal from '../../prospects/newProspect/newProspectForm/NewProspectForm';
 import { Link } from 'react-router-dom';
@@ -30,7 +31,8 @@ const Apartment = ({ apartment, building, roommateGroup, prospects }) => {
     <>
       {showModal ? <ApplyModal apartment={apartment} roommateGroup={roommateGroup} prospects={prospects} toggleForm={toggleForm} /> : ""}
       <div className="card">
-        <PhotoCarousel images={images} />
+        <PhotoScroll images={images} />
+        {/* <PhotoCarousel images={images} /> */}
         <div style={{ textAlign: "center", fontSize: "12px", fontFamily: "arial" }}>(click photos to browse)</div>
         <div className="details">
           <div className="upper-half">
