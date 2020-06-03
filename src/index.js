@@ -8,10 +8,10 @@ import configureStore from './redux/configureStore';
 import { Provider as ReduxProvider } from 'react-redux';
 
 const store = configureStore();
-console.log("PUBLIC URL: ", `/${process.env.PUBLIC_URL}`)
+console.log("PUBLIC URL: ", `basename/${process.env.PUBLIC_URL}`)
 // baseName={process.env.PUBLIC_URL} not sure if I need this
 render(
-  <ReduxProvider store={store} baseName={`/${process.env.PUBLIC_URL}`}>
+  <ReduxProvider store={store} basename={`/${process.env.PUBLIC_URL}`}>
     <Router>
       <App />
     </Router>
