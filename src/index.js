@@ -11,7 +11,7 @@ const store = configureStore();
 console.log("PUBLIC URL: ", process.env.PUBLIC_URL)
 // baseName={process.env.PUBLIC_URL} not sure if I need this
 render(
-  <ReduxProvider store={store} baseName={process.env.PUBLIC_URL}>
+  <ReduxProvider store={store} baseName={`/${process.env.PUBLIC_URL}`}>
     <Router>
       <App />
     </Router>
