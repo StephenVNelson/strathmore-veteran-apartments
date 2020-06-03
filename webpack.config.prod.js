@@ -14,7 +14,7 @@ module.exports = {
   entry: './src/index',
   output: {
     path: path.resolve(__dirname, "docs"),
-    publicPath: '/strathmore-veteran-apartments',
+    publicPath: '/',
     filename: 'bundle.js'
   },
   plugins: [

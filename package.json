@@ -15,6 +15,7 @@
     "clean:build": "rimraf ./docs && mkdir docs",
     "build": "webpack --config webpack.config.prod.js",
     "serve:build": "http-server ./docs",
+    "postbuild": "run-p start:api serve:build",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d docs"
   },

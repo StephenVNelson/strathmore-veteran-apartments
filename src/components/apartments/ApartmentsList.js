@@ -12,18 +12,20 @@ const ApartmentsList = ({
 }) => {
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
-    return apartments.filter(apartment => {
-      const { roommateGroup } = apartment.fields
+    if (apartments) {
+      return apartments.filter(apartment => {
+        const { roommateGroup } = apartment.fields
 
-      // keeps apartments where nobody has applied
-      if (!roommateGroup) return true
-      const [id] = roommateGroup
-      // keeps apartments where there is still room for people to apply
-      if (id) {
-        const getRMGroup = lookupById(roommateGroups, id).fields
-        return getRMGroup.prospects.length < getRMGroup.roommateTotal
-      }
-    })
+        // keeps apartments where nobody has applied
+        if (!roommateGroup) return true
+        const [id] = roommateGroup
+        // keeps apartments where there is still room for people to apply
+        if (id) {
+          const getRMGroup = lookupById(roommateGroups, id).fields
+          return getRMGroup.prospects.length < getRMGroup.roommateTotal
+        }
+      })
+    } else { return [] }
   }
   return (<div className="apartment-list">
     {apartmentsWithSlots().map(apartment => {
