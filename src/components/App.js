@@ -56,6 +56,7 @@ function App({
       <Header />
       <Switch>
         <Route exact path={'/'} component={HomePage} />
+        <Route exact path={'/strathmore-veteran-apartments'} component={HomePage} />
         <Route path={'/apply/:slug'} component={NewProspect} />
         <Route component={PageNotFound} />
       </Switch>
