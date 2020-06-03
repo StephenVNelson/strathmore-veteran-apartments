@@ -13,7 +13,7 @@ console.log("PUBLIC URL: ", `hashrouter/${process.env.PUBLIC_URL}`)
 // baseName={process.env.PUBLIC_URL} not sure if I need this
 render(
   <ReduxProvider store={store}>
-    <Router basename={`${process.env.PUBLIC_URL}/`}>
+    <Router basename={`${process.env.PUBLIC_URL}`}>
       <App />
     </Router>
   </ReduxProvider>,
