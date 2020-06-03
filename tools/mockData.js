@@ -1689,6 +1689,7 @@ const newRoommateGroup = {
 const newSession = {
   id: null,
   roommates: [],
+  roommateMax: null,
   roommateGroup: newRoommateGroup,
   prospect: newProspect
 }

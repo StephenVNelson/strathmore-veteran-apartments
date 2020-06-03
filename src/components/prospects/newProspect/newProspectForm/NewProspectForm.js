@@ -16,7 +16,6 @@ const NewProspectForm = ({
   prospect,
   errors,
   roommates,
-  summaryData,
   handleForm,
   updateRoommateGender,
   session,
@@ -25,7 +24,7 @@ const NewProspectForm = ({
   return (
     <div className="modal-container">
       <div className="modal-content">
-        <Summary summaryData={summaryData} history={history} />
+        <Summary apartment={apartment} history={history} session={session} />
         {/* form section */}
         <div className="new-prospect--container">
           <form className="new-prospect--form" onSubmit={handleForm}>
@@ -80,7 +79,6 @@ NewProspectForm.propTypes = {
   prospect: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
   roommates: PropTypes.array.isRequired,
-  summaryData: PropTypes.array.isRequired,
   history: PropTypes.object
 }
 

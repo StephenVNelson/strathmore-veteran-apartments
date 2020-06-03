@@ -118,18 +118,7 @@ const NewProspect = ({
   // if (prospects.length >= roommateGroup.fields.roommateTotal) { history.push('/') }
 
 
-  function summaryData() {
-    const object = {
-      "Individual Rent": `$${Math.round(apartment.fields.rent / totalResidents)}`,
-      "Total Rooms": apartment.fields.bedrooms,
-      "Total Residents": <ResidentsMini totalResidents={totalResidents} />,
-      "Residents Per-Room": totalResidents / apartment.fields.bedrooms,
-      "Average Utilities": `$${Math.round(150 / totalResidents)}`,
-      "Lease Duration": `${apartment.fields.leaseInMonths} Mo.`,
-      "Lease Start": Date(apartment.fields.available).split(" ").slice(1, 3).join(" ")
-    }
-    return Object.entries(object)
-  }
+
 
   return (
     <>
@@ -141,7 +130,6 @@ const NewProspect = ({
           prospect={prospect}
           errors={errors}
           handleForm={handleForm}
-          summaryData={summaryData()}
           roommates={roommates}
           updateRoommateGender={updateRoommateGender}
           session={session}
