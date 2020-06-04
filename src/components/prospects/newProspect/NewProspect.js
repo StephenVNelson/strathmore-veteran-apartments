@@ -22,19 +22,28 @@ const NewProspect = ({
   history
 }) => {
   const { roommates, prospect } = session
-  const totalResidents = roommateGroup.fields.prospects.length + roommates.length + 1
 
   const roommateConstructor = () => {
     let group = []
-    if (!roommateGroup.id) {
-      const roommateNumber = totalResidents - roommateGroup.fields.prospects.length - 1
+    if (apartment.fields.roommateGroup?.[0]) {
+      const roommateNumber = roommateGroup.fields.roommateTotal - roommateGroup.fields.prospects.length - 1
       group = [...new Array(roommateNumber)].map(() => ({ sex: "other" }))
     }
     return group
   }
 
   useEffect(() => {
-    if (!session.id && apartment.id && roommateGroup.fields) {
+    let loadedRoommateGroup = false
+    if (apartment.id) {
+      if (apartment.fields.roommateGroup?.[0]) {
+        if (roommateGroup.id) {
+          loadedRoommateGroup = true
+        }
+      } else {
+        loadedRoommateGroup = true
+      }
+    }
+    if (!session.id && apartment.id && loadedRoommateGroup) {
       const roommates = roommateConstructor()
       const roommateMax = apartment.fields.bedrooms * 2 + 1
       const groupApartment = [roommateGroup.fields?.apartment?.[0] || apartment.id]
@@ -116,7 +125,7 @@ const NewProspect = ({
   // console.log("pros length", prospects.length)
   // console.log("roommate total", roommateGroup.fields.roommateTotal)
   // if (prospects.length >= roommateGroup.fields.roommateTotal) { history.push('/') }
-
+  // console.log(roommateGroup)
 
 
 

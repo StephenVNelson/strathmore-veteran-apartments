@@ -52,10 +52,10 @@ export const RoommateConfirmation = ({
         </div>
 
         {/* icons representing prospects */}
-        {prospects.map((prospect, i) => (
-          <div key={i} className="resident">
-            <FontAwesomeIcon icon={getIcon(prospect.fields.sex)} style={{ fontSize: "90px", width: "50px" }} />
-            <div className="resident__title">{prospect.fields.name.split(" ")[0].toUpperCase()}</div>
+        {prospects.map((pros, i) => (
+          <div key={i} className="resident prospect">
+            <FontAwesomeIcon icon={getIcon(pros.fields.sex)} style={{ fontSize: "90px", width: "50px" }} />
+            <div className="resident__title">{pros.fields.name.split(" ")[0].toUpperCase()}</div>
           </div>
         ))}
 
