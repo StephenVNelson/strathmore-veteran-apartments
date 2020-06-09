@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 import { PropTypes } from 'prop-types';
 import { newApartment, newRoommateGroup, newSession } from '../../../../tools/mockData'
 import { createSession, updateSession } from '../../../redux/actions/sessionActions';
-import ResidentsMini from './ResidentsMini';
 import NewProspectForm from './newProspectForm/NewProspectForm';
 import { saveProspect } from '../../../redux/actions/prospectActions';
 import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
@@ -47,7 +46,15 @@ const NewProspect = ({
       const roommates = roommateConstructor()
       const roommateMax = apartment.fields.bedrooms * 2 + 1
       const groupApartment = [roommateGroup.fields?.apartment?.[0] || apartment.id]
-      const newRoommateGroup = { ...roommateGroup, fields: { ...roommateGroup.fields, apartment: groupApartment } }
+      const newRoommateGroup = {
+        id: roommateGroup.id,
+        fields: {
+          prospects: roommateGroup.fields.prospects,
+          genderPreference: roommateGroup.fields.genderPreference,
+          roommateTotal: roommateGroup.fields.roommateTotal,
+          apartment: groupApartment
+        }
+      }
       createSession({
         ...session,
         id: apartment.id,
