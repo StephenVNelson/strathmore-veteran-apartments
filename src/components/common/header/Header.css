@@ -1,0 +1,161 @@
+
+
+nav{
+  position: relative;
+  text-align: center;
+  font-family: 'Lato';
+  font-weight: 100;
+  color: white;
+  background-color: #333333;
+  display: flex;
+  justify-content: center;
+  text-transform: uppercase;
+}
+nav .titles {
+  position: absolute;
+  border: solid 1px;
+  margin: 2% 0%;
+  padding: 0% 2%;
+  background-color: transparent;
+}
+
+nav .title {
+  font-size: 25px;
+}
+nav .subtitle {
+  font-size: 15px;
+  padding-bottom: 1%;
+}
+
+.header-photo{
+  position: relative;
+  width: 100%;
+  min-height: 125px;
+  mix-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-image: linear-gradient(rgba(255,0,0,0) 0%, #333333 80%), url("https://cdngeneral.rentcafe.com/dmslivecafe/3/20467/CA_LosAngeles_StrathmoreArms_p0000625_5_05_1_PhotoGallery.jpg");
+}
+
+.info__circle {
+  position: absolute;
+  top: 87.5%;
+  background-color: #0A0A0A;
+  width: 33.75px;
+  height: 33.75px;
+  border-radius: 50%;
+  color: #A0AFA1;
+}
+.info__circle:hover {
+  background-color: #A0AFA1;
+  color: #0A0A0A;
+}
+.button-selected {
+  background-color: #A0AFA1;
+  color: #0A0A0A;
+}
+.info__icon {
+  position: relative;
+  top: 12.5%;
+  font-size: 18.75px;
+}
+
+/* .header-photo:after {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: block;
+  content: "";
+} */
+/* .header-photo--photo{
+  width: 100%;
+  height: auto;
+} */
+
+.ancilary {
+  background-color: #0A0A0A;
+  width: 100%;
+  padding: 4% 2%;
+  position: relative;
+  z-index: -1;
+}
+
+.ancilary-initial {
+  top: -300px;
+  height: 0px;
+}
+
+.slideIn {
+  max-height: 600px;
+  top: 0px;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+.slideOut {
+  max-height: 0px;
+  top: -300px;
+  animation-duration: 1s;
+  animation-name: slideOut;
+}
+
+@keyframes slidein {
+  from {
+    max-height: 0px;
+    top: -300px;
+  }
+
+  to {
+    max-height: 600px;
+    top: 0px;
+  }
+}
+@keyframes slideOut {
+  from {
+    max-height: 600px;
+    top: 0px;
+  }
+  
+  to {
+    max-height: 0px;
+    top: -300px;
+  }
+}
+
+.explanation {
+  margin: auto;
+  font-weight: 100;
+  color: white;
+  padding: 0% 2%;
+  animation-duration: 1s;
+  animation-name: slidein;
+}
+.sign-off {
+  text-align: right;
+}
+
+
+@media only screen and (min-width: 992px) {
+  .header-photo {
+    min-height: 200px;
+  }
+  nav .title {
+    font-size: 40px;
+  }
+  .info__circle {
+    /* position: absolute;
+    top: 87.5%; */
+    /* background-color: #0A0A0A; */
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    /* color: #A0AFA1; */
+  }
+  .info__icon {
+    /* position: relative; */
+    top: 25%;
+    font-size: 25px;
+  }
+}

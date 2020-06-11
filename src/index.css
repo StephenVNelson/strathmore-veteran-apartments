@@ -11,23 +11,6 @@
   --secondary-color: #FF8662;
 }
 
-nav{
-  background-color: var(--main-color);
-  color: white;
-}
-
-nav .titles {
-  text-align: center;
-  padding-bottom: 2%;
-  font-family: 'Alike';
-}
-
-nav .title {
-  font-size: 30px;
-}
-nav .subtitle {
-  font-size: 20px;
-}
 
 div .container-fluid {
   padding: 0px;
@@ -38,7 +21,7 @@ div .container-fluid {
   flex-wrap: wrap;
   justify-content: space-evenly;
   width: 100%;
-  padding: 10% 2.8%;
+  padding: 5% 2.8%;
 }
 
 .card {
@@ -485,12 +468,6 @@ div.new-prospect--step {
   .upper-details {
     display: flex;
     justify-content: space-between;
-  }
-  nav .title {
-    font-size: 50px;
-  }
-  nav .subtitle {
-    font-size: 40px;
   }
 
   .roommate-agreement {

@@ -8,7 +8,7 @@ import { Route, Switch } from "react-router-dom"
 import HomePage from './home/HomePage';
 import PageNotFound from "../PageNotFound";
 import NewProspect from './prospects/newProspect/NewProspect'
-import Header from './common/Header'
+import Header from './common/header/Header'
 import { PropTypes } from 'prop-types';
 
 
