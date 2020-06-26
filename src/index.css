@@ -7,7 +7,7 @@
 }
 
 :root {
-  --main-color:#287BAF;
+  --main-color:#333333;
   --secondary-color: #FF8662;
 }
 
@@ -20,127 +20,11 @@ div .container-fluid {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  width: 100%;
-  padding: 5% 2.8%;
+  /* width: 100%; */
+  /* padding: 5% 2.8%; */
 }
 
-.card {
-  font-family: 'Oswald', sans-serif;
-  color: rgba(112,112,112,1);
-  border-radius: 25px;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: column-reverse;
-  justify-content: space-between;
-  box-shadow: 5px 5px 20px rgba(0, 0, 0, 0.098);
-  width: 100%;
-  max-width: 400px;
-  margin: 2%;
-}
-.card-photo{
-  position: relative;
-  width: 100%;
-  min-height: 200px;
-  border-radius: 0px 0px 25px 25px;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-.card-photo:after {
-  position: absolute;
-  border-radius: 0px 0px 25px 25px;
-  height: 100%;
-  width: 100%;
-  background-color: rgba(209, 209, 209, .3);
-  top: 0;
-  left: 0;
-  display: block;
-  content: "";
-}
-.card-photo--photo{
-  width: 100%;
-  height: auto;
-}
 
-.details {
-  width: 100%;
-  max-width: 600px;
-  position: relative;
-}
-.upper-half {
-  background-color:  var(--main-color);
-  border-radius: 25px 25px 0px 0px;
-  color: white;
-}
-.upper-details {
-  display: flex;
-  justify-content: space-between;
-  padding: 1% 4%;
-  font-weight: bold;
-}
-.upper-details--shared{
-  display: flex;
-  flex-direction: column;
-}
-.upper-details--share-status{
-  font-size: 30px;
-}
-.upper-details--bedrooms {
-  position: relative;
-  top: -8px;
-  font-weight: bold;
-}
-.upper-details--price {
-  font-family: Helvetica, Arial, sans-serif;
-  font-size: 42px;
-  padding: 0px;
-}
-
-.lower-details {
-  font-family: Helvetica;
-  padding: 3%;
-}
-.lower-details--building{
-  font-size: 16;
-}
-
-.lower-details--details{
-  margin: 5% 0%;
-}
-table tbody tr{
-  height: 40px;
-  font-weight: bold;
-}
-table tbody tr td {
-  padding: 0px 5px;
-  position: relative;
-}
-.lower-details--month-cell{
-  width: 130px;
-}
-.lower-details--month-length{
-  position: absolute;
-  padding-left: 5px;
-  top: 10px;
-  z-index: 2;
-  color:white;
-}
-.lower-details--lower-month-graph{
-  position: absolute;
-  top: 10px;
-  width: 100%;
-  background-color:#EFEDED;
-  height: 20px;
-}
-.lower-details--month-graph{
-  position: absolute;
-  width: 10%;
-  padding-left: 5px;
-  top: 10px;
-  z-index: 1;
-  background-color: #707070;
-  height: 20px;
-}
 .roommateIcons{
   font-size: 30px;
 }
@@ -461,10 +345,6 @@ div.new-prospect--step {
   letter-spacing: -0.1px;
 } */
 @media only screen and (min-width: 992px) {
-  .card{
-    width: 30%;
-    min-width: 400px;
-  }
   .upper-details {
     display: flex;
     justify-content: space-between;

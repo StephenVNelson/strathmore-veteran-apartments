@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Apartment from "./apartment/Apartment"
 import { connect } from "react-redux"
@@ -10,6 +10,22 @@ const ApartmentsList = ({
   roommateGroups,
   prospects
 }) => {
+  useEffect(() => {
+    if (jump) {
+      setTimeout(() => {
+        setJump(false)
+      }, 400)
+    } else {
+      setTimeout(() => {
+        setJump(true)
+      }, 1600)
+    }
+
+    // return () => clearTimeout(move)
+  })
+  const [jump, setJump] = useState(false)
+
+
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
     if (apartments) {
@@ -48,6 +64,7 @@ const ApartmentsList = ({
         building={building}
         roommateGroup={roommateGroup}
         prospects={groupProspects}
+        jump={jump}
       />
 
     })}

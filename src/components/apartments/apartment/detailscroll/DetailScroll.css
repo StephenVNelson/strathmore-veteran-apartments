@@ -1,0 +1,57 @@
+.data-container{
+  position: relative;
+  min-width: 120px;
+  max-height: 225px;
+  overflow-x: visible;
+}
+.container-child {
+  overflow: auto;
+  padding-left: 5px;
+  max-height: 225px;
+}
+.detail-box{
+  font-family: Lato;
+  display: flex;
+  flex-direction: column;
+  direction: ltr;
+  margin: 0px 0px 10px 0px
+}
+.detail-value{
+  color: var(--main-color); 
+  font-size: 35px;
+  font-weight: 900;
+  line-height: 110%;
+  white-space: nowrap;
+}
+.detail-category{
+  position: relative;
+  top: -3px;
+  color: #A0AFA1;
+  font-size: 9px;
+}
+
+.new-scroll-left{
+  direction : rtl;
+}
+
+.no-roommate{
+  display: flex;
+  align-items: center;
+}
+
+.tiny-button {
+  font-size: 8px;
+  width: 60px;
+  height: 20px;
+  margin-left: 20px;
+  font-family: Helvetica;
+  white-space: pre-wrap;
+  line-height: 10px;
+  overflow: visible;
+  text-transform: uppercase;
+}
+
+.tiny-button:hover{
+  background-color: #333333;
+  color: white;
+}
