@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import './PhotoScroll.css'
 import ScrollIndicator from '../../../common/scrollIndicator/ScrollIndicator'
 
-const PhotoScroll = ({ images, jump, scrollVisible, setScrollVisible }) => {
+const PhotoScroll = ({ images, jump, setJumping, scrollVisible, setScrollVisible }) => {
   const [scroll, setScroll] = useState("")
   useEffect(() => {
     setTimeout(() => {
@@ -12,6 +12,7 @@ const PhotoScroll = ({ images, jump, scrollVisible, setScrollVisible }) => {
 
   const onScroll = () => {
     setScroll("scrolling")
+    setJumping(false)
     if (scrollVisible) setScrollVisible(false)
   }
   return (

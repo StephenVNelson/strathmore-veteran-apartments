@@ -15,7 +15,8 @@ const ApartmentsList = ({
       setTimeout(() => {
         setJump(false)
       }, 400)
-    } else {
+    }
+    if (!jump && jumping) {
       setTimeout(() => {
         setJump(true)
       }, 1600)
@@ -24,6 +25,7 @@ const ApartmentsList = ({
     // return () => clearTimeout(move)
   })
   const [jump, setJump] = useState(false)
+  const [jumping, setJumping] = useState(true)
 
 
   // gets rid of apartments with enough people who have applied.
@@ -65,6 +67,7 @@ const ApartmentsList = ({
         roommateGroup={roommateGroup}
         prospects={groupProspects}
         jump={jump}
+        setJumping={setJumping}
       />
 
     })}

@@ -4,8 +4,9 @@ import PhotoScroll from './photoscroll/PhotoScroll'
 import DetailScroll from './detailscroll/DetailScroll'
 import CardMode from './cardmode/CardMode'
 import './Apartment.css'
+import Application from './application/Application'
 
-const Apartment = ({ apartment, roommateGroup, jump }) => {
+const Apartment = ({ apartment, roommateGroup, jump, setJumping }) => {
   const images = apartment.fields.Images || []
   const [photoScrollVisible, setPhotoScrollVisible] = useState(images.length > 1 ? true : false)
   const [detailScrollVisible, setDetailScrollVisible] = useState(true)
@@ -15,11 +16,12 @@ const Apartment = ({ apartment, roommateGroup, jump }) => {
   const modeComponent = () => {
     switch (cardMode) {
       case "application":
-        return (<div>Hello</div>)
+        return (<Application />)
       default:
         return (<PhotoScroll
           images={images}
           jump={jump}
+          setJumping={setJumping}
           scrollVisible={photoScrollVisible}
           setScrollVisible={setPhotoScrollVisible}
         />)
@@ -37,6 +39,7 @@ const Apartment = ({ apartment, roommateGroup, jump }) => {
           apartment={apartment}
           roommateGroup={roommateGroup}
           jump={jump}
+          setJumping={setJumping}
           scrollVisible={detailScrollVisible}
           setScrollVisible={setDetailScrollVisible}
         />
