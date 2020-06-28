@@ -16,7 +16,12 @@ const Apartment = ({ apartment, roommateGroup, jump, setJumping }) => {
   const modeComponent = () => {
     switch (cardMode) {
       case "application":
-        return (<Application />)
+        return (
+          <Application
+            apartment={apartment}
+            roommateGroup={roommateGroup}
+          />
+        )
       default:
         return (<PhotoScroll
           images={images}
