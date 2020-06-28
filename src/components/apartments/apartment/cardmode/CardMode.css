@@ -12,12 +12,29 @@
   padding: 1%;
   margin: 1px 0%;
 }
-.icon-container:hover{
+.icon-container-selected{
   width: 100%;
   border-bottom: solid var(--main-color) 6px;
   text-align: center;
   padding: 1%;
   /* margin: 3%; */
+}
+.icon-container:hover {
+  width: 100%;
+  border-bottom: solid var(--main-color) 6px;
+  text-align: center;
+  padding: 1%;
+  cursor: pointer;
+  
+}
+.icon-container:hover > .mode-icon{
+  background-color: var(--main-color);
+  color: white;
+  /* padding: 1%; */
+  /* box-shadow: none; */
+  border-radius: 50%;
+  font-size: 12px;
+  transition-duration: 500ms;
 }
 
 .mode-icon {
@@ -31,7 +48,8 @@
   border-radius: 50%;
   font-size: 12px;
 }
-.mode-icon:hover {
+
+.mode-icon-selected {
   background-color: var(--main-color);
   color: white;
   /* padding: 1%; */

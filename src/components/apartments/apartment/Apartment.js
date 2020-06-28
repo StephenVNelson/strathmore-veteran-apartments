@@ -9,17 +9,30 @@ const Apartment = ({ apartment, roommateGroup, jump }) => {
   const images = apartment.fields.Images || []
   const [photoScrollVisible, setPhotoScrollVisible] = useState(images.length > 1 ? true : false)
   const [detailScrollVisible, setDetailScrollVisible] = useState(true)
-  return (
-    <div className="apartment">
-      <CardMode />
+  const [cardMode, setCardMode] = useState("photo")
 
-      <div className="card">
-        <PhotoScroll
+  // decides which component will show on the left hand side of each apartment card
+  const modeComponent = () => {
+    switch (cardMode) {
+      case "application":
+        return (<div>Hello</div>)
+      default:
+        return (<PhotoScroll
           images={images}
           jump={jump}
           scrollVisible={photoScrollVisible}
           setScrollVisible={setPhotoScrollVisible}
-        />
+        />)
+    }
+  }
+  return (
+    <div className="apartment">
+      <CardMode setCardMode={setCardMode} cardMode={cardMode} />
+
+      <div className="card">
+        <div className="main-card-display">
+          {modeComponent()}
+        </div>
         <DetailScroll
           apartment={apartment}
           roommateGroup={roommateGroup}

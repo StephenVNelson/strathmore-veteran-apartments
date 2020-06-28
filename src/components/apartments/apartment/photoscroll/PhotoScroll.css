@@ -1,12 +1,4 @@
 
-
-.photo-scroll-container {
-  flex-basis: 580px;
-  width: 100%;
-  min-height: 225px;
-  position: relative;
-}
-
 .photo-scroll{
   overflow: auto;
   padding-right: 5px;

@@ -15,7 +15,7 @@ const PhotoScroll = ({ images, jump, scrollVisible, setScrollVisible }) => {
     if (scrollVisible) setScrollVisible(false)
   }
   return (
-    <div className="photo-scroll-container">
+    <>
       <div className={`photo-scroll new-scroll ${scroll}`} onScroll={onScroll}>
         {images.map((image, i) => (
           <div key={i} className="photo-scroll-image" style={{ backgroundImage: `url(${image.thumbnails.large.url})` }}></div>
@@ -27,7 +27,7 @@ const PhotoScroll = ({ images, jump, scrollVisible, setScrollVisible }) => {
         gradientColor={"var(--main-color)"}
         textColor={"white"}
       />
-    </div>
+    </>
   )
 }
 
