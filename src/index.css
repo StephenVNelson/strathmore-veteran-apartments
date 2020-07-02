@@ -159,44 +159,7 @@ div.new-prospect--step {
   flex-wrap: wrap;
 }
 
-.button-options {
-  list-style-type:none;
-  margin: 1%;
-  padding:0;
-  flex-grow: 1;
-}
-.button-options li {
-  float:left;
-  margin:0 5px 0 0;
-  color: var(--main-color);
-  font-size: 16px;
-  text-align: center;
-}
-.button-options label {
-  /* padding:5px; */
-  cursor:pointer;
-  border-radius: 25px;
-  width: 88px;
-  border: 3px solid var(--main-color);
-  -webkit-appearance: button;
-  /* WebKit */
-  -moz-appearance: button;
-  /* Mozilla */
-  -o-appearance: button;
-  /* Opera */
-  -ms-appearance: button;
-  /* Internet Explorer */
-  appearance: button;
-  /* CSS3 */
-}
-.button-options label:hover {
-  background: var(--main-color);
-  color: white;
-}
-.selected {
-  background: var(--main-color);
-  color: white;
-}
+
 
 
 /* .mediaViewInfo {
