@@ -8,6 +8,7 @@ import { saveRoommateGroup } from '../../../../redux/actions/roommateGroupAction
 import { saveApartment } from '../../../../redux/actions/apartmentActions';
 import ProspectInfo from './steps/prospectInfo/ProspectInfo'
 import * as applicationHelpers from './ApplicationHelpers'
+import FormContainer from './steps/FormContainer'
 
 const Application = ({
   apartment,
@@ -77,12 +78,24 @@ const Application = ({
     updateSession({ ...session, roommateGroup })
   }
 
-
+  const [formSection, setFormSection] = useState(0)
 
   return (
     <>
       {
-        <ProspectInfo session={session} errors={errors} updateSession={updateSession} />
+        <FormContainer unit={apartment.fields.unit}>
+          {[
+            <ProspectInfo
+              key={0}
+              session={session}
+              errors={errors}
+              updateSession={updateSession}
+              nextButton={() => setFormSection(1)}
+            />,
+            <div key={1}>Hello</div>
+          ][formSection]
+          }
+        </FormContainer>
       }
     </>
   )
