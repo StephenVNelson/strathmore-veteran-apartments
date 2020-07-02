@@ -3,8 +3,7 @@ import PropTypes from 'prop-types';
 import RadioOptions from '../../../../../common/radios/RadioOptions';
 import Input from '../../../../../common/input/Input'
 import './ProspectInfo.css'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faArrowCircleRight } from '@fortawesome/free-solid-svg-icons'
+import NextOrBack from '../../../../../common/nextorback/NextOrBack';
 
 export const ProspectInfo = ({ session, errors = {}, updateSession, nextButton }) => {
   const { prospect } = session
@@ -25,12 +24,7 @@ export const ProspectInfo = ({ session, errors = {}, updateSession, nextButton }
         <div style={{ marginBottom: "5px" }}>gender</div>
         <RadioOptions onChange={onChange} valueName={"sex"} error={errors.sex} />
       </div>
-      <div className="form-next">
-        <div className="next-symbol" onClick={nextButton}>
-
-          <FontAwesomeIcon icon={faArrowCircleRight} />
-        </div>
-      </div>
+      <NextOrBack onClick={nextButton} rightOrLeft={"right"} />
     </>
   )
 }

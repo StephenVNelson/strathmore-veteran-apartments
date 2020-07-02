@@ -1,0 +1,11 @@
+.form-next{
+  font-size: 40px;
+  margin: 10px 20px;
+  position: relative;
+  width: 40px;
+}
+
+.next-symbol {
+  position: absolute;
+  bottom: 0px;
+}
