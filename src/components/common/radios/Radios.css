@@ -1,0 +1,35 @@
+.button-options {
+  list-style-type:none;
+  display: flex;
+  flex-direction: column;
+  border: solid 1px;
+}
+.button-options li {
+  float:left;
+  font-size: 12px;
+  margin: 10px 0px;
+}
+.button-options label {
+  cursor:pointer;
+  border-radius: 5px;
+  width: 50px;
+  border: 3px solid var(--main-color);
+  -webkit-appearance: button;
+  /* WebKit */
+  -moz-appearance: button;
+  /* Mozilla */
+  -o-appearance: button;
+  /* Opera */
+  -ms-appearance: button;
+  /* Internet Explorer */
+  appearance: button;
+  /* CSS3 */
+}
+.button-options label:hover {
+  background: var(--main-color);
+  color: white;
+}
+.selected {
+  background: var(--main-color);
+  color: white;
+}

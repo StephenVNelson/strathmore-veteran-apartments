@@ -6,7 +6,7 @@ const Radio = ({ selected, id, radioClick, name, value }) => {
   return (
     <label htmlFor={id} className={`${btn_class}`}>
       <input style={{ display: "none" }} type="radio" id={id} value={value} name={name} onChange={radioClick} />
-      {id.split('-')[0].toUpperCase()}</label>
+      {id.split('-')[0]}</label>
   )
 }
 Radio.propTypes = {

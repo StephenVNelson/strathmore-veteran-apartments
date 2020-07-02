@@ -2,7 +2,7 @@ import React from 'react'
 import { PropTypes } from 'prop-types';
 import NewProspects from '../../NewProspects';
 import Button from '../../../common/button/Button';
-import RadioOptions from '../../../common/RadioOptions';
+import RadioOptions from '../../../common/radios/RadioOptions';
 import Roommates from '../roommates/Roommates';
 import Summary from './summary/Summary';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

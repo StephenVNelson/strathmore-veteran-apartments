@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { updateSession } from '../../redux/actions/sessionActions'
 import PropTypes from 'prop-types';
-import RadioOptions from '../common/RadioOptions';
+import RadioOptions from '../common/radios/RadioOptions';
 import Input from '../common/input/Input'
 
 
