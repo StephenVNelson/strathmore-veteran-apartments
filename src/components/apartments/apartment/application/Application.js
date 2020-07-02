@@ -9,6 +9,8 @@ import { saveApartment } from '../../../../redux/actions/apartmentActions';
 import ProspectInfo from './steps/prospectInfo/ProspectInfo'
 import * as applicationHelpers from './ApplicationHelpers'
 import FormContainer from './steps/FormContainer'
+import RoommateSetup from './steps/roommatesetup/RoommateSetup'
+import Submit from './steps/submit/Submit'
 
 const Application = ({
   apartment,
@@ -92,7 +94,8 @@ const Application = ({
               updateSession={updateSession}
               nextButton={() => setFormSection(1)}
             />,
-            <div key={1}>Hello</div>
+            <RoommateSetup key={1} />,
+            <Submit key={2} />
           ][formSection]
           }
         </FormContainer>
