@@ -9,6 +9,7 @@
 :root {
   --main-color:#333333;
   --secondary-color: #FF8662;
+  --main-blue: #287baf;
 }
 
 
@@ -41,62 +42,6 @@ div .container-fluid {
   display: flex;
   justify-content: center;
   margin: 5% 0%;
-}
-
-
-
-
-
-
-.resident-confirmation{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.resident-icons {
-  display: flex;
-  align-items: center;
-  flex-flow: row;
-  color: var(--main-color);
-  font-size: 20px;
-}
-
-.resident {
-  /* margin: 0 10px; */
-  position: relative;
-  display: flex;
-  flex-direction: column;
-}
-
-.resident__title {
-  font-size: 9px;
-  text-align: center;
-  margin: 13% 0%;
-}
-
-.resident--add {
-  /* font-size: 90px; */
-  color: #FFC5B4;
-  cursor: pointer;
-}
-.resident--add:hover {
-  color: var(--secondary-color);
-}
-
-.resident--remove {
-  cursor: pointer;
-}
-.resident--remove:hover {
-  color: #69A9D1;
-}
-.resident > span{
-  width: 50px;
-  position: absolute;
-  color: white;
-  font-size: 28px;
-  left: 0px;
-  top: 20px;
-  text-align: center;
 }
 
 .app-info {
@@ -311,18 +256,6 @@ div.new-prospect--step {
   .upper-details {
     display: flex;
     justify-content: space-between;
-  }
-
-  .roommate-agreement {
-    margin: 0% 3%;
-  }
-  .roommate-agreement > label {
-    margin: 0% 4%;
-  }
-  .roommate-agreement--agreement {
-    font-size: 16px;
-    max-width: 400px;
-    color: var(--main-color)
   }
 
 }
