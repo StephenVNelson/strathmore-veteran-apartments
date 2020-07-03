@@ -81,7 +81,6 @@ const Application = ({
   }
 
   const [formSection, setFormSection] = useState(0)
-
   return (
     <>
       {
@@ -97,7 +96,18 @@ const Application = ({
               updateSession={updateSession}
               nextButton={() => setFormSection(1)}
             />,
-            <RoommateSetup key={1} />,
+            <RoommateSetup
+              key={1}
+              roommateGroup={session.roommateGroup}
+              updateSession={updateSession}
+              session={session}
+              roommates={roommates}
+              prospect={prospect}
+              prospects={prospects}
+              error={errors.agreement}
+              bedrooms={apartment.fields.bedrooms}
+              setFormSection={setFormSection}
+            />,
             <Submit key={2} />
           ][formSection]
           }
