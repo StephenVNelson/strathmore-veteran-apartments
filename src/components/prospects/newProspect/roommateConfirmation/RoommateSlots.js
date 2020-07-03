@@ -6,7 +6,9 @@ import { PropTypes } from 'prop-types';
 const RoommateSlots = ({
   prospects,
   removeRoommate,
-  genderPrefs
+  genderPrefs,
+  fontSize,
+  width
 }) => {
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
   const lowerText = prospects.length == 0 ? "REMOVE" : "(TBD)"
@@ -14,7 +16,7 @@ const RoommateSlots = ({
     <div className="resident roommate-slot" onClick={removeRoommate}>
       <FontAwesomeIcon
         icon={getIcon(genderPrefs)}
-        style={{ fontSize: "90px", width: "50px" }}
+        style={{ fontSize: fontSize, width: width }}
       />
       {lowerText != "(TBD)" && <span>-</span>}
       <div className="resident__title">{lowerText}</div>

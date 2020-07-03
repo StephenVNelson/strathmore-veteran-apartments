@@ -7,7 +7,9 @@ import { PropTypes } from 'prop-types';
 
 const AddRoommateButton = ({
   session,
-  updateSession
+  updateSession,
+  fontSize,
+  width
 }) => {
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
   const { roommates, roommateGroup } = session
@@ -25,7 +27,7 @@ const AddRoommateButton = ({
 
   return (
     <div className="resident resident--add" onClick={addRoommate}>
-      <FontAwesomeIcon icon={getIcon(roommateGroup.fields.genderPreference)} style={{ fontSize: "90px", width: "50px" }} />
+      <FontAwesomeIcon icon={getIcon(roommateGroup.fields.genderPreference)} style={{ fontSize: fontSize, width: width }} />
       <span>+</span>
       <div className="resident__title">ADD</div>
     </div>
