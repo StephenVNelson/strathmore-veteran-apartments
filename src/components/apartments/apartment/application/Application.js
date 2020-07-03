@@ -85,7 +85,10 @@ const Application = ({
   return (
     <>
       {
-        <FormContainer unit={apartment.fields.unit}>
+        <FormContainer
+          unit={apartment.fields.unit}
+          step={formSection + 1}
+        >
           {[
             <ProspectInfo
               key={0}
