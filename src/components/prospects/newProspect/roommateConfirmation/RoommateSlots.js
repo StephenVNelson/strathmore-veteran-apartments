@@ -11,14 +11,14 @@ const RoommateSlots = ({
   width
 }) => {
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
-  const lowerText = prospects.length == 0 ? "REMOVE" : "(TBD)"
+  const lowerText = prospects.length == 0 ? "OPEN" : "(TBD)"
   return (
     <div className="resident roommate-slot" onClick={removeRoommate}>
       <FontAwesomeIcon
         icon={getIcon(genderPrefs)}
         style={{ fontSize: fontSize, width: width }}
       />
-      {lowerText != "(TBD)" && <span>-</span>}
+      {lowerText != "(TBD)" && <span style={{ width: width }}>-</span>}
       <div className="resident__title">{lowerText}</div>
     </div>
   )

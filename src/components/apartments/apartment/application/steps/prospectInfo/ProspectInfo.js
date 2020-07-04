@@ -5,9 +5,16 @@ import Input from '../../../../../common/input/Input'
 import './ProspectInfo.css'
 import NextOrBack from '../../../../../common/nextorback/NextOrBack';
 
-export const ProspectInfo = ({ session, errors = {}, updateSession, nextButton }) => {
+function ProspectInfo({ session, errors = {}, updateSession, nextButton, gender }) {
   const { prospect } = session
-  const onChange = (event) => {
+  function onChange(event) {
+    const { name, value } = event.target;
+    const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
+    console.log("fun: ", session.id)
+    // debugger
+    updateSession({ ...session, prospect: newProspect })
+  }
+  const changeGender = (event) => {
     const { name, value } = event.target;
     const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
     updateSession({ ...session, prospect: newProspect })
@@ -22,7 +29,7 @@ export const ProspectInfo = ({ session, errors = {}, updateSession, nextButton }
       </div>
       <div className="prospect-gender-container">
         <div style={{ marginBottom: "5px" }}>gender</div>
-        <RadioOptions onChange={onChange} valueName={"sex"} error={errors.sex} />
+        <RadioOptions onChange={changeGender} valueName={"sex"} error={errors.sex} gender={gender} session={session} updateSession={updateSession} prospect={prospect} />
       </div>
       <NextOrBack onClick={nextButton} rightOrLeft={"right"} />
     </>

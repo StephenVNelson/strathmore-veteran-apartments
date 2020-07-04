@@ -56,6 +56,15 @@ const Application = ({
   }
 
   const [formSection, setFormSection] = useState(0)
+
+  const updateRoommateGender = (e) => {
+    const roommateGroup = {
+      ...session.roommateGroup,
+      fields: { ...session.roommateGroup.fields, genderPreference: e.target.value }
+    }
+    updateSession({ ...session, roommateGroup })
+  }
+
   return (
     <>
       {
@@ -70,6 +79,7 @@ const Application = ({
               errors={errors}
               updateSession={updateSession}
               nextButton={() => setFormSection(1)}
+              gender={session.prospect.fields.sex}
             />,
             <RoommateSetup
               key={1}
@@ -82,6 +92,9 @@ const Application = ({
               error={errors.agreement}
               bedrooms={apartment.fields.bedrooms}
               setFormSection={setFormSection}
+              fontSize={"50px"}
+              width={"35px"}
+              updateRoommateGender={updateRoommateGender}
             />,
             <Submit key={2} />
           ][formSection]

@@ -28,7 +28,7 @@ const AddRoommateButton = ({
   return (
     <div className="resident resident--add" onClick={addRoommate}>
       <FontAwesomeIcon icon={getIcon(roommateGroup.fields.genderPreference)} style={{ fontSize: fontSize, width: width }} />
-      <span>+</span>
+      <span style={{ width: width }}>+</span>
       <div className="resident__title">ADD</div>
     </div>
   )

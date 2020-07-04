@@ -6,10 +6,24 @@ import RoommateSlots from '../../../../../prospects/newProspect/roommateConfirma
 import AddRoommateButton from '../../../../../prospects/newProspect/roommateConfirmation/AddRoommateButton';
 import sharing from '../../../../../prospects/newProspect/roommateConfirmation/roommateConfirmationHelpers';
 import NextOrBack from '../../../../../common/nextorback/NextOrBack'
+import RadioOptions from '../../../../../common/radios/RadioOptions';
 
 
 
-const RoommateSetup = ({ roommateGroup, updateSession, session, roommates, prospect, prospects, error, bedrooms, setFormSection }) => {
+const RoommateSetup = ({
+  roommateGroup,
+  updateSession,
+  session,
+  roommates,
+  prospect,
+  prospects,
+  error,
+  bedrooms,
+  setFormSection,
+  fontSize,
+  width,
+  updateRoommateGender
+}) => {
   const getIcon = (gender) => gender === "female" ? faFemale : faMale
   const [checked, setChecked] = useState(false)
   const checkdisplay = checked ? "inline" : "none"
@@ -30,19 +44,19 @@ const RoommateSetup = ({ roommateGroup, updateSession, session, roommates, prosp
 
           {/* icon representing resident */}
           <div className="resident">
-            <FontAwesomeIcon icon={getIcon(prospect.fields.sex)} style={{ fontSize: "50px", width: "50px" }} />
+            <FontAwesomeIcon icon={getIcon(prospect.fields.sex)} style={{ fontSize: fontSize, width: width }} />
             <div className={"resident__title"}>YOU</div>
           </div>
 
           {/* plus icon */}
           <div className="resident">
-            <FontAwesomeIcon icon={faPlus} style={{ fontSize: "20px", width: "30px" }} />
+            <FontAwesomeIcon icon={faPlus} style={{ fontSize: "20px", width: "20px" }} />
           </div>
 
           {/* icons representing prospects */}
           {prospects.map((pros, i) => (
             <div key={i} className="resident prospect">
-              <FontAwesomeIcon icon={getIcon(pros.fields.sex)} style={{ fontSize: "50px", width: "50px" }} />
+              <FontAwesomeIcon icon={getIcon(pros.fields.sex)} style={{ fontSize: fontSize, width: width }} />
               <div className="resident__title">{pros.fields.name.split(" ")[0].toUpperCase()}</div>
             </div>
           ))}
@@ -54,30 +68,37 @@ const RoommateSetup = ({ roommateGroup, updateSession, session, roommates, prosp
               prospects={prospects}
               removeRoommate={removeRoommate}
               genderPrefs={roommateGroup.fields.genderPreference}
-              fontSize={"50px"}
-              width={"50px"}
+              fontSize={fontSize}
+              width={width}
             />
           ))}
 
           {(
             prospects.length > 0 ||
             roommateGroup.fields.roommateTotal >= session.roommateMax
-          ) || < AddRoommateButton session={session} fontSize={"50px"} width={"50px"} />
+          ) || < AddRoommateButton session={session} fontSize={fontSize} width={width} />
           }
         </div>
         {
           prospects.length === 0 &&
-          <div className="resident-estimate">
-            <div style={{ fontSize: "30px" }}>
-              {roommateGroup.fields.roommateTotal / bedrooms}
+          (
+            <div className="roommate-options">
+              <div className="prospect-gender-container" style={{ marginRight: "20px" }}>
+                <RadioOptions onChange={updateRoommateGender} valueName={"sex"} gender={session.roommateGroup.fields.genderPreference} />
+              </div>
+              <div className="resident-estimate">
+                <div style={{ fontSize: width }}>
+                  {roommateGroup.fields.roommateTotal / bedrooms}
+                </div>
+                <div>
+                  residents/
+              </div>
+                <div>
+                  bedroom
+              </div>
+              </div>
             </div>
-            <div>
-              residents/
-            </div>
-            <div>
-              bedroom
-            </div>
-          </div>
+          )
         }
         {
           prospects.length !== 0 &&

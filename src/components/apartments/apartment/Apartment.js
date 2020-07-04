@@ -37,16 +37,6 @@ const Apartment = ({
     }
   }, [])
 
-  const updateRoommateGender = (e) => {
-    const roommateGroup = {
-      ...session.roommateGroup,
-      fields: { ...session.roommateGroup.fields, genderPreference: e.target.value }
-    }
-    updateSession({ ...session, roommateGroup })
-  }
-
-
-
   const images = apartment.fields.Images || []
   const [photoScrollVisible, setPhotoScrollVisible] = useState(images.length > 1 ? true : false)
   const [detailScrollVisible, setDetailScrollVisible] = useState(true)
