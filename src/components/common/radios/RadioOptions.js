@@ -4,8 +4,6 @@ import Radio from './Radio';
 import './Radios.css'
 
 function RadioOptions({ onChange, valueName, gender, sessionID }) {
-  // const [selected, setSelected] = useState(gender);
-  console.log(gender)
   return (
     <ul className="button-options">
       {["male", "female", "other"].map(id => {

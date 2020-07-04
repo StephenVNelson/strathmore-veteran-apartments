@@ -96,7 +96,10 @@ const Application = ({
               width={"35px"}
               updateRoommateGender={updateRoommateGender}
             />,
-            <Submit key={2} />
+            <Submit
+              key={2}
+              setFormSection={setFormSection}
+            />
           ][formSection]
           }
         </FormContainer>

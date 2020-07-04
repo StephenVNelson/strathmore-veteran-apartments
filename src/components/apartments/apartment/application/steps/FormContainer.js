@@ -9,8 +9,10 @@ export const FormContainer = ({ children, unit, step }) => {
         return "fill in your info"
       case 2:
         return "Roommate setup"
+      case 3:
+        return "Sign up!"
       default:
-        "fill in your info"
+        return "fill in your info"
     }
   }
   return (
