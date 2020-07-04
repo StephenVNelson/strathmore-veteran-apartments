@@ -1,11 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { connect } from 'react-redux'
+import React, { useState } from 'react'
 import { PropTypes } from 'prop-types';
-import { newApartment, newRoommateGroup, newSession } from '../../../../../tools/mockData'
-import { createSession, updateSession } from '../../../../redux/actions/sessionActions';
-import { saveProspect } from '../../../../redux/actions/prospectActions';
-import { saveRoommateGroup } from '../../../../redux/actions/roommateGroupActions';
-import { saveApartment } from '../../../../redux/actions/apartmentActions';
 import ProspectInfo from './steps/prospectInfo/ProspectInfo'
 import * as applicationHelpers from './ApplicationHelpers'
 import FormContainer from './steps/FormContainer'
@@ -14,27 +8,16 @@ import Submit from './steps/submit/Submit'
 
 const Application = ({
   apartment,
-  saveApartment,
-  roommateGroup,
-  saveRoommateGroup,
-  prospects,
   session,
-  createSession,
   updateSession,
-  saveProspect
+  roommates,
+  prospect,
+  prospects,
+  saveProspect,
+  saveRoommateGroup,
+  saveApartment
 }) => {
-  const { roommates, prospect } = session
 
-  useEffect(() => {
-    if (!session.id) {
-      applicationHelpers.createSession(
-        roommateGroup,
-        apartment,
-        createSession,
-        session
-      )
-    }
-  }, [])
   const [errors, setErrors] = useState({})
   const handleForm = async (e) => {
     e.preventDefault();
@@ -70,14 +53,6 @@ const Application = ({
     if (!newRoommateGroup.id) {
       saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
-  }
-
-  const updateRoommateGender = (e) => {
-    const roommateGroup = {
-      ...session.roommateGroup,
-      fields: { ...session.roommateGroup.fields, genderPreference: e.target.value }
-    }
-    updateSession({ ...session, roommateGroup })
   }
 
   const [formSection, setFormSection] = useState(0)
@@ -117,41 +92,18 @@ const Application = ({
   )
 }
 
-
-const mapDispatchToProps = {
-  createSession,
-  updateSession,
-  saveProspect,
-  saveRoommateGroup,
-  saveApartment
-}
-
-function pluckFromState(collection, id) {
-  return collection && collection.find(item => item.id === id)
-}
-
-function mapStateToProps(state, ownProps) {
-  const { apartment, roommateGroup } = ownProps
-  const prospects = state.prospects.records && roommateGroup.fields.prospects.map(
-    p => pluckFromState(state.prospects.records, p)
-  ) || []
-  const session = pluckFromState(state.session, apartment.id) || newSession
-  return {
-    prospects,
-    session
-  }
-}
-
 Application.propTypes = {
   apartment: PropTypes.object.isRequired,
+  roommates: PropTypes.array.isRequired,
   saveApartment: PropTypes.func.isRequired,
-  roommateGroup: PropTypes.object.isRequired,
+  // roommateGroup: PropTypes.object.isRequired,
   saveRoommateGroup: PropTypes.func.isRequired,
   prospects: PropTypes.array.isRequired,
-  createSession: PropTypes.func.isRequired,
+  prospect: PropTypes.object.isRequired,
+  // createSession: PropTypes.func.isRequired,
   updateSession: PropTypes.func.isRequired,
   saveProspect: PropTypes.func.isRequired,
   session: PropTypes.object.isRequired
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Application)
+export default Application
