@@ -66,6 +66,20 @@ const RoommateSetup = ({ roommateGroup, updateSession, session, roommates, prosp
           }
         </div>
         {
+          prospects.length === 0 &&
+          <div className="resident-estimate">
+            <div style={{ fontSize: "30px" }}>
+              {roommateGroup.fields.roommateTotal / bedrooms}
+            </div>
+            <div>
+              residents/
+            </div>
+            <div>
+              bedroom
+            </div>
+          </div>
+        }
+        {
           prospects.length !== 0 &&
           <div className="roommate-agreement">
             <label htmlFor="roommate-agreement" onClick={() => setChecked(!checked)}>
