@@ -10,13 +10,6 @@ function ProspectInfo({ session, errors = {}, updateSession, nextButton, gender 
   function onChange(event) {
     const { name, value } = event.target;
     const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
-    console.log("fun: ", session.id)
-    // debugger
-    updateSession({ ...session, prospect: newProspect })
-  }
-  const changeGender = (event) => {
-    const { name, value } = event.target;
-    const newProspect = { ...prospect, fields: { ...prospect.fields, [name]: value } }
     updateSession({ ...session, prospect: newProspect })
   }
 
@@ -29,7 +22,13 @@ function ProspectInfo({ session, errors = {}, updateSession, nextButton, gender 
       </div>
       <div className="prospect-gender-container">
         <div style={{ marginBottom: "5px" }}>gender</div>
-        <RadioOptions onChange={changeGender} valueName={"sex"} error={errors.sex} gender={gender} session={session} updateSession={updateSession} prospect={prospect} />
+        <RadioOptions
+          onChange={onChange}
+          valueName={"sex"}
+          error={errors.sex}
+          gender={gender}
+          sessionID={session.id}
+        />
       </div>
       <NextOrBack onClick={nextButton} rightOrLeft={"right"} />
     </>

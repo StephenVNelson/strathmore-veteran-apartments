@@ -67,7 +67,7 @@ const RoommateSetup = ({
               key={i}
               prospects={prospects}
               removeRoommate={removeRoommate}
-              genderPrefs={roommateGroup.fields.genderPreference}
+              genderPrefs={session.roommateGroup.fields.genderPreference}
               fontSize={fontSize}
               width={width}
             />
@@ -84,7 +84,7 @@ const RoommateSetup = ({
           (
             <div className="roommate-options">
               <div className="prospect-gender-container" style={{ marginRight: "20px" }}>
-                <RadioOptions onChange={updateRoommateGender} valueName={"sex"} gender={session.roommateGroup.fields.genderPreference} />
+                <RadioOptions onChange={updateRoommateGender} valueName={"sex"} gender={session.roommateGroup.fields.genderPreference} sessionID={session.id} />
               </div>
               <div className="resident-estimate">
                 <div style={{ fontSize: width }}>

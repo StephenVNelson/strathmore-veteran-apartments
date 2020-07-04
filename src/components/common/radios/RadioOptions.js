@@ -3,15 +3,15 @@ import { PropTypes } from 'prop-types';
 import Radio from './Radio';
 import './Radios.css'
 
-function RadioOptions({ onChange, valueName, gender, session }) {
+function RadioOptions({ onChange, valueName, gender, sessionID }) {
   // const [selected, setSelected] = useState(gender);
-  console.log(session.id)
+  console.log(gender)
   return (
     <ul className="button-options">
       {["male", "female", "other"].map(id => {
         return (
-          <li key={`${id}-${valueName}`}>
-            <Radio id={`${id}-${valueName}`} selected={gender} value={id} name={valueName} radioClick={onChange} />
+          <li key={`${sessionID}-${id}-${valueName}`}>
+            <Radio id={`${sessionID}-${id}-${valueName}`} selected={gender} value={id} name={valueName} radioClick={onChange} sessionID={sessionID} />
           </li>
         )
       })}
