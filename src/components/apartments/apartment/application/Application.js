@@ -99,6 +99,8 @@ const Application = ({
             <Submit
               key={2}
               setFormSection={setFormSection}
+              unit={apartment.fields.unit}
+              handleForm={handleForm}
             />
           ][formSection]
           }

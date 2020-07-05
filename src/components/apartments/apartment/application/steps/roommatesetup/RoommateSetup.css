@@ -140,7 +140,7 @@
     padding: 20px;
   }
   .resident-icons {
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
 
 }
