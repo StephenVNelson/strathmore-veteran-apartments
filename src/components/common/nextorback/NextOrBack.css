@@ -1,11 +1,20 @@
 .form-next{
-  font-size: 40px;
-  margin: 10px 20px;
+  font-size: 30px;
   position: relative;
+  display: flex;
+  justify-content: center;
   width: 40px;
 }
 
 .next-symbol {
   position: absolute;
   bottom: 0px;
+}
+
+@media only screen and (min-width: 550px) {
+  .form-next{
+    font-size: 40px;
+    margin: 10px 20px;
+    position: relative;
+  }
 }

@@ -6,7 +6,7 @@
   color: var(--main-color);
   height: 100%;
   border: solid 1px;
-  border-radius: 25px 0px 0px 25px;
+  border-radius: 25px 25px 0px 0px;
 }
 
 .form-contents {
@@ -20,11 +20,20 @@
   color: white;
   font-size: 20px;
   padding: 12px;
-  border-radius: 23px 0px 0px 0px;
+  border-radius: 23px 23px 0px 0px;
 }
 
 .form-header__title {
-  position: absolute;
+  position: inherit;
   right: 10px;
   font-size: 12px;
+}
+
+@media only screen and (min-width: 550px) {
+  .form-container {
+    border-radius: 25px 0px 0px 25px;
   }
+  .form-header__title {
+    position: absolute;
+  }
+}
