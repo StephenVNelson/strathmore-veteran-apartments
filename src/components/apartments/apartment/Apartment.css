@@ -9,14 +9,12 @@
 .main-card-display{
   width: 100%;
   position: relative;
+  min-height: 230px;
 }
 
 .card {
-  font-family: 'Oswald', sans-serif;
-  color: rgba(112,112,112,1);
-  background-color: transparent;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   border: none;
 }
 /* width */
@@ -47,10 +45,10 @@
   background: #b30000; 
 }
 
-@media only screen and (min-width: 992px) {
-  /* .card{
-    width: 30%;
-    min-width: 400px;
-  } */
+@media only screen and (min-width: 550px) {
+  .card {
+    flex-direction: row;
+    border: none;
+  }
 }
 

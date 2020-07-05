@@ -3,7 +3,7 @@ import './ScrollIndicator.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown } from '@fortawesome/free-solid-svg-icons'
 
-const ScrollIndicator = ({ jump, scrollVisible, gradientColor, textColor }) => {
+const ScrollIndicator = ({ jump, scrollVisible, gradientColor, textColor, hiddenOnSmallScreen }) => {
   // console.log(gradientColor)
   return (
     <div
@@ -11,7 +11,7 @@ const ScrollIndicator = ({ jump, scrollVisible, gradientColor, textColor }) => {
         backgroundImage: `linear-gradient(transparent 60%, ${gradientColor})`,
         color: textColor
       }}
-      className={`scroll-indicator ${scrollVisible ? "scrollVisible" : "scrollInvisible"}`}
+      className={`scroll-indicator ${scrollVisible ? "scrollVisible" : "scrollInvisible"} ${hiddenOnSmallScreen}`}
     >
       <div className={`scroll-icon ${jump ? "jump" : "unjump"}`}>
         {/* <div className="scroll-text">scroll</div> */}

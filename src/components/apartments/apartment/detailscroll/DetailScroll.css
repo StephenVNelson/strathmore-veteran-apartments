@@ -1,24 +1,23 @@
 .data-container{
   position: relative;
-  min-width: 120px;
-  max-height: 225px;
-  overflow-x: visible;
 }
 .container-child {
-  overflow: auto;
-  padding-left: 5px;
-  max-height: 225px;
+  display: flex;
+  flex-direction: row-reverse;
+  flex-wrap: wrap;
 }
 .detail-box{
   font-family: Lato;
   display: flex;
   flex-direction: column;
   direction: ltr;
-  margin: 0px 0px 10px 0px
+  margin: 2%;
+  width: 28%;
+  height: 30px;
 }
 .detail-value{
   color: var(--main-color); 
-  font-size: 35px;
+  font-size: 16px;
   font-weight: 900;
   line-height: 110%;
   white-space: nowrap;
@@ -54,4 +53,36 @@
 .tiny-button:hover{
   background-color: #333333;
   color: white;
+}
+
+.bed-and-bath {
+  font-size: 12px;
+  height: auto;
+}
+
+@media only screen and (min-width: 550px) {
+  .data-container{
+    position: relative;
+    min-width: 120px;
+    max-height: 225px;
+    overflow-x: visible;
+    flex-direction: column;
+    flex-wrap: nowrap;
+  }
+  .container-child {
+    display: block;
+    overflow: auto;
+    height: 100%;
+  }
+  .detail-value{
+    font-size: 35px;
+  }
+  .detail-box{
+    margin: 0px 0px 20px 0px;
+    width: 100%;
+  }
+  .bed-and-bath {
+    font-size: 20px;
+    height: 35px;
+  }
 }

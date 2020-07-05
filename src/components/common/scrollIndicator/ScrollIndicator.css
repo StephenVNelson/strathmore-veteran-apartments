@@ -47,3 +47,20 @@
   opacity: 0;
   transition: visibility 3s, opacity 3s linear;
 }
+
+.hidden-on-small-screen{
+  visibility: hidden;
+  opacity: 0;
+}
+
+@media only screen and (min-width: 550px) {
+  .hidden-on-small-screen {
+    visibility: visible;
+    opacity: 1;
+  }
+  .scrollInvisible {
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 3s, opacity 3s linear;
+  }
+}

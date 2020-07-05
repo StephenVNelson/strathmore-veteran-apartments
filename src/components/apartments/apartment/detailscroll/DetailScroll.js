@@ -3,7 +3,7 @@ import './DetailScroll.css'
 import RoommateIcons from '../../RoommateIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBed, faBath, faUserAltSlash, faMars, faVenus, faRestroom, faGenderless, faVenusMars } from '@fortawesome/free-solid-svg-icons'
-import Graph from '../../../common/Graph';
+import Graph from '../../../common/graph/Graph';
 import ScrollIndicator from '../../../common/scrollIndicator/ScrollIndicator';
 
 const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scrollVisible }) => {
@@ -21,7 +21,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
   const prosepctIcons = roommateGroup?.id ?
     [...new Array(totalResidents - 1)].map((p, i) => <RoommateIcons key={i} prospect={{ sex: "male" }} />) :
     <div className="no-roommate">
-      <FontAwesomeIcon icon={faUserAltSlash} style={{ fontSize: "25px" }} />
+      <FontAwesomeIcon icon={faUserAltSlash} />
       <button className="tiny-button">
         Add Roommates
       </button>
@@ -45,7 +45,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
     const iconStyle = { margin: "0% 2%" }
     const bedNumber = apartment.fields.bedrooms
     return (
-      <div style={{ fontSize: "20px", height: "35px" }}>
+      <div className={"bed-and-bath"}>
         {bedNumber}{<FontAwesomeIcon icon={faBath} style={iconStyle} />} / {bedNumber}{<FontAwesomeIcon icon={faBed} style={iconStyle} />}
       </div>
     )
@@ -85,7 +85,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
         scrollVisible={scrollVisible}
         gradientColor={"white"}
         textColor={"var(--main-color)"}
-
+        hiddenOnSmallScreen={"hidden-on-small-screen"}
       />
     </div>
   )

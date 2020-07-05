@@ -1,0 +1,25 @@
+.graph-container {
+  background-color: lightgrey;
+  height: 15px;
+  margin: 5% 0%;
+  width: 100%;
+}
+
+.graph-background {
+  background-color: #333333;
+  height: 15px;
+  margin: 5% 0%;
+}
+
+.graph-text {
+  color: white;
+  font-size: 15px;
+  position: relative;
+  top: -2px;
+}
+
+@media only screen and (min-width: 550px) {
+  .graph-text {
+    top: -20px;
+  }
+}

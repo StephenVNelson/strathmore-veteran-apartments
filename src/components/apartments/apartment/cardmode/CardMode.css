@@ -1,6 +1,6 @@
 .mode-container {
   /* padding: 0% 2%; */
-  max-width: 78%;
+  max-width: 100%;
   display: flex;
   justify-content: space-around;
 }
@@ -57,4 +57,10 @@
   border-radius: 50%;
   font-size: 12px;
   transition-duration: 500ms;
+}
+
+@media only screen and (min-width: 550px) {
+  .mode-container {
+    max-width: 78%;
+  }
 }
