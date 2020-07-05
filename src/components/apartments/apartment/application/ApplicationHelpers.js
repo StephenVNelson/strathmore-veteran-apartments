@@ -31,7 +31,7 @@ export function createSession(roommateGroup, apartment, createSession, session) 
 
 export const formIsValid = (e, prospect, setErrors) => {
   const { name, phone, email, sex } = prospect.fields;
-  const agreement = e.target.elements?.["roommate-agreement"]
+  const agreement = e?.target?.elements?.["roommate-agreement"]
   const errors = {};
   const extractedPhoneNumbers = (phone.match(/\d+/g) || []).join("")
   const emailValidation = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/

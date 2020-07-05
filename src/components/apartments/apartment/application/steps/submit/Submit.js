@@ -3,7 +3,7 @@ import './Submit.css'
 import Button from '../../../../../common/button/Button';
 import NextOrBack from '../../../../../common/nextorback/NextOrBack';
 
-const Submit = ({ setFormSection, unit, handleForm }) => {
+const Submit = ({ nextButton, unit, handleForm }) => {
   return (
     <div className={"submit"}>
       <div>
@@ -15,7 +15,7 @@ const Submit = ({ setFormSection, unit, handleForm }) => {
         </button>
       </div>
       <div className="roommate-setup_next-buttons">
-        <NextOrBack rightOrLeft={"left"} onClick={() => setFormSection(1)} />
+        <NextOrBack rightOrLeft={"left"} onClick={() => nextButton(1)} />
       </div>
     </div>
   )

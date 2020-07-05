@@ -20,11 +20,11 @@ const Application = ({
 
   const [errors, setErrors] = useState({})
   const handleForm = async (e) => {
-    e.preventDefault();
+    // e.preventDefault();
 
     // validation
-    if (!applicationHelpers.formIsValid(e, prospect, setErrors)) { return }
-
+    // if (!applicationHelpers.formIsValid(e, session.prospect, setErrors)) { return }
+    debugger
     // 1) Save prospect
     const createdProspect = await saveProspect({ fields: { ...session.prospect.fields } })
 
@@ -65,6 +65,12 @@ const Application = ({
     updateSession({ ...session, roommateGroup })
   }
 
+  const nextButton = (formPage) => {
+    const validForm = (applicationHelpers.formIsValid(null, session.prospect, setErrors))
+    if (!validForm) return
+    setFormSection(formPage)
+  }
+
   return (
     <>
       {
@@ -78,7 +84,7 @@ const Application = ({
               session={session}
               errors={errors}
               updateSession={updateSession}
-              nextButton={() => setFormSection(1)}
+              nextButton={() => nextButton(1)}
               gender={session.prospect.fields.sex}
             />,
             <RoommateSetup
@@ -91,14 +97,14 @@ const Application = ({
               prospects={prospects}
               error={errors.agreement}
               bedrooms={apartment.fields.bedrooms}
-              setFormSection={setFormSection}
+              nextButton={nextButton}
               fontSize={"50px"}
               width={"35px"}
               updateRoommateGender={updateRoommateGender}
             />,
             <Submit
               key={2}
-              setFormSection={setFormSection}
+              nextButton={nextButton}
               unit={apartment.fields.unit}
               handleForm={handleForm}
             />

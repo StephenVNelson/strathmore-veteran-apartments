@@ -19,7 +19,7 @@ const RoommateSetup = ({
   prospects,
   error,
   bedrooms,
-  setFormSection,
+  nextButton,
   fontSize,
   width,
   updateRoommateGender
@@ -117,8 +117,8 @@ const RoommateSetup = ({
         }
       </div>
       <div className="roommate-setup_next-buttons">
-        <NextOrBack rightOrLeft={"left"} onClick={() => setFormSection(0)} />
-        <NextOrBack rightOrLeft={"right"} onClick={() => setFormSection(2)} />
+        <NextOrBack rightOrLeft={"left"} onClick={() => nextButton(0)} />
+        <NextOrBack rightOrLeft={"right"} onClick={() => nextButton(2)} />
       </div>
     </div>
   )

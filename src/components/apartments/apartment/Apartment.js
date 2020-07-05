@@ -21,6 +21,9 @@ const Apartment = ({
   setJumping,
   session,
   prospects,
+  saveProspect,
+  saveRoommateGroup,
+  saveApartment,
   createSession,
   updateSession
 }) => {
