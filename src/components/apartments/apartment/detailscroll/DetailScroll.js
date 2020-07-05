@@ -6,7 +6,7 @@ import { faBed, faBath, faUserAltSlash, faMars, faVenus, faRestroom, faGenderles
 import Graph from '../../../common/graph/Graph';
 import ScrollIndicator from '../../../common/scrollIndicator/ScrollIndicator';
 
-const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scrollVisible }) => {
+const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scrollVisible, setCardMode }) => {
   const [scroll, setScroll] = useState("")
   useEffect(() => {
     setTimeout(() => {
@@ -22,7 +22,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
     [...new Array(totalResidents - 1)].map((p, i) => <RoommateIcons key={i} prospect={{ sex: "male" }} />) :
     <div className="no-roommate">
       <FontAwesomeIcon icon={faUserAltSlash} />
-      <button className="tiny-button">
+      <button className="tiny-button" onClick={() => setCardMode("application")}>
         Add Roommates
       </button>
     </div>

@@ -36,6 +36,7 @@
 .no-roommate{
   display: flex;
   align-items: center;
+  font-size: 25px;
 }
 
 .tiny-button {

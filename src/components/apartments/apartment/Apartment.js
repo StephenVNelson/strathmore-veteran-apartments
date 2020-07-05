@@ -87,6 +87,7 @@ const Apartment = ({
           setJumping={setJumping}
           scrollVisible={detailScrollVisible}
           setScrollVisible={setDetailScrollVisible}
+          setCardMode={setCardMode}
         />
       </div>
     </div>
