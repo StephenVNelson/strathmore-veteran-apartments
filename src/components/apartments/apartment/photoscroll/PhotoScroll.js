@@ -15,12 +15,21 @@ const PhotoScroll = ({ images, jump, setJumping, scrollVisible, setScrollVisible
     setJumping(false)
     if (scrollVisible) setScrollVisible(false)
   }
+
   return (
     <>
       <div className={`photo-scroll new-scroll ${scroll}`} onScroll={onScroll}>
-        {images.map((image, i) => (
+        {images.length > 0 && images.map((image, i) => (
           <div key={i} className="photo-scroll-image" style={{ backgroundImage: `url(${image.thumbnails.large.url})` }}></div>
         ))}
+        {
+          images.length === 0 &&
+          <div className="photo-scroll-image stock-image">
+            <div className="stock-image-overlay">
+              PHOTOS COMING SOON
+            </div>
+          </div>
+        }
       </div>
       <ScrollIndicator
         jump={jump}
