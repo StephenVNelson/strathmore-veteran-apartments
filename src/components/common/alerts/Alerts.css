@@ -1,0 +1,15 @@
+.alert-container{
+  position: fixed;
+  top: 20%;
+  right: 5%;
+  z-index: 2;
+}
+
+.alert{
+  font-family: Lato;
+  background-color: #db867b;
+  font-weight: 900;
+  color: var(--main-color);
+  padding: 20px;
+  margin: 10px;
+}

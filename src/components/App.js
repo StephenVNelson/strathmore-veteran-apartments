@@ -10,6 +10,7 @@ import PageNotFound from "../PageNotFound";
 import NewProspect from './prospects/newProspect/NewProspect'
 import Header from './common/header/Header'
 import { PropTypes } from 'prop-types';
+import Alerts from "./common/alerts/Alerts";
 
 
 function App({
@@ -54,6 +55,7 @@ function App({
   return (
     <div className="container-fluid">
       <Header />
+      <Alerts />
       <Switch>
         <Route exact path={'/'} component={HomePage} />
         <Route path={'/apply/:slug'} component={NewProspect} />
