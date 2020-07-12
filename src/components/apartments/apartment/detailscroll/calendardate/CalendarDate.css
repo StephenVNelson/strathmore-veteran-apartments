@@ -1,0 +1,27 @@
+.cal-date__align{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  margin: 0% 5%;
+}
+
+.cal-date__flex{
+  position: relative;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.cal-date__month {
+  font-size: 30%;
+  line-height: 100%;
+}
+
+.cal-date__date {
+  font-size: 60%;
+  position: absolute;
+  color: white;
+  top: -6px;
+}

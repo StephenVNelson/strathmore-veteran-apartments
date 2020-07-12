@@ -2,9 +2,10 @@ import React, { useState, useEffect } from 'react'
 import './DetailScroll.css'
 import RoommateIcons from '../../RoommateIcons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faBed, faBath, faUserAltSlash, faMars, faVenus, faRestroom, faGenderless, faVenusMars } from '@fortawesome/free-solid-svg-icons'
+import { faBed, faBath, faUserAltSlash, faMars, faVenus, faGenderless, faVenusMars } from '@fortawesome/free-solid-svg-icons'
 import Graph from '../../../common/graph/Graph';
 import ScrollIndicator from '../../../common/scrollIndicator/ScrollIndicator';
+import CalendarDate from './calendardate/CalendarDate';
 
 const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scrollVisible, setCardMode }) => {
   const [scroll, setScroll] = useState("")
@@ -50,6 +51,22 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
       </div>
     )
   }
+
+  const leaseStartRange = () => {
+    let startDate = new Date(apartment.fields.available);
+    startDate = startDate < new Date ? new Date : startDate
+    let endDate = new Date(startDate)
+    endDate = new Date(endDate.setDate(endDate.getDate() + 14));
+
+    return (
+      <div className="date-span">
+        <CalendarDate fontSize={20} date={startDate} />
+        <span>–</span>
+        <CalendarDate fontSize={20} date={endDate} />
+      </div>
+    )
+  }
+
   const onScroll = () => {
     setScrollVisible(false)
     setScroll("scrolling")
@@ -57,6 +74,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
 
   const data = {
     "inidividual rent": `$${rent}`,
+    "lease start range": leaseStartRange(),
     "bed / bath": bedAndBath(),
     "lease duration": <Graph
       percent={(apartment.fields.leaseInMonths / 12) * 100}
