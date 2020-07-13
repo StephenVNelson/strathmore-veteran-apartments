@@ -5,10 +5,10 @@ import { createAlert, deleteAlert } from '../../../redux/actions/alertActions';
 import { PropTypes } from 'prop-types';
 import Alert from './Alert';
 
-const Alerts = ({ alerts, createAlert, deleteAlert }) => {
+const Alerts = ({ alerts, deleteAlert }) => {
   useEffect(() => {
     setTimeout(() => alerts.map(alert => deleteAlert(alert)), 10000)
-  }, [])
+  }, [alerts])
   return (
     <div className="alert-container">
       {alerts.map(alert => (

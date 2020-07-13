@@ -12,6 +12,7 @@ import PhotoScroll from './photoscroll/PhotoScroll'
 import DetailScroll from './detailscroll/DetailScroll'
 import CardMode from './cardmode/CardMode'
 import * as applicationHelpers from './application/ApplicationHelpers'
+import { createAlert } from '../../../redux/actions/alertActions';
 
 
 const Apartment = ({
@@ -25,7 +26,8 @@ const Apartment = ({
   saveRoommateGroup,
   saveApartment,
   createSession,
-  updateSession
+  updateSession,
+  createAlert
 }) => {
   const { roommates, prospect } = session
 
@@ -60,6 +62,7 @@ const Apartment = ({
             saveProspect={saveProspect}
             saveRoommateGroup={saveRoommateGroup}
             saveApartment={saveApartment}
+            createAlert={createAlert}
           />
         )
       default:
@@ -111,7 +114,8 @@ const mapDispatchToProps = {
   updateSession,
   saveProspect,
   saveRoommateGroup,
-  saveApartment
+  saveApartment,
+  createAlert
 }
 
 function pluckFromState(collection, id) {

@@ -15,7 +15,8 @@ const Application = ({
   prospects,
   saveProspect,
   saveRoommateGroup,
-  saveApartment
+  saveApartment,
+  createAlert
 }) => {
 
   const [errors, setErrors] = useState({})
@@ -24,7 +25,6 @@ const Application = ({
 
     // validation
     // if (!applicationHelpers.formIsValid(e, session.prospect, setErrors)) { return }
-    debugger
     // 1) Save prospect
     const createdProspect = await saveProspect({ fields: { ...session.prospect.fields } })
 
@@ -53,6 +53,8 @@ const Application = ({
     if (!newRoommateGroup.id) {
       saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
+    createAlert(`You've successfully signed up for Unit ${apartment.fields.unit}`)
+    createAlert(`You will be contacted by one of our representatives soon.`)
   }
 
   const [formSection, setFormSection] = useState(0)
