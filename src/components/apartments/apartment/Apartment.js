@@ -63,6 +63,7 @@ const Apartment = ({
             saveRoommateGroup={saveRoommateGroup}
             saveApartment={saveApartment}
             createAlert={createAlert}
+            setCardMode={setCardMode}
           />
         )
       default:

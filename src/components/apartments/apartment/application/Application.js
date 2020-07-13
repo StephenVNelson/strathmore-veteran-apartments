@@ -16,7 +16,8 @@ const Application = ({
   saveProspect,
   saveRoommateGroup,
   saveApartment,
-  createAlert
+  createAlert,
+  setCardMode
 }) => {
 
   const [errors, setErrors] = useState({})
@@ -53,6 +54,7 @@ const Application = ({
     if (!newRoommateGroup.id) {
       saveApartment({ ...apartment, fields: { ...apartment.fields, roommateGroup: [createdRoommateGroup.id] } })
     }
+    setCardMode("photo")
     createAlert(`You've successfully signed up for Unit ${apartment.fields.unit}`)
     createAlert(`You will be contacted by one of our representatives soon.`)
   }
