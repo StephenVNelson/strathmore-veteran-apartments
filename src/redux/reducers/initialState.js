@@ -6,7 +6,6 @@ export default {
   prospects: [],
   session: [],
   alerts: [
-    { id: 0, message: "Welcome to roommate match!" },
-    { id: 1, message: "check out all available apartments below" }
+    // { id: 1, message: "Check out all available apartments below" }
   ]
 }
