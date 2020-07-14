@@ -23,8 +23,8 @@
 .scroll-text{
   position: relative;
   text-transform: uppercase;
-  bottom: -20px;
-  font-size: 10px;
+  bottom: -10px;
+  font-size: 18%;
 }
 
 .jump{

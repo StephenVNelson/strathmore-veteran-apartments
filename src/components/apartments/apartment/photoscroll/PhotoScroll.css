@@ -3,12 +3,14 @@
   overflow: auto;
   padding-right: 5px;
   width: 100%;
-  height: 100%;
+  height: 230px;
 }
 
 .photo-scroll-image {
   /* Full height */
-  height: 100%; 
+  /* height: 100%;  */
+  width: 100%;
+  height: 100%;
   
   /* Center and scale the image nicely */
   background-position: center;
@@ -32,7 +34,7 @@
 
 @media only screen and (min-width: 550px) {
   .photo-scroll{
-    height: 230px;
+    height: 100%;
   }
 }
 

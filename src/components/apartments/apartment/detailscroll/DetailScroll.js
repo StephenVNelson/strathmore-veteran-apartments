@@ -101,7 +101,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
       <ScrollIndicator
         jump={jump}
         scrollVisible={scrollVisible}
-        gradientColor={"white"}
+        gradientColor={"#FFFFFF"}
         textColor={"var(--main-color)"}
         hiddenOnSmallScreen={"hidden-on-small-screen"}
       />

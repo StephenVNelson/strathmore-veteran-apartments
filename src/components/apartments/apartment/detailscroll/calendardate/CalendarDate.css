@@ -23,5 +23,11 @@
   font-size: 60%;
   position: absolute;
   color: white;
-  top: -6px;
+  top: 4px;
+}
+
+@media only screen and (min-width: 550px) {
+  .cal-date__date {
+    top: -6px;
+  }
 }
