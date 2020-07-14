@@ -8,7 +8,7 @@ const ScrollIndicator = ({ jump, scrollVisible, gradientColor, textColor, hidden
   return (
     <div
       style={{
-        backgroundImage: `linear-gradient(rgba(255,255,255,0.001) 0%, ${gradientColor})`,
+        backgroundImage: `linear-gradient(rgba(255,255,255,0.001) 60%, ${gradientColor})`,
         color: textColor
       }}
       className={`scroll-indicator ${scrollVisible ? "scrollVisible" : "scrollInvisible"} ${hiddenOnSmallScreen}`}
