@@ -28,11 +28,14 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
       </button>
     </div>
   const genderPrefs = () => {
+    let genderLetter = "O"
     const preference = (() => {
       switch (roommateGroup?.fields?.genderPreference) {
         case "male":
+          genderLetter = "M"
           return faMars
         case "female":
+          genderLetter = "F"
           return faVenus
         case "other":
           return faGenderless
@@ -40,7 +43,12 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
           return faVenusMars
       }
     })()
-    return <FontAwesomeIcon style={{ fontSize: "25px" }} icon={preference} />
+    return (
+      <span >
+        <FontAwesomeIcon style={{ fontSize: "25px" }} icon={preference} />
+        <span className="genderLetter">{genderLetter}</span>
+      </span>
+    )
   }
   const bedAndBath = () => {
     const iconStyle = { margin: "0% 2%" }
@@ -72,6 +80,7 @@ const DetailScroll = ({ apartment, roommateGroup, jump, setScrollVisible, scroll
     setScroll("scrolling")
   }
 
+  // each of these key/value pairs becomes label/details
   const data = {
     "inidividual rent": `$${rent}`,
     "lease start range": leaseStartRange(),
