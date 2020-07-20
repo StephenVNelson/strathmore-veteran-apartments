@@ -1,9 +1,15 @@
 .form-next{
   font-size: 30px;
-  position: relative;
   display: flex;
   justify-content: center;
   width: 40px;
+}
+
+.next-text{
+  position: absolute;
+  white-space: nowrap;
+  font-size: 10px;
+  bottom: 50px;
 }
 
 .next-symbol {
@@ -13,6 +19,7 @@
 
 .next-symbol:hover{
   cursor: pointer;
+  transition: linear 0.2s;
 }
 
 @media only screen and (min-width: 550px) {
