@@ -11,6 +11,10 @@
   bottom: 0px;
 }
 
+.next-symbol:hover{
+  cursor: pointer;
+}
+
 @media only screen and (min-width: 550px) {
   .form-next{
     font-size: 40px;
