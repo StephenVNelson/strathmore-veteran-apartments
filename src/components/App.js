@@ -7,7 +7,6 @@ import { loadProspects } from "../redux/actions/prospectActions"
 import { Route, Switch } from "react-router-dom"
 import HomePage from './home/HomePage';
 import PageNotFound from "../PageNotFound";
-import NewProspect from './prospects/newProspect/NewProspect'
 import Header from './common/header/Header'
 import { PropTypes } from 'prop-types';
 import Alerts from "./common/alerts/Alerts";
@@ -58,7 +57,7 @@ function App({
       <Alerts />
       <Switch>
         <Route exact path={'/'} component={HomePage} />
-        <Route path={'/apply/:slug'} component={NewProspect} />
+        {/* <Route path={'/apply/:slug'} component={NewProspect} /> */}
         <Route component={PageNotFound} />
       </Switch>
     </div>

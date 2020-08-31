@@ -2,24 +2,18 @@ import React, { useState, useEffect } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from "prop-types";
 import './Apartment.css'
-import Application from './application/Application'
 import { newSession } from '../../../../tools/mockData'
 import { createSession, updateSession } from '../../../redux/actions/sessionActions';
 import { saveProspect } from '../../../redux/actions/prospectActions';
 import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
 import { saveApartment } from '../../../redux/actions/apartmentActions';
-import PhotoScroll from './photoscroll/PhotoScroll'
-import DetailScroll from './detailscroll/DetailScroll'
-import CardMode from './cardmode/CardMode'
-import * as applicationHelpers from './application/ApplicationHelpers'
 import { createAlert } from '../../../redux/actions/alertActions';
+import * as applicationHelpers from './applicationHelpers'
 
 
 const Apartment = ({
   apartment,
   roommateGroup,
-  jump,
-  setJumping,
   session,
   prospects,
   saveProspect,
@@ -43,57 +37,12 @@ const Apartment = ({
   }, [])
 
   const images = apartment.fields.Images || []
-  const [photoScrollVisible, setPhotoScrollVisible] = useState(images.length > 1 ? true : false)
-  const [detailScrollVisible, setDetailScrollVisible] = useState(true)
+  const [photoVisible, setPhotoVisible] = useState(images.length > 1 ? true : false)
   const [cardMode, setCardMode] = useState("photo")
 
-  // decides which component will show on the left hand side of each apartment card
-  const modeComponent = () => {
-    switch (cardMode) {
-      case "application":
-        return (
-          <Application
-            apartment={apartment}
-            session={session}
-            updateSession={updateSession}
-            roommates={roommates}
-            prospect={prospect}
-            prospects={prospects}
-            saveProspect={saveProspect}
-            saveRoommateGroup={saveRoommateGroup}
-            saveApartment={saveApartment}
-            createAlert={createAlert}
-            setCardMode={setCardMode}
-          />
-        )
-      default:
-        return (<PhotoScroll
-          images={images}
-          jump={jump}
-          setJumping={setJumping}
-          scrollVisible={photoScrollVisible}
-          setScrollVisible={setPhotoScrollVisible}
-        />)
-    }
-  }
   return (
     <div className="apartment">
-      <CardMode setCardMode={setCardMode} cardMode={cardMode} />
-
-      <div className="card">
-        <div className="main-card-display">
-          {modeComponent()}
-        </div>
-        <DetailScroll
-          apartment={apartment}
-          roommateGroup={session.roommateGroup}
-          jump={jump}
-          setJumping={setJumping}
-          scrollVisible={detailScrollVisible}
-          setScrollVisible={setDetailScrollVisible}
-          setCardMode={setCardMode}
-        />
-      </div>
+      Hello
     </div>
   )
 }
@@ -104,8 +53,6 @@ Apartment.propTypes = {
   roommateGroup: PropTypes.object,
   prospects: PropTypes.array,
   session: PropTypes.object.isRequired,
-  jump: PropTypes.bool.isRequired,
-  setJumping: PropTypes.func.isRequired,
   updateSession: PropTypes.func.isRequired,
   createSession: PropTypes.func.isRequired
 }
