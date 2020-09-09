@@ -1,0 +1,10 @@
+.apartment {
+  height: 58px;
+}
+
+.apartment-photo {
+  width: 116px;
+  height: 100%;
+  background-size: cover;
+  background-repeat: no-repeat;
+}

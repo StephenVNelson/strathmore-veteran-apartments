@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Apartment from "./apartment/Apartment"
 import { connect } from "react-redux"
 import { newRoommateGroup } from '../../../tools/mockData'
+import './ApartmentsList.css'
 
 const ApartmentsList = ({
   buildings,
@@ -10,7 +11,6 @@ const ApartmentsList = ({
   roommateGroups,
   prospects
 }) => {
-
   // gets rid of apartments with enough people who have applied.
   const apartmentsWithSlots = () => {
     if (apartments) {
