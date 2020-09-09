@@ -43,7 +43,12 @@ const Apartment = ({
 
   return (
     <div className="apartment">
-      <div className="apartment-photo" style={{ backgroundImage: `url(${mainPhoto})` }}></div>
+      <div className="photoContainer">
+        <div className="apartment-photo" style={{ backgroundImage: `url(${mainPhoto})` }}></div>
+      </div>
+      <div className="apartmentInfo">
+        <span className="apartmentRent">${apartment.fields.rent}</span>
+      </div>
     </div>
   )
 }

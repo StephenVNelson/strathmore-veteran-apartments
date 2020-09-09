@@ -1,4 +1,12 @@
 .apartment {
+  display: flex;
+  justify-content: space-between;
+  border: #707070 solid 1px; 
+  padding: 3%;
+  margin: 3%;
+}
+
+.photoContainer {
   height: 58px;
 }
 
@@ -7,4 +15,11 @@
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+}
+
+.apartmentInfo {
+  width: 100%;
+  padding: 0% 3%;
+  display: flex;
+  justify-content: center;
 }
