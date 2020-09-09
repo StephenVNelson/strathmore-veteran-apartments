@@ -1694,6 +1694,149 @@ const newSession = {
   prospect: newProspect
 }
 
+const stubs = {
+  company: {
+    "id": "recgSs3DfAgSFwOg2",
+    "fields": {
+      "buildings": [
+        "rec5edxXSSe7oc2Hq",
+        "reck7V8hEG3AIj4tH"
+      ],
+      "holdingDeposit": 500,
+      "name": "Greystone Management Group",
+      "appFee": 40
+    },
+    "createdTime": "2020-04-06T23:59:34.000Z"
+  },
+  building: {
+    "id": "rec5edxXSSe7oc2Hq",
+    "fields": {
+      "state": "CA",
+      "address": "11090 Strathmore Dr.",
+      "name": "Strathmore Arms",
+      "zipCode": 90024,
+      "city": "Los Angeles",
+      "apartments": [
+        "rec4rboScqsuCxgZ9"
+      ],
+      "crossStreet1": "Strathmore Dr.",
+      "closeTo": [
+        "UCLA",
+        "Westwood Village",
+        "I-405"
+      ],
+      "company": [
+        "recgSs3DfAgSFwOg2"
+      ],
+      "crossStreet2": "Veteran Ave."
+    },
+    "createdTime": "2020-04-07T00:03:02.000Z"
+  },
+  apartment: {
+    "id": "rec4rboScqsuCxgZ9",
+    "fields": {
+      "sqft": 450,
+      "available": "2020-04-10",
+      "Images": [
+        {
+          "id": "attgK5WvyGSzAJjWp",
+          "url": "https://dl.airtable.com/.attachments/12fa21bd1f53ccfd9d0410045972d4a8/3a69d84a/IMG_6576.jpg",
+          "filename": "IMG_6576.jpg",
+          "size": 111093,
+          "type": "image/jpeg",
+          "thumbnails": {
+            "small": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/07730f9fffc875409d42c3d2acfa5518/792c6dcd",
+              "width": 70,
+              "height": 36
+            },
+            "large": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/cb3c24386f9e246173746eed0a77bc73/0181771b",
+              "width": 989,
+              "height": 512
+            },
+            "full": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/1e660d453076e3ec4f3621d3ada4480c/4f565343",
+              "width": 3000,
+              "height": 3000
+            }
+          }
+        },
+        {
+          "id": "attPFgUj2xtweWRsg",
+          "url": "https://dl.airtable.com/.attachments/692290fc568e871f40d4716dae0eced9/0fc457f0/IMG_6612.jpg",
+          "filename": "IMG_6612.jpg",
+          "size": 78072,
+          "type": "image/jpeg",
+          "thumbnails": {
+            "small": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/b1e24a2443db1d02edc0e2fd3538e085/87909e05",
+              "width": 95,
+              "height": 36
+            },
+            "large": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/a217d74ff46c97cbba811e3298dc28b8/4201c202",
+              "width": 1080,
+              "height": 410
+            },
+            "full": {
+              "url": "https://dl.airtable.com/.attachmentThumbnails/f0d5888740627e76a1db124cced1bceb/e1afb1cb",
+              "width": 3000,
+              "height": 3000
+            }
+          }
+        }
+      ],
+      "rent": 2195,
+      "leaseEnd": "2020-09-18",
+      "roommateGroup": [
+        "recEJSAP4tmM5umrp"
+      ],
+      "unit": "23",
+      "building": [
+        "rec5edxXSSe7oc2Hq"
+      ],
+      "bedrooms": 1,
+      "leaseInMonths": 4
+    },
+    "createdTime": "2020-04-10T21:47:37.000Z"
+  },
+  roommateGroup: {
+    "id": "recEJSAP4tmM5umrp",
+    "fields": {
+      "apartment": [
+        "recPGm3DFcMPwyWeA"
+      ],
+      "genderPreference": "other",
+      "prospects": [
+        "rec5wnrgrmtn6dQuf"
+      ],
+      "roommateTotal": 3,
+      "name": "Irma Ramos, Selina Vargas"
+    },
+    "createdTime": "2020-04-10T21:17:05.000Z"
+  },
+  prospect: {
+    "id": "rec5wnrgrmtn6dQuf",
+    "fields": {
+      "sex": "female",
+      "roommateGroup": [
+        "recEJSAP4tmM5umrp"
+      ],
+      "name": "Irma Ramos"
+    },
+    "createdTime": "2020-04-10T21:17:50.000Z"
+  },
+}
+
+const mockData = {
+  companies,
+  buildings,
+  apartments,
+  roommateGroups,
+  prospects
+}
+
 module.exports = {
   companies,
   buildings,
@@ -1703,5 +1846,7 @@ module.exports = {
   prospects,
   newProspect,
   newRoommateGroup,
-  newSession
+  newSession,
+  stubs,
+  mockData
 }
