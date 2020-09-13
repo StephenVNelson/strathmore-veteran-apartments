@@ -13,33 +13,24 @@ import * as applicationHelpers from './applicationHelpers'
 
 const Apartment = ({
   apartment,
-  roommateGroup,
   session,
-  prospects,
-  saveProspect,
-  saveRoommateGroup,
-  saveApartment,
-  createSession,
-  updateSession,
-  createAlert
+  createSession
 }) => {
   const { roommates, prospect } = session
 
-  useEffect(() => {
-    if (!session.id) {
-      applicationHelpers.createSession(
-        roommateGroup,
-        apartment,
-        createSession,
-        session
-      )
-    }
-  }, [])
+  // useEffect(() => {
+  //   if (!session.id) {
+  //     applicationHelpers.createSession(
+  //       roommateGroup,
+  //       apartment,
+  //       createSession,
+  //       session
+  //     )
+  //   }
+  // }, [])
 
   const images = apartment.fields.Images || []
   const mainPhoto = images[0] ? images[0].thumbnails.large.url : "https://cdngeneral.rentcafe.com/dmslivecafe/3/20467/strathmore_exterior(1).jpg?crop=(0,31,300,162.8604651162788)&cropxunits=300&cropyunits=225&quality=85&scale=both&"
-  const [photoVisible, setPhotoVisible] = useState(images.length > 1 ? true : false)
-  const [cardMode, setCardMode] = useState("photo")
 
   return (
     <div className="apartment">
@@ -55,9 +46,6 @@ const Apartment = ({
 
 Apartment.propTypes = {
   apartment: PropTypes.object.isRequired,
-  building: PropTypes.object.isRequired,
-  roommateGroup: PropTypes.object,
-  prospects: PropTypes.array,
   session: PropTypes.object.isRequired,
   updateSession: PropTypes.func.isRequired,
   createSession: PropTypes.func.isRequired
