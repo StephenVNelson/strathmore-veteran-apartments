@@ -5,8 +5,9 @@ import Apartment from './apartment/Apartment'
 import { mockData } from '../../../tools/mockData'
 import { storeFactory, recordify } from '../../../tools/testUtils'
 
-const setup = () => {
-  const initialState = recordify(mockData)
+const setup = (replacementData = {}) => {
+  const newMockData = Object.assign({}, mockData, replacementData)
+  const initialState = recordify(newMockData)
 
   const store = storeFactory(initialState)
   return shallow(<ApartmentsList store={store} />).dive().dive()
@@ -19,6 +20,11 @@ describe("<ApartmentsList/>", () => {
   })
 
   describe("apartment filters", () => {
+
+    test("Does not throw error when there are no apartments", () => {
+      const wrapper = setup({ apartments: [] })
+      expect(wrapper.find(Apartment)).toHaveLength(0)
+    })
 
     test("Should return all apartments", () => {
       const wrapper = setup()
