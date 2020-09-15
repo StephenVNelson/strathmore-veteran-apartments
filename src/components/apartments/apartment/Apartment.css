@@ -12,10 +12,29 @@
 }
 
 .apartment-photo {
+ 
   width: 116px;
   height: 100%;
   background-size: cover;
   background-repeat: no-repeat;
+  z-index: -1;
+}
+
+.apartment-photo .apartment-unit {
+  position: relative;
+  top: 0px;
+  left: 6px;
+  font-size: 8px;
+  color: #688E68;
+}
+
+.rectangle {
+  height: 50px;
+  width: 100px;
+  background-color: #FFFFFF;
+  border: #688E68 solid 1px; 
+  border-radius: 25px;
+  padding: 1% 6%;
 }
 
 .apartmentInfo {
