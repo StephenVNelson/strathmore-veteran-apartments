@@ -1,4 +1,4 @@
-const deepCopyFunction = (inObject) => {
+export const deepCopyFunction = (inObject) => {
   let outObject, value, key
 
   if (typeof inObject !== "object" || inObject === null) {
