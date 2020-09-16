@@ -9,6 +9,7 @@ import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
 import { saveApartment } from '../../../redux/actions/apartmentActions';
 import { createAlert } from '../../../redux/actions/alertActions';
 import * as applicationHelpers from './applicationHelpers'
+import MiniMen from '../../roommateGroups/mini-men/MiniMen';
 
 
 const Apartment = ({
@@ -39,6 +40,7 @@ const Apartment = ({
       </div>
       <div className="apartmentInfo">
         <span className="apartmentRent">${apartment.fields.rent}</span>
+        <MiniMen apartment={apartment} />
       </div>
     </div>
   )
@@ -65,13 +67,9 @@ function pluckFromState(collection, id) {
 }
 
 function mapStateToProps(state, ownProps) {
-  const { apartment, roommateGroup } = ownProps
-  const prospects = state.prospects.records && roommateGroup.fields.prospects.map(
-    p => pluckFromState(state.prospects.records, p)
-  ) || []
+  const { apartment } = ownProps
   const session = pluckFromState(state.session, apartment.id) || newSession
   return {
-    prospects,
     session
   }
 }
