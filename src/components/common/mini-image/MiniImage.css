@@ -1,0 +1,16 @@
+.apartment-unit {
+    position: relative;
+    top: 0px;
+    left: 6px;
+    font-size: 10px;
+    color: #688E68;
+  }
+  
+  .rectangle {
+    height: 50px;
+    width: 100px;
+    background-color: #FFFFFF;
+    border: #688E68 solid 1px; 
+    border-radius: 25px;
+    padding: 1% 6%;
+  }
