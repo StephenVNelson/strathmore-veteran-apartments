@@ -9,7 +9,7 @@ import { saveRoommateGroup } from '../../../redux/actions/roommateGroupActions';
 import { saveApartment } from '../../../redux/actions/apartmentActions';
 import { createAlert } from '../../../redux/actions/alertActions';
 import * as applicationHelpers from './applicationHelpers'
-
+import MiniImage from '../../common/mini-image/MiniImage'
 
 const Apartment = ({
   apartment,
@@ -41,10 +41,11 @@ const Apartment = ({
   const [photoVisible, setPhotoVisible] = useState(images.length > 1 ? true : false)
   const [cardMode, setCardMode] = useState("photo")
 
+
   return (
     <div className="apartment">
       <div className="photoContainer">
-        <div className="apartment-photo" style={{ backgroundImage: `url(${mainPhoto})` }}></div>
+        < MiniImage mainPhoto={mainPhoto} unit={apartment.fields.unit} />
       </div>
       <div className="apartmentInfo">
         <span className="apartmentRent">${apartment.fields.rent}</span>
