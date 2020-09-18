@@ -44,6 +44,6 @@ export const addStateDataToApartments = (state) => {
       })
       return replacedBuildingsAndRoommateGroups
     })
-  }
+  } else { return [] }
   return apartments
 }

@@ -26,6 +26,10 @@ describe("<MiniMen/>", () => {
         test.skip("adds the correct number of filled slots to unfilled slots", () => {
 
         })
+        // test.skip("does something when roommateGroups is undefined", () => {
+        //     const wrapper = setup({ roommateGroup: undefined })
+        //     expect(wrapper.find('.miniMan')).toHaveLength(3)
+        // })
     })
     describe("roommate groups", () => {
 

@@ -10,6 +10,7 @@ import { saveApartment } from '../../../redux/actions/apartmentActions';
 import { createAlert } from '../../../redux/actions/alertActions';
 import * as applicationHelpers from './applicationHelpers'
 import MiniMen from '../../roommateGroups/mini-men/MiniMen';
+import RoommateGroupMini from '../../roommateGroups/roommateGroupMini';
 
 
 const Apartment = ({
@@ -40,7 +41,7 @@ const Apartment = ({
       </div>
       <div className="apartmentInfo">
         <span className="apartmentRent">${apartment.fields.rent}</span>
-        <MiniMen apartment={apartment} />
+        <RoommateGroupMini apartment={apartment} />
       </div>
     </div>
   )
